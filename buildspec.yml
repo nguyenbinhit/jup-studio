@@ -1,0 +1,36 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      php: 8.1
+  pre_build: # commands to be run before build
+    commands:
+    - echo Logging in to Amazon ECR....
+    - aws --version
+    # login to Elastic container registry
+    - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 147705737704.dkr.ecr.us-east-2.amazonaws.com
+    - REPOSITORY_URI=147705737704.dkr.ecr.us-east-2.amazonaws.com/printcart-rest-api
+    - IMAGE_TAG=1.0
+  build:
+    commands:
+    - echo Build started on `date`
+    - echo installing composer..
+    # - composer install --optimize-autoloader --no-dev
+    - composer update
+    - composer install --optimize-autoloader
+    - echo use production file
+    - cp production.sh start.sh
+    - echo get execute file permission
+    - ls -la production.sh
+    - echo add execute set permissions
+    - chmod +x production.sh
+    - echo Building the Docker image...
+    - docker build -t $REPOSITORY_URI:latest .
+    - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker image ls -a
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
