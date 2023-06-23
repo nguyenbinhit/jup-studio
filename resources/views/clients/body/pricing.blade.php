@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="row mt-66px mt-xs-4rem">
-            <div class="col-lg-4 col-md-6 col-sm-12 text-center mb-xs-5 wow fadeInUp">
+            <div class="col-lg-3 col-md-6 col-sm-12 text-center mb-xs-5 pb-sm-5 wow fadeInUp">
                 <div class="pricing-item hvr-bg-blue">
                     <div class="price-box clearfix">
                         <div class="price_title">
@@ -35,7 +35,55 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 text-center mb-xs-5 wow fadeInUp">
+            <div class="col-lg-3 col-md-6 col-sm-12 text-center mb-xs-5 pb-sm-5 wow fadeInUp">
+                <div class="pricing-item hvr-bg-blue">
+                    <div class="price-box clearfix">
+                        <div class="price_title">
+                            <h4 class="text-capitalize">Basic</h4>
+                        </div>
+                    </div>
+                    <div class="price">
+                        <h2 class="position-relative"><span class="dollar">$</span>19<span class="month">/
+                                month</span></h2>
+                    </div>
+                    <div class="price-description">
+                        <p>Full Access</p>
+                        <p>Unlimited Bandwidth</p>
+                        <p>Email Accounts</p>
+                        <p>8 Free Forks Every Months</p>
+                    </div>
+                    <div class="text-center">
+                        <a href="javascript:void(0)"
+                            class="btn-setting color-black btn-hvr-up btn-blue btn-hvr-white">learn
+                            more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 text-center mb-xs-5 wow fadeInUp">
+                <div class="pricing-item hvr-bg-blue">
+                    <div class="price-box clearfix">
+                        <div class="price_title">
+                            <h4 class="text-capitalize">Basic</h4>
+                        </div>
+                    </div>
+                    <div class="price">
+                        <h2 class="position-relative"><span class="dollar">$</span>19<span class="month">/
+                                month</span></h2>
+                    </div>
+                    <div class="price-description">
+                        <p>Full Access</p>
+                        <p>Unlimited Bandwidth</p>
+                        <p>Email Accounts</p>
+                        <p>8 Free Forks Every Months</p>
+                    </div>
+                    <div class="text-center">
+                        <a href="javascript:void(0)"
+                            class="btn-setting color-black btn-hvr-up btn-blue btn-hvr-white">learn
+                            more</a>
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="col-lg-4 col-md-6 col-sm-12 text-center mb-xs-5 wow fadeInUp">
                 <div class="pricing-item price-transform hvr-bg-yellow">
                     <div class="quarter-triangle"></div>
 
@@ -68,8 +116,9 @@
                     </div>
 
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-12 col-sm-12 text-center wow fadeInUp">
+            </div> --}}
+
+            <div class="col-lg-3 col-md-6 col-sm-12 text-center wow fadeInUp">
                 <div class="pricing-item hvr-bg-pink">
                     <div class="price-box clearfix">
                         <div class="price_title">

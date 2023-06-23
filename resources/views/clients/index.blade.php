@@ -88,7 +88,7 @@
 
     @include('clients.body.client-start')
 
-    @include('clients.body.blog')
+    {{-- @include('clients.body.blog') --}}   <!--TODO: remove page blog-->
 
     @include('clients.body.contact')
 
