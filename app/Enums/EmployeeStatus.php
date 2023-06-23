@@ -4,6 +4,6 @@ namespace App\Enums;
 
 enum EmployeeStatus: string
 {
-    case Publish = 'Retrieved successfully';
-    case UnPublish = 'Created successfully';
+    case Publish = 'publish';
+    case UnPublish = 'unpublish';
 }
