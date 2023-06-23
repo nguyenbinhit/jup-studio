@@ -42,6 +42,6 @@ class Plan extends Model
         'name' => 'string',
         'price' => 'double',
         'description' => 'string',
-        'benefits' => 'string',
+        'benefits' => 'array',
     ];
 }
