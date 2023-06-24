@@ -7,7 +7,7 @@
                     <div class="card-body p-4">
                         <div class="text-center w-75 m-auto">
                             <a href="index.html">
-                                <span><img src="{{ asset('../bootstrapv1/img/logo.jpg') }}" alt="Jup Studio"
+                                <span><img src="{{ asset('../bootstrapv1/img/logo.png') }}" alt="Jup Studio"
                                         height="100"></span>
                             </a>
                             <h3 class="text-muted mb-4 mt-3">Dashboard JUP Studio</h3>
@@ -23,7 +23,7 @@
                             @csrf
                             <div class="form-group mb-3">
                                 <label for="emailaddress">Email address</label>
-                                <input class="form-control {{ $errors->has('email') ? 'mb-1' : '' }}" type="email"
+                                <input class="form-control {{ $errors->has('email') ? 'mb-1 btn-danger' : '' }}" type="email"
                                     id="emailaddress" name="email" required="" placeholder="Enter your email">
                                 @if ($errors->has('email'))
                                     <strong class="text-danger">{{ $errors->first('email') }}</strong>
@@ -32,7 +32,7 @@
 
                             <div class="form-group mb-3">
                                 <label for="password">Password</label>
-                                <input class="form-control {{ $errors->has('email') ? 'mb-1' : '' }}" type="password"
+                                <input class="form-control {{ $errors->has('email') ? 'mb-1 btn-danger' : '' }}" type="password"
                                     id="password" name="password" required="" placeholder="Enter your password">
                                 @if ($errors->has('password'))
                                     <strong class="text-danger">{{ $errors->first('password') }}</strong>

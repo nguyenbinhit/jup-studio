@@ -17,10 +17,8 @@ use Illuminate\Support\Facades\Route;
 /**
  * Route Client
  */
-Route::group(function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
+Route::get('/', function () {
+    return view('welcome');
 });
 
 
@@ -31,4 +29,18 @@ Route::group(function () {
 Route::prefix('admins')->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('admin.login.index');
     Route::post('/', [LoginController::class, 'login'])->name('admin.login');
+
+
+    Route::get('/', function () {
+        return view('admins.body.content-page');
+    })->name('admin.index');
+
+
+    Route::get('/not-found-404', function () {
+        return view('admins.error.404');
+    });
+
+    Route::get('/server-error-500', function () {
+        return view('admins.error.500');
+    });
 });
