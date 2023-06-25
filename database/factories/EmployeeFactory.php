@@ -21,6 +21,7 @@ class EmployeeFactory extends Factory
         return [
             'uuid' => fake()->uuid(),
             'name' => fake()->name(),
+            'email' => fake()->email(),
             'image_id' => Image::factory(),
             'position' => fake()->word(),
             'description' => fake()->word(), // Mô tả

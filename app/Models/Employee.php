@@ -20,6 +20,7 @@ class Employee extends Model
      */
     protected $fillable = [
         'name',
+        'email',
         'image_id',
         'position', // Chức vụ
         'description', // Mô tả
@@ -44,6 +45,7 @@ class Employee extends Model
      */
     protected $casts = [
         'name' => 'string',
+        'email' => 'string',
         'image_id' => 'integer',
         'position' => 'string', // Chức vụ
         'description' => 'string', // Mô tả
@@ -62,6 +64,6 @@ class Employee extends Model
 
     public function image(): HasOne
     {
-        return $this->hasOne(Image::class);
+        return $this->hasOne(Image::class, 'id', 'image_id');
     }
 }
