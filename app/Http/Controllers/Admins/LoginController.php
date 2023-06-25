@@ -30,7 +30,7 @@ class LoginController extends BaseController
         if (Auth::attempt($data)) {
             $request->session()->regenerate();
 
-            return view('admins.body.content-page');
+            return redirect()->route('admin.index');
         }
 
         return redirect()->route('admin.login.index')->with('error', 'Đăng nhập không thành công. Vui lòng thử lại!');

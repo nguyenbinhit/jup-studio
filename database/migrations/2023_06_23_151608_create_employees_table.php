@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->unique();
             $table->string('name');
+            $table->string('email')->unique();
             $table->foreignId('image_id')->nullable()->constrained('images');
             $table->string('position')->nullable(); // Chức vụ
             $table->text('description')->nullable();

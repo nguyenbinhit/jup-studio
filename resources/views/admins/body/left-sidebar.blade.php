@@ -5,16 +5,16 @@
         <div id="sidebar-menu">
             <ul class="metismenu" id="side-menu">
                 <li>
-                    <a href="index.html" class="waves-effect">
+                    <a href="{{ route('admin.index') }}" class="waves-effect">
                         <i class="remixicon-dashboard-line"></i>
                         <span> Bảng điều khiển </span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="apps-team.html" class="waves-effect">
+                    <a href="{{ route('admin.employee.index') }}" class="waves-effect">
                         <i class="remixicon-group-fill"></i>
-                        <span> Nhân viên studio </span>
+                        <span> Thành viên studio </span>
                     </a>
                 </li>
 

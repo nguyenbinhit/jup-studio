@@ -25,9 +25,24 @@
 
         @include('admins.body.left-sidebar')
 
-        @yield('content')
+        <div class="content-page">
+            @yield('content')
 
-        @include('admins.body.right-sidebar')
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        2023 &copy; <a href="">Dashboard JUP Studio</a>
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
+        </div>
+
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
     </div>
     <!-- END wrapper -->
 
