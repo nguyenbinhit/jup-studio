@@ -22,9 +22,9 @@ class EmployeeController extends BaseController
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view();
     }
 
     /**
@@ -38,17 +38,17 @@ class EmployeeController extends BaseController
     /**
      * Display the specified resource.
      */
-    public function show(Employee $employee)
+    public function show(Employee $employee): View
     {
-        //
+        return view('admins.body.extras-profile', ['employee' => $employee]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Employee $employee)
+    public function edit(Employee $employee): View
     {
-        //
+        return view();
     }
 
     /**

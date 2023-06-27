@@ -43,8 +43,6 @@ Route::prefix('admins')->name('admin.')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('/', [HomeController::class, 'index'])->name('index');
 
-        Route::prefix('employees')->name('employee.')->group(function () {
-            Route::get('/', [EmployeeController::class, 'index'])->name('index');
-        });
+        Route::resource('employees', EmployeeController::class); // Employees
     });
 });

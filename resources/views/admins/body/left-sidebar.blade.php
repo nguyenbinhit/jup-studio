@@ -12,7 +12,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('admin.employee.index') }}" class="waves-effect">
+                    <a href="{{ route('admin.employees.index') }}" class="waves-effect">
                         <i class="remixicon-group-fill"></i>
                         <span> Thành viên studio </span>
                     </a>
