@@ -42,7 +42,8 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="text-lg-right mt-3 mt-lg-0">
-                                    <a href="#custom-modal" class="btn btn-danger waves-effect waves-light"
+                                    {{-- {{ route('admins.employees.create') }} --}}
+                                    <a href="#" class="btn btn-danger waves-effect waves-light"
                                         data-animation="fadein" data-plugin="custommodal" data-overlaycolor="#38414a"><i
                                             class="mdi mdi-plus-circle mr-1"></i> Thêm mới</a>
                                 </div>
@@ -62,7 +63,8 @@
                                     class="rounded-circle img-thumbnail avatar-xl" alt="profile-image">
 
                                 {{-- TODO: profile url --}}
-                                <h4 class="mt-3 font-17"><a href="extras-profile.html"
+                                <h4 class="mt-3 font-17"><a
+                                        href="{{ route('admin.employees.show', ['employee' => $employee->uuid]) }}"
                                         class="text-dark">{{ $employee->name }}</a></h4>
                                 <p class="text-muted">{{ $employee->position }} <span> | </span> <span> <a href="#"
                                             class="text-pink">{{ $employee->email }}</a> </span></p>
