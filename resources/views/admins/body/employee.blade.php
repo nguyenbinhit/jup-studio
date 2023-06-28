@@ -57,9 +57,15 @@
             <div class="row">
                 @foreach ($employees as $employee)
                     <div class="col-lg-4">
-                        <div class="text-center card-box">
+                        <div class="text-center card-box ribbon-box">
+                            @if ($employee->status === 'publish')
+                                <div class="ribbon-two ribbon-two-primary"><span>Công bố</span></div>
+                            @else
+                                <div class="ribbon-two ribbon-two-danger"><span>Ẩn công bố</span></div>
+                            @endif
+                            <div class="clearfix"></div>
                             <div class="pt-2 pb-2">
-                                <img src="{{ $employee->image?->url ?? asset('../bootstrap-admin/images/users/avatar-9.jpg') }}"
+                                <img src="{{ $employee->image?->url ? asset('../..' . Storage::url($employee->image->url)) : asset('../bootstrap-admin/images/users/avatar-9.jpg') }}"
                                     class="rounded-circle img-thumbnail avatar-xl" alt="profile-image">
 
                                 {{-- TODO: profile url --}}
