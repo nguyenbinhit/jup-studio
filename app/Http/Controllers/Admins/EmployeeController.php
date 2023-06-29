@@ -8,7 +8,6 @@ use App\Http\Requests\Admins\Employee\UpdateRequest;
 use App\Models\Employee;
 use App\Models\Image;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class EmployeeController extends BaseController
@@ -42,6 +41,8 @@ class EmployeeController extends BaseController
     public function store(StoreRequest $request): View
     {
         $data = $request->safe()->all();
+
+        logger($data);
 
         if (isset($data['file'])) {
             if ($data['file']) {

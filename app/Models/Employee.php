@@ -53,15 +53,6 @@ class Employee extends Model
         'status' => 'string',
     ];
 
-    /**
-     * The model's default values for attributes.
-     *
-     * @var array
-     */
-    protected $attributes = [
-        'status' => EmployeeStatus::UnPublish,
-    ];
-
     public function image(): HasOne
     {
         return $this->hasOne(Image::class, 'id', 'image_id');
