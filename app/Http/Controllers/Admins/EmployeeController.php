@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\BaseController;
+use App\Http\Requests\Admins\Employee\StoreRequest;
 use App\Http\Requests\Admins\Employee\UpdateRequest;
 use App\Models\Employee;
 use App\Models\Image;
@@ -29,15 +30,41 @@ class EmployeeController extends BaseController
      */
     public function create(): View
     {
-        return view();
+        return view('admins.body.employee.create-employee');
     }
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param StoreRequest $request
+     * @return View
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request): View
     {
-        logger($request->all());
+        $data = $request->safe()->all();
+
+        if (isset($data['file'])) {
+            if ($data['file']) {
+                $file = $data['file'];
+
+                $path = Storage::putFileAs('public/uploads', $data['file'], $file->hashName());
+
+                $this->image = Image::create([
+                    'name' => $file->hashName(),
+                    'alt' => $file->getClientOriginalName(),
+                    'url' => $path,
+                    'size' => $file->getSize(),
+                ]);
+
+                $data['image_id'] = $this->image?->id;
+            }
+
+            unset($data['file']);
+        }
+
+        $employee = Employee::create($data);
+
+        return view('admins.body.extras-profile', ['employee' => $employee]);
     }
 
     /**
@@ -71,8 +98,6 @@ class EmployeeController extends BaseController
     public function update(UpdateRequest $request, Employee $employee): View
     {
         $data = $request->safe()->all();
-
-        logger($data);
 
         if (isset($data['file'])) {
             if ($data['file']) {

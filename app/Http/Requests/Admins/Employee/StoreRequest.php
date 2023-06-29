@@ -6,7 +6,7 @@ use App\Enums\EmployeeStatus;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,13 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['string'],
-            'email' => ['string', 'email'],
-            'file' => ['image', 'nullable'],
+            'name' => ['required', 'string'],
+            'email' => ['required', 'string', 'email'],
+            'file' => ['required', 'image', 'nullable'],
             'position' => ['string', 'nullable'], // Chức vụ
             'description' => ['string', 'nullable'], // Mô tả
             'socials' => ['array', 'nullable'], // Mạng xã hội
-            'status' => ['string', Rule::in([EmployeeStatus::Publish->value, EmployeeStatus::UnPublish->value])],
+            'status' => ['required', 'string', Rule::in([EmployeeStatus::Publish->value, EmployeeStatus::UnPublish->value])],
         ];
     }
 }
