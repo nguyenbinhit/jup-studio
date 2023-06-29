@@ -21,6 +21,7 @@ class ImageFactory extends Factory
             'name' => fake()->name(),
             'alt' => fake()->word(),
             'url' => fake()->url(),
+            'size' => fake()->randomNumber(),
         ];
     }
 }

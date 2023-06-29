@@ -82,8 +82,9 @@ class EmployeeController extends BaseController
 
                 $this->image = Image::create([
                     'name' => $file->hashName(),
-                    'alt' => $file->hashName(),
+                    'alt' => $file->getClientOriginalName(),
                     'url' => $path,
+                    'size' => $file->getSize(),
                 ]);
 
                 $data['image_id'] = $this->image?->id;
