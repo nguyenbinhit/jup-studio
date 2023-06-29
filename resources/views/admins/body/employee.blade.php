@@ -42,9 +42,9 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="text-lg-right mt-3 mt-lg-0">
-                                    {{-- {{ route('admins.employees.create') }} --}}
-                                    <a href="#" class="btn btn-danger waves-effect waves-light"
-                                        data-animation="fadein" data-plugin="custommodal" data-overlaycolor="#38414a"><i
+                                    <a href="{{ route('admin.employees.create') }}"
+                                        class="btn btn-danger waves-effect waves-light" data-animation="fadein"
+                                        data-plugin="custommodal" data-overlaycolor="#38414a"><i
                                             class="mdi mdi-plus-circle mr-1"></i> Thêm mới</a>
                                 </div>
                             </div><!-- end col-->
