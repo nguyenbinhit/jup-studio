@@ -11,6 +11,9 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('../bootstrap-admin/images/favicon.ico') }}">
 
+    <!-- Summernote css -->
+    <link href="{{ asset('../bootstrap-admin/libs/summernote/summernote-bs4.css') }}" rel="stylesheet" type="text/css">
+
     <!-- App css -->
     <link href="{{ asset('../bootstrap-admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('../bootstrap-admin/css/icons.min.css') }}" rel="stylesheet" type="text/css">
@@ -60,6 +63,12 @@
 
     <!-- init js -->
     <script src="{{ asset('../bootstrap-admin/js/pages/dashboard-1.init.js') }}"></script>
+
+    <!-- Summernote js -->
+    <script src="{{ asset('../bootstrap-admin/libs/summernote/summernote-bs4.min.js') }}"></script>
+
+    <!-- Init js -->
+    <script src="{{ asset('../bootstrap-admin/js/pages/form-summernote.init.js') }}"></script>
 
     <!-- App js -->
     <script src="{{ asset('../bootstrap-admin/js/app.min.js') }}"></script>

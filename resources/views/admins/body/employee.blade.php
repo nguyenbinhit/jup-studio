@@ -43,8 +43,7 @@
                             <div class="col-lg-4">
                                 <div class="text-lg-right mt-3 mt-lg-0">
                                     <a href="{{ route('admin.employees.create') }}"
-                                        class="btn btn-danger waves-effect waves-light" data-animation="fadein"
-                                        data-plugin="custommodal" data-overlaycolor="#38414a"><i
+                                        class="btn btn-danger waves-effect" data-animation="fadein" data-overlaycolor="#38414a"><i
                                             class="mdi mdi-plus-circle mr-1"></i> Thêm mới</a>
                                 </div>
                             </div><!-- end col-->
