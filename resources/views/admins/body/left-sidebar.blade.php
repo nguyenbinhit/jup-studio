@@ -19,9 +19,16 @@
                 </li>
 
                 <li>
-                    <a href="apps-filemanager.html" class="waves-effect">
+                    <a href="{{ route('admin.image.index') }}" class="waves-effect">
                         <i class="remixicon-image-2-line"></i>
                         <span> Quản lý hình ảnh </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('admin.pricing.index') }}" class="waves-effect">
+                        <i class="remixicon-image-2-line"></i>
+                        <span> Bảng giá </span>
                     </a>
                 </li>
 
