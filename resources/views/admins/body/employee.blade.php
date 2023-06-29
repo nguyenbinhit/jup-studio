@@ -80,28 +80,28 @@
 
                                 <ul class="social-list list-inline mt-3 mb-0">
                                     @foreach ($employee->socials as $key => $value)
-                                        @if ($key === 'google')
+                                        @if ($key === 'google' && $employee->socials['google'])
                                             <li class="list-inline-item">
                                                 <a href="javascript: void(0);"
                                                     class="social-list-item border-danger text-danger"><i
                                                         class="mdi mdi-google"></i></a>
                                             </li>
                                         @endif
-                                        @if ($key === 'facebook')
+                                        @if ($key === 'facebook' && $employee->socials['facebook'])
                                             <li class="list-inline-item">
                                                 <a href="javascript: void(0);"
                                                     class="social-list-item border-purple text-purple"><i
                                                         class="mdi mdi-facebook"></i></a>
                                             </li>
                                         @endif
-                                        @if ($key === 'twitter')
+                                        @if ($key === 'twitter' && $employee->socials['twitter'])
                                             <li class="list-inline-item">
                                                 <a href="javascript: void(0);"
                                                     class="social-list-item border-info text-info"><i
                                                         class="mdi mdi-twitter"></i></a>
                                             </li>
                                         @endif
-                                        @if ($key === 'github')
+                                        @if ($key === 'github' && $employee->socials['github'])
                                             <li class="list-inline-item">
                                                 <a href="javascript: void(0);"
                                                     class="social-list-item border-secondary text-secondary"><i
