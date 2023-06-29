@@ -21,6 +21,7 @@ class Image extends Model
         'name',
         'alt',
         'url',
+        'size',
     ];
 
     /**
@@ -42,6 +43,7 @@ class Image extends Model
         'name' => 'string',
         'alt' => 'string',
         'url' => 'string',
+        'size' => 'integer'
     ];
 
     public function employee(): BelongsTo

@@ -1,5 +1,5 @@
 <!-- Topbar Start -->
-<div class="navbar-custom">
+<div class="navbar-custom" style="background-color: #3bafda">
     <ul class="list-unstyled topnav-menu float-right mb-0">
         <li class="dropdown notification-list">
             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown"
@@ -35,7 +35,7 @@
     </ul>
 
     <!-- LOGO -->
-    <div class="logo-box">
+    <div class="logo-box" style="background-color: #3bafda">
         <a href="{{ route('admin.index') }}" class="logo text-center">
             <span class="logo-lg">
                 <img src="{{ asset('../bootstrapv1/img/logo.png') }}" alt="" height="70">

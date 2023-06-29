@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('alt')->nullable();
             $table->string('url');
+            $table->integer('size');
             $table->timestamps();
             $table->softDeletes();
         });
