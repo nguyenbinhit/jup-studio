@@ -20,7 +20,7 @@ class EmployeeController extends BaseController
     public function index(): View
     {
         return view('admins.body.employee', [
-            'employees' => Employee::with('image')->get(),
+            'employees' => Employee::with('image')->orderBy('id', 'desc')->get(),
         ]);
     }
 
