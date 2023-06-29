@@ -42,7 +42,8 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="text-lg-right mt-3 mt-lg-0">
-                                    <a href="#custom-modal" class="btn btn-danger waves-effect waves-light"
+                                    {{-- {{ route('admins.employees.create') }} --}}
+                                    <a href="#" class="btn btn-danger waves-effect waves-light"
                                         data-animation="fadein" data-plugin="custommodal" data-overlaycolor="#38414a"><i
                                             class="mdi mdi-plus-circle mr-1"></i> Thêm mới</a>
                                 </div>
@@ -56,13 +57,20 @@
             <div class="row">
                 @foreach ($employees as $employee)
                     <div class="col-lg-4">
-                        <div class="text-center card-box">
+                        <div class="text-center card-box ribbon-box">
+                            @if ($employee->status === 'publish')
+                                <div class="ribbon-two ribbon-two-primary"><span>Công bố</span></div>
+                            @else
+                                <div class="ribbon-two ribbon-two-danger"><span>Ẩn công bố</span></div>
+                            @endif
+                            <div class="clearfix"></div>
                             <div class="pt-2 pb-2">
-                                <img src="{{ $employee->image?->url ?? asset('../bootstrap-admin/images/users/avatar-9.jpg') }}"
+                                <img src="{{ $employee->image?->url ? asset('../..' . Storage::url($employee->image->url)) : asset('../bootstrap-admin/images/users/avatar-9.jpg') }}"
                                     class="rounded-circle img-thumbnail avatar-xl" alt="profile-image">
 
                                 {{-- TODO: profile url --}}
-                                <h4 class="mt-3 font-17"><a href="extras-profile.html"
+                                <h4 class="mt-3 font-17"><a
+                                        href="{{ route('admin.employees.show', ['employee' => $employee->uuid]) }}"
                                         class="text-dark">{{ $employee->name }}</a></h4>
                                 <p class="text-muted">{{ $employee->position }} <span> | </span> <span> <a href="#"
                                             class="text-pink">{{ $employee->email }}</a> </span></p>
