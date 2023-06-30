@@ -73,6 +73,7 @@
     <!-- App js -->
     <script src="{{ asset('../bootstrap-admin/js/app.min.js') }}"></script>
 
+    @stack('script')
 </body>
 
 </html>
