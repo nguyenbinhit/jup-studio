@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class BaseController extends Controller
 {
+    public $count = 10;
+    public $sort = 'desc';
+    public $sortBy = 'id';
+
     /**
      * Error Message
      *

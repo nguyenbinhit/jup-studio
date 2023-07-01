@@ -28,8 +28,8 @@
                                 <form class="form-inline">
                                     <div class="form-group">
                                         <label for="inputPassword2" class="sr-only">Tìm kiếm</label>
-                                        <input type="search" class="form-control" id="inputPassword2"
-                                            placeholder="Search...">
+                                        <input type="text" class="form-control" id="search" name="s"
+                                            placeholder="Tìm kiếm...">
                                     </div>
                                     <div class="form-group mx-sm-3">
                                         <label for="status-select" class="mr-2">Sắp xếp theo</label>
@@ -42,9 +42,8 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="text-lg-right mt-3 mt-lg-0">
-                                    <a href="{{ route('admin.employees.create') }}"
-                                        class="btn btn-danger waves-effect waves-light" data-animation="fadein"
-                                        data-plugin="custommodal" data-overlaycolor="#38414a"><i
+                                    <a href="{{ route('admin.employees.create') }}" class="btn btn-danger waves-effect"
+                                        data-animation="fadein" data-overlaycolor="#38414a"><i
                                             class="mdi mdi-plus-circle mr-1"></i> Thêm mới</a>
                                 </div>
                             </div><!-- end col-->
@@ -54,9 +53,9 @@
             </div>
             <!-- end row -->
 
-            <div class="row">
+            <div class="row" id="row-list-employees">
                 @foreach ($employees as $employee)
-                    <div class="col-lg-4">
+                    <div class="col-lg-4" id="list-employees">
                         <div class="text-center card-box ribbon-box">
                             @if ($employee->status === 'publish')
                                 <div class="ribbon-two ribbon-two-primary"><span>Công bố</span></div>
@@ -81,28 +80,28 @@
 
                                 <ul class="social-list list-inline mt-3 mb-0">
                                     @foreach ($employee->socials as $key => $value)
-                                        @if ($key === 'google')
+                                        @if ($key === 'google' && $employee->socials['google'])
                                             <li class="list-inline-item">
                                                 <a href="javascript: void(0);"
                                                     class="social-list-item border-danger text-danger"><i
                                                         class="mdi mdi-google"></i></a>
                                             </li>
                                         @endif
-                                        @if ($key === 'facebook')
+                                        @if ($key === 'facebook' && $employee->socials['facebook'])
                                             <li class="list-inline-item">
                                                 <a href="javascript: void(0);"
                                                     class="social-list-item border-purple text-purple"><i
                                                         class="mdi mdi-facebook"></i></a>
                                             </li>
                                         @endif
-                                        @if ($key === 'twitter')
+                                        @if ($key === 'twitter' && $employee->socials['twitter'])
                                             <li class="list-inline-item">
                                                 <a href="javascript: void(0);"
                                                     class="social-list-item border-info text-info"><i
                                                         class="mdi mdi-twitter"></i></a>
                                             </li>
                                         @endif
-                                        @if ($key === 'github')
+                                        @if ($key === 'github' && $employee->socials['github'])
                                             <li class="list-inline-item">
                                                 <a href="javascript: void(0);"
                                                     class="social-list-item border-secondary text-secondary"><i
@@ -118,31 +117,101 @@
                 @endforeach
             </div>
 
-            <div class="row">
+            <div class="row mt-3">
                 <div class="col-12">
                     <div class="text-right">
-                        <ul class="pagination pagination-rounded justify-content-end">
-                            <li class="page-item">
-                                <a class="page-link" href="javascript: void(0);" aria-label="Previous">
-                                    <span aria-hidden="true">«</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="javascript: void(0);">1</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript: void(0);">4</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript: void(0);">5</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="javascript: void(0);" aria-label="Next">
-                                    <span aria-hidden="true">»</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                        </ul>
+                        <div class="d-flex justify-content-end">
+                            {!! $employees->links() !!}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+@push('script')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            function fetch_customer_data(query = '') {
+                $.ajax({
+                    url: "{{ route('admin.employees.search') }}",
+                    method: "GET",
+                    data: {
+                        s: query
+                    },
+                    dataType: 'json',
+                    success: function(employees) {
+                        // Clear the existing employee list
+                        $('#list-employees').remove();
+
+                        $.each(employees.data, function(index, employee) {
+                            console.log(employee)
+                            var imagePath = employee.image && employee.image.url ?
+                                `{{ asset('../..' . Storage::url('${employee.image.url}')) }}` :
+                                "{{ asset('../../bootstrap-admin/images/users/avatar-9.jpg') }}";
+
+
+                            var employeeHtml = `
+                                <div class="col-lg-4" id="list-employees">
+                                    <div class="text-center card-box ribbon-box">
+                                        ${
+                                            employee.status === 'publish' ?
+                                            '<div class="ribbon-two ribbon-two-primary"><span>Công bố</span></div>' :
+                                            '<div class="ribbon-two ribbon-two-danger"><span>Ẩn công bố</span></div>'
+                                        }
+                                        <div class="clearfix"></div>
+                                        <div class="pt-2 pb-2">
+                                            <img src="${imagePath}"
+                                                class="rounded-circle img-thumbnail avatar-xl" alt="profile-image">
+
+                                                <h4 class="mt-3 font-17"><a
+                                                    class="text-dark">${employee.name}</a></h4>
+
+                                                <p class="text-muted">${employee.position}<span> | </span> <span> <a href="#"
+                                                    class="text-pink">${employee.email}</a> </span></p>
+
+                                                <p class="text-muted font-13 mb-3">
+                                                    ${employee.description}
+                                                </p>
+
+                                                <ul class="social-list list-inline mt-3 mb-0">
+                                                    ${
+                                                        employee.socials && employee.socials.google ?
+                                                        '<li class="list-inline-item"><a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a></li>' :
+                                                        ''
+                                                    }
+                                                    ${
+                                                        employee.socials && employee.socials.facebook ?
+                                                        '<li class="list-inline-item"><a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-facebook"></i></a></li>' :
+                                                        ''
+                                                    }
+                                                    ${
+                                                        employee.socials && employee.socials.twitter ?
+                                                        '<li class="list-inline-item"><a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-twitter"></i></a></li>' :
+                                                        ''
+                                                    }
+                                                    ${
+                                                        employee.socials && employee.socials.github ?
+                                                        '<li class="list-inline-item"><a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-github"></i></a></li>' :
+                                                        ''
+                                                    }
+                                                </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+
+                            $('#row-list-employees').html(employeeHtml);
+                        });
+                    }
+                });
+            }
+
+            $(document).on('keyup', '#search', function() {
+                var query = $(this).val();
+
+                fetch_customer_data(query);
+            });
+        });
+    </script>
+@endpush
