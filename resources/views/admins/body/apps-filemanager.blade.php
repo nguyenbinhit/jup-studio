@@ -51,8 +51,6 @@
                                                     $displaySize = $sizeInMB > 1 ? $sizeInMB . 'MB' : $sizeInKB . 'KB';
                                                 @endphp
                                                 {{ $displaySize }}
-
-
                                             </td>
                                         </tr>
                                     @endforeach
