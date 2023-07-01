@@ -26,7 +26,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('admin.pricing.index') }}" class="waves-effect">
+                    <a href="{{ route('admin.plans.index') }}" class="waves-effect">
                         <i class="remixicon-money-dollar-circle-line"></i>
                         <span> Bảng giá </span>
                     </a>

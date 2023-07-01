@@ -25,17 +25,17 @@
                              <p class="mt-3 mb-3 color-black">{{ $item->description }}</p>
                              <ul class="team-social">
                                  @foreach ($item->socials as $key => $value)
-                                     @if ($key === 'facebook')
+                                 @if ($key === 'facebook' && $item->socials['facebook'])
                                          <li class="d-inline-block"><a href="javascript:void(0)"
                                                  class="facebook-bg-hvr"><i class="fab fa-facebook-f"
                                                      aria-hidden="true"></i></a></li>
                                      @endif
-                                     @if ($key === 'twitter')
+                                     @if ($key === 'twitter' && $item->socials['twitter'])
                                          <li class="d-inline-block"><a href="javascript:void(0)"
                                                  class="twitter-bg-hvr"><i class="fab fa-twitter"
                                                      aria-hidden="true"></i></a></li>
                                      @endif
-                                     @if ($key === 'google')
+                                     @if ($key === 'google' && $item->socials['google'])
                                          <li class="d-inline-block"><a href="javascript:void(0)"
                                                  class="google-bg-hvr"><i class="fab fa-google"
                                                      aria-hidden="true"></i></a></li>

@@ -39,10 +39,21 @@
                                         <tr>
                                             <td>
                                                 <img src="{{ $item->url }}" height="30" alt="icon" class="mr-2">
-                                                <a href="javascript:void(0);" class="text-dark">{{ $item->name }}</a>
+                                                <a href="javascript:void(0);" class="text-dark">{{ $item->alt }}</a>
                                             </td>
                                             <td class="text-muted font-13">{{ $item->updated_at }}</td>
-                                            <td>{{ $item->size }}</td>
+
+                                            <td>
+                                                @php
+                                                    $sizeInBytes = $item->size;
+                                                    $sizeInKB = round($sizeInBytes / 1024, 2);
+                                                    $sizeInMB = round($sizeInKB / 1024, 2);
+                                                    $displaySize = $sizeInMB > 1 ? $sizeInMB . 'MB' : $sizeInKB . 'KB';
+                                                @endphp
+                                                {{ $displaySize }}
+
+
+                                            </td>
                                         </tr>
                                     @endforeach
 

@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Plan;
 use Illuminate\Http\Request;
 
-class PricingController extends BaseController
+class PlanController extends BaseController
 {
     public function index() {
         return view('admins.body.extras-pricing',

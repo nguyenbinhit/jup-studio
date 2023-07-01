@@ -7,7 +7,7 @@
                 <img src="{{ asset('../bootstrapv1/img/about.jpg') }}" class="about-img-small position-relative w-100"
                     alt>
             </div>
-            {{-- @foreach ($page as $item) --}}
+            {{-- @foreach ($pages as $item) --}}
                 <div class="col-lg-6 pl-6">
                     <div class="main-title text-lg-left offset-md-1 mb-0 wow fadeInUp" data-wow-delay="300ms">
                         <h5 class="wow fadeInUp" data-wow-delay="300ms">

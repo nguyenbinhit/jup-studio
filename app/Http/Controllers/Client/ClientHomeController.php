@@ -13,7 +13,7 @@ class ClientHomeController extends Controller
     public function index() {
         return view('welcome', [
             'employees' => Employee::all(),
-            'page' => Page::with('image')->get(),
+            'pages' => Page::with('image')->get(),
             'plans'=> Plan::all(),
         ]);
     }
