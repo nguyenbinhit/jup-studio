@@ -27,115 +27,49 @@
 
                     <!-- Pricing Title-->
                     <div class="text-center pb-2">
-                        <h3 class="mb-2">Our <span class="text-primary">Plans</span></h3>
-                        <p class="text-muted w-50 m-auto">
+                        <h3 class="mb-2">Our <span class="text-primary">Bảng giá của chúng tôi</span></h3>
+                        {{-- <p class="text-muted w-50 m-auto">
                             We have plans and prices that fit your business perfectly. Make your client site a success with
                             our products.
-                        </p>
+                        </p> --}}
                     </div>
 
                     <!-- Plans -->
                     <div class="row my-3">
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card card-pricing">
-                                <div class="card-body text-center">
-                                    <p class="card-pricing-plan-name font-weight-bold text-uppercase">Starter Pack</p>
-                                    {{-- <span class="card-pricing-icon text-primary">
+                        @foreach ($prices as $price)
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card card-pricing">
+                                    <div class="card-body text-center">
+                                        <p class="card-pricing-plan-name font-weight-bold text-uppercase">
+                                            {{ $price->name }}</p>
+                                        {{-- <span class="card-pricing-icon text-primary">
                                     <i class="fe-at-sign"></i>
                                 </span> --}}
-                                    <h2 class="card-pricing-price">$9 <span>/ Month</span></h2>
-                                    <ul class="card-pricing-features">
-                                        <li>5 GB Storege</li>
-                                        <li>250 GB Bandwidth</li>
-                                        <li>No Domain</li>
-                                        <li>1 User</li>
-                                        <li>Email Support</li>
-                                        <li>24x7 Support</li>
-                                    </ul>
-                                    <button class="btn btn-primary mt-4 mr-1">Cập nhật</button>
-                                    <a href="#custom-modal" data-animation="fadein" data-plugin="custommodal">
-                                        <button class="btn btn-danger mt-4 ml-1" style="width:87.95px">Xóa</button>
-                                    </a>
-                                </div>
-                            </div> <!-- end Pricing_card -->
-                        </div> <!-- end col -->
+                                        <h2 class="card-pricing-price" style="padding:unset">{{ $price->price }} <span>/
+                                                Month</span></h2>
+                                        <ul class="card-pricing-features">
 
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card card-pricing">
-                                <div class="card-body text-center">
-                                    <p class="card-pricing-plan-name font-weight-bold text-uppercase">Professional Pack</p>
-                                    {{-- <span class="card-pricing-icon text-primary">
-                                    <i class="fe-users"></i>
-                                </span> --}}
-                                    <h2 class="card-pricing-price">$19 <span>/ Month</span></h2>
-                                    <ul class="card-pricing-features">
-                                        <li>10 GB Storage</li>
-                                        <li>500 GB Bandwidth</li>
-                                        <li>No Domain</li>
-                                        <li>1 User</li>
-                                        <li>Email Support</li>
-                                        <li>24x7 Support</li>
-                                    </ul>
-                                    <button class="btn btn-primary mt-4 mr-1">Cập nhật</button>
-                                    <a href="#custom-modal" data-animation="slide" data-plugin="custommodal"
-                                        data-overlaycolor="#38414a">
-                                        <button class="btn btn-danger mt-4 ml-1" style="width:87.95px">Xóa</button>
-                                    </a>
-                                </div>
-                            </div> <!-- end Pricing_card -->
-                        </div> <!-- end col -->
+                                            <li>{{ $price->benefits['first'] }}</li>
+                                            <li>{{ $price->benefits['second'] }}</li>
+                                            <li>{{ $price->benefits['third'] }}</li>
+                                            <li>{{ $price->benefits['fourth'] }}</li>
 
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card card-pricing ribbon-box">
-                                <div class="ribbon-two ribbon-two-danger"><span>Popular</span></div>
-                                <div class="card-body text-center">
-                                    <p class="card-pricing-plan-name font-weight-bold text-uppercase">Business Pack</p>
-                                    {{-- <span class="card-pricing-icon bg-danger text-white">
-                                    <i class="fe-award"></i>
-                                </span> --}}
-                                    <h2 class="card-pricing-price">$29 <span>/ Month</span></h2>
-                                    <ul class="card-pricing-features">
-                                        <li>50 GB Storage</li>
-                                        <li>900 GB Bandwidth</li>
-                                        <li>2 Domain</li>
-                                        <li>10 User</li>
-                                        <li>Email Support</li>
-                                        <li>24x7 Support</li>
-                                    </ul>
-                                    <button class="btn btn-primary mt-4 mr-1">Cập nhật</button>
-                                    <a href="#custom-modal" data-animation="fadein" data-plugin="custommodal">
-                                        <button class="btn btn-danger mt-4 ml-1" style="width:87.95px">Xóa</button>
-                                    </a>
-                                </div>
-                            </div> <!-- end Pricing_card -->
-                        </div> <!-- end col -->
+                                        </ul>
 
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card card-pricing">
-                                <div class="card-body text-center">
-                                    <p class="card-pricing-plan-name font-weight-bold text-uppercase">Enterprise Pack</p>
-                                    {{-- <span class="card-pricing-icon text-primary">
-                                    <i class="fe-aperture"></i>
-                                </span> --}}
-                                    <h2 class="card-pricing-price">$39 <span>/ Month</span></h2>
-                                    <ul class="card-pricing-features">
-                                        <li>100 GB Storege</li>
-                                        <li>Unlimited Bandwidth</li>
-                                        <li>10 Domain</li>
-                                        <li>Unlimited User</li>
-                                        <li>Email Support</li>
-                                        <li>24x7 Support</li>
-                                    </ul>
-                                    <button class="btn btn-primary mt-4 mr-1">Cập nhật</button>
-                                    <a href="#custom-modal" data-animation="fadein" data-plugin="custommodal">
-                                        <button class="btn btn-danger mt-4 ml-1" style="width:87.95px">Xóa</button>
-                                    </a>
-                                </div>
-                            </div> <!-- end Pricing_card -->
-                        </div> <!-- end col -->
-
+                                        <a class="btn btn-primary mt-4 mr-1"
+                                            href="{{ route('admin.plans.show', ['plan' => $price->uuid]) }}">
+                                            Cập nhật
+                                        </a>
+                                        <a href="#custom-modal" data-animation="fadein" data-plugin="custommodal">
+                                            <button class="btn btn-danger mt-4 ml-1" style="width:87.95px">Xóa</button>
+                                        </a>
+                                    </div>
+                                </div> <!-- end Pricing_card -->
+                            </div> <!-- end col -->
+                        @endforeach
                     </div>
                     <!-- end row -->
+
 
                 </div> <!-- end col-->
             </div>
