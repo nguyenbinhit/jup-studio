@@ -17,8 +17,15 @@
     <!-- App css -->
     <link href="{{ asset('../bootstrap-admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('../bootstrap-admin/css/icons.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('../bootstrap-admin/css/app.min.cs') }}s" rel="stylesheet" type="text/css">
+    <link href="{{ asset('../bootstrap-admin/css/app.min.css') }}" rel="stylesheet" type="text/css">
 
+    <!-- Custom box css -->
+    <link href="{{ asset('../bootstrap-admin/libs/custombox/custombox.min.css') }}" rel="stylesheet" type="text/css">
+
+    <!-- App css -->
+    <link href="{{ asset('../bootstrap-admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('../bootstrap-admin/css/icons.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('../bootstrap-admin/css/app.min.css') }}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -51,6 +58,8 @@
 
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
+    {{-- modal --}}
+    <script src="{{ asset('../bootstrap-admin/libs/custombox/custombox.min.js') }}"></script>
 
     <!-- Vendor js -->
     <script src="{{ asset('../bootstrap-admin/js/vendor.min.js') }}"></script>
