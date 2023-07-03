@@ -80,8 +80,6 @@ class EmployeeController extends BaseController
     {
         $data = $request->safe()->all();
 
-        logger($data);
-
         if (isset($data['file'])) {
             if ($data['file']) {
                 $file = $data['file'];
