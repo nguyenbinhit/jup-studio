@@ -25,7 +25,7 @@ class PlanController extends BaseController
      */
     public function create()
     {
-        //
+        return view('admins.body.plan.create-pricing');
     }
 
     /**
@@ -33,7 +33,7 @@ class PlanController extends BaseController
      */
     public function store(Request $request)
     {
-
+       
     }
 
     /**
@@ -44,7 +44,7 @@ class PlanController extends BaseController
      */
     public function show(Plan $plan)
     {
-        return view('admins.body.plan.extras-pricingupdate', ['plan' => $plan]);
+        return view('admins.body.plan.update-pricing', ['plan' => $plan]);
     }
 
     /**
