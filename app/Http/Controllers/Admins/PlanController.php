@@ -33,7 +33,7 @@ class PlanController extends BaseController
      */
     public function store(Request $request)
     {
-       
+       logger($request);
     }
 
     /**

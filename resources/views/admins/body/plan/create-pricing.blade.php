@@ -32,14 +32,14 @@
 
                     <div class="tab-content">
                         <div class="tab-pane show active" id="settings">
-                            <form class="needs-validation" novalidate="">
+                            <form method="POST" action="{{ route('admin.plan.store')" class="needs-validation" novalidate="" enctype="multipart/form-data">  @csrf
                                 <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-account-circle mr-1"></i>
                                     Thông tin bảng giá</h5>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group ">
-                                            <label for="validationCustom01">Tên bảng giá</label>
-                                            <input type="text" class="form-control" id="validationCustom01"
+                                            <label for="nameprice">Tên bảng giá</label>
+                                            <input type="text" class="form-control" id="name" name="name"
                                                 placeholder="Tên bảng giá" value="" required="">
                                             <div class="invalid-feedback">
                                                 Vui lòng nhập tên bảng giá!
@@ -61,7 +61,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label for="validationCustom01">Miêu tả</label>
-                                        <textarea required="" class="form-control"></textarea>
+                                        <textarea class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <h5 class="mb-3 text-uppercase bg-light p-2 mt-3"><i
@@ -103,6 +103,11 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="text-left">
+                                        <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i
+                                                class="mdi mdi-content-save"></i> Lưu</button>
+                                    </div>
+                            </form>
                         </div>
                         <!-- end settings content-->
 
