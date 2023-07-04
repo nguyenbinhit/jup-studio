@@ -27,7 +27,7 @@
 
                     <!-- Pricing Title-->
                     <div class="text-center pb-2">
-                        <h3 class="mb-2">Our <span class="text-primary">Bảng giá của chúng tôi</span></h3>
+                        <h3 class="mb-2"><span class="text-primary">Bảng giá của chúng tôi</span></h3>
                         {{-- <p class="text-muted w-50 m-auto">
                             We have plans and prices that fit your business perfectly. Make your client site a success with
                             our products.
