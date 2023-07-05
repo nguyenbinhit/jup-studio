@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admins;
 use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admins\Plan\StoreRequest;
+use App\Http\Requests\Admins\Plan\UpdateRequest;
 use App\Models\Plan;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -36,9 +37,9 @@ class PlanController extends BaseController
      */
     public function store(StoreRequest $request): View
     {
+        logger($request);
         $data = $request->safe()->all();
         $plan = Plan::create($data);
-
         return view('admins.body.plan.update-pricing',['plan' => $plan]);
     }
 
@@ -63,10 +64,17 @@ class PlanController extends BaseController
 
     /**
      * Update the specified resource in storage.
+     * @param UpdateRequest $request
+     * @param Plan $plan
+     * @return View
      */
-    public function update(Request $request, Plan $plan)
+    public function update(UpdateRequest $request, Plan $plan): View
     {
-        //
+       logger( $plan);
+       $data = $request->safe()->all();
+       $plan->update($data);
+
+       return view('admins.body.plan.update-pricing',['plan' => $plan]);
     }
 
     /**

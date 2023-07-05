@@ -51,8 +51,10 @@
 
                         <div class="tab-content">
                             <div class="tab-pane show active" id="settings">
-                                <form method="POST" action="{{ route('admin.plan.store')" class="needs-validation"
-                                    novalidate="" enctype="multipart/form-data"> @csrf
+                                <form method="POST" action="{{ route('admin.plans.update',['plan' => $plan->uuid]) }}" class="needs-validation"
+                                    novalidate="" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
                                     <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-account-circle mr-1"></i>
                                         Thông tin bảng giá</h5>
                                     <div class="row">
@@ -60,7 +62,7 @@
                                             <div class="form-group ">
                                                 <label for="nameprice">Tên bảng giá</label>
                                                 <input type="text" class="form-control" id="name" name="name"
-                                                    placeholder="Tên bảng giá" value="" required="">
+                                                    placeholder="Tên bảng giá" value="{{ $plan->name }}" required="">
                                                 <div class="invalid-feedback">
                                                     Vui lòng nhập tên bảng giá!
                                                 </div>
@@ -71,7 +73,7 @@
                                             <div class="form-group">
                                                 <label for="price">Giá</label>
                                                 <input type="number" class="form-control" id="price" name="price"
-                                                    placeholder="Giá" value="" required="">
+                                                    placeholder="Giá" value="{{ $plan->price }}" required="">
                                                 <div class="invalid-feedback">
                                                     Vui lòng nhập số lượng giá!
                                                 </div>
@@ -82,7 +84,7 @@
                                         <div class="col-md-12">
                                             <label for="description">Miêu tả</label>
                                             <textarea class="form-control" id="summernote-editor" name="description" rows="4"
-                                                placeholder="Viết mô tả về bảng giá..."></textarea>
+                                                placeholder="Viết mô tả về bảng giá...">{{ $plan->description }}</textarea>
                                         </div>
                                     </div>
                                     <h5 class="mb-3 text-uppercase bg-light p-2 mt-3"><i
@@ -93,7 +95,7 @@
                                             <div class="form-group">
                                                 <label for="first">Một</label>
                                                 <input type="text" class="form-control" id="first" name="first"
-                                                    placeholder="" value="">
+                                                    placeholder="" value="{{ $plan->benefits['first'] }}">
 
                                             </div>
                                         </div>
@@ -101,7 +103,7 @@
                                             <div class="form-group">
                                                 <label for="second">Hai</label>
                                                 <input type="text" class="form-control" id="second" name="second"
-                                                    placeholder="" value="">
+                                                    placeholder="" value="{{ $plan->benefits['second'] }}">
 
                                             </div>
                                         </div>
@@ -111,7 +113,7 @@
                                             <div class="form-group">
                                                 <label for="third">Ba</label>
                                                 <input type="text" class="form-control" id="third" name="third"
-                                                    placeholder="" value="">
+                                                    placeholder="" value="{{ $plan->benefits['third'] }}">
 
                                             </div>
                                         </div>
@@ -119,7 +121,7 @@
                                             <div class="form-group">
                                                 <label for="fourth" name="fourth">Bốn</label>
                                                 <input type="text" class="form-control" id="fourth" name="fourth"
-                                                    placeholder="" value="">
+                                                    placeholder="" value="{{ $plan->benefits['fourth'] }}">
 
                                             </div>
                                         </div>
