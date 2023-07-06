@@ -34,7 +34,7 @@
                         </div>
                         <div class="text-right">
                             <h3 class="mb-1"> {{ $contacts }} </h3>
-                            <p class="text-muted mb-1">Tổng Khách Hàng Liên Hệ</p>
+                            <p class="text-muted mb-1">Tổng khách hàng liên hệ</p>
                         </div>
                     </div>
                 </div><!-- end col -->
@@ -48,7 +48,7 @@
                         </div>
                         <div class="text-right">
                             <h3 class="mb-1"> {{ $employees }} </h3>
-                            <p class="text-muted mb-1">Tổng Nhân Viên</p>
+                            <p class="text-muted mb-1">Tổng thành viên</p>
                         </div>
                     </div>
                 </div><!-- end col -->
@@ -62,11 +62,12 @@
                         </div>
                         <div class="text-right">
                             <h3 class="mb-1"> {{ $accounts }} </h3>
-                            <p class="text-muted mb-1">Tổng Tài Khoản</p>
+                            <p class="text-muted mb-1">Tổng tài khoản</p>
                         </div>
                     </div>
                 </div><!-- end col -->
 
+                {{-- TODO --}}
                 {{-- <div class="col-xl-3 col-md-6">
                         <div class="card-box">
                             <div class="float-left" dir="ltr">
