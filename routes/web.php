@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admins\ContactController;
 use App\Http\Controllers\Admins\EmployeeController;
 use App\Http\Controllers\Admins\FileManagerController;
 use App\Http\Controllers\Admins\HomeController;
@@ -48,7 +49,9 @@ Route::prefix('admins')->name('admin.')->group(function () {
 
         Route::get('/images', [FileManagerController::class, 'index'])->name('image.index'); // files
 
-        Route::resource('plans', PlanController::class); // files
+        Route::resource('plans', PlanController::class); // plans
+
+        Route::resource('contacts', ContactController::class); // contacts
 
     });
 });

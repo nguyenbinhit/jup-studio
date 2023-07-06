@@ -40,6 +40,11 @@
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li>
+                            <a href="{{ route('admin.contacts.index') }}" class="waves-effect">
+                                <span> Thông tin liên hệ</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="pages-recoverpw.html">Recover Password</a>
                         </li>
                         <li>
