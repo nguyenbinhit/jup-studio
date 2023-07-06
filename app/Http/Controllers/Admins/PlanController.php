@@ -14,11 +14,17 @@ class PlanController extends BaseController
 {
     /**
      * Display a listing of the resource.
+     * @param Request $request
+     * @return View
      */
-    public function index()
+    public function index(Request $request): View
     {
-        return view('admins.body.extras-pricing',
-        ['prices'=> Plan::all()]);
+        $sort = $request->input('sort', $this->sort);
+        $limit = $request->input('limit', $this->count);
+        $sortBy = $request->input('sortBy', $this->sortBy);
+        $search = $request->input('s');
+        $prices = Plan::orderBy($sortBy, $sort)->paginate($limit)->withQueryString();
+        return view('admins.body.extras-pricing',compact('prices'));
     }
 
     /**

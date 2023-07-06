@@ -75,7 +75,15 @@
                         @endforeach
                     </div>
                     <!-- end row -->
-
+                    <div class="row mt-3">
+                <div class="col-12">
+                    <div class="text-right">
+                        <div class="d-flex justify-content-end">
+                            {!! $prices->links() !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
 
                 </div> <!-- end col-->
             </div>
