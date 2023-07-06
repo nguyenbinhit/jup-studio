@@ -43,7 +43,7 @@
                                             <input type="text" class="form-control" id="name" name="name"
                                                 placeholder="Tên bảng giá" value="">
                                             @if ($errors->has('name'))
-                                            <strong class="text-danger">{{ $errors->first('name') ? 'Trường tên là bắt buộc' : '' }}</strong>
+                                            <strong class="text-danger">{{ $errors->first('name') }}</strong>
                                             @endif
                                         </div>
                                     </div>
@@ -54,7 +54,7 @@
                                             <input type="number" class="form-control" id="price" name="price"
                                                 placeholder="Giá" value="">
                                             @if ($errors->has('price'))
-                                            <strong class="text-danger">{{ $errors->first('price') ? 'Trường giá là bắt buộc' : '' }}</strong>
+                                            <strong class="text-danger">{{ $errors->first('price') }}</strong>
                                             @endif
                                         </div>
                                     </div>
