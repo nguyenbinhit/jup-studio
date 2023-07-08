@@ -14,7 +14,7 @@
                                 <li class="breadcrumb-item active">Thành viên studio</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Xin chào {{ auth()->user()->name }} !</h4>
+                        <h4 class="page-title">Quản lý thành viên studio</h4>
                     </div>
                 </div>
             </div>
@@ -29,14 +29,7 @@
                                     <div class="form-group">
                                         <label for="inputPassword2" class="sr-only">Tìm kiếm</label>
                                         <input type="text" class="form-control" id="search" name="s"
-                                            placeholder="Tìm kiếm...">
-                                    </div>
-                                    <div class="form-group mx-sm-3">
-                                        <label for="status-select" class="mr-2">Sắp xếp theo</label>
-                                        <select class="custom-select" id="status-select">
-                                            <option selected="">Tất cả</option>
-                                            <option value="name">Theo tên</option>
-                                        </select>
+                                            placeholder="Tìm kiếm thành viên...">
                                     </div>
                                 </form>
                             </div>
@@ -75,7 +68,9 @@
                                             class="text-pink">{{ $employee->email }}</a> </span></p>
 
                                 <p class="text-muted font-13 mb-3">
-                                    {{ $employee->description }}
+                                    @php
+                                        echo $employee->description;
+                                    @endphp
                                 </p>
 
                                 <ul class="social-list list-inline mt-3 mb-0">

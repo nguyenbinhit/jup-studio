@@ -3,12 +3,17 @@
 namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\BaseController;
+use App\Http\Requests\Admins\Page\UpdateRequest;
+use App\Models\Image;
 use App\Models\Page;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PageController extends BaseController
 {
+    private $image;
+
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +29,7 @@ class PageController extends BaseController
 
         $pages = Page::with('image')->orderBy($sortBy, $sort)->paginate($limit)->withQueryString();
 
-        return view('', compact('pages'));
+        return view('admins.body.page.index', compact('pages'));
     }
 
     /**
@@ -45,26 +50,56 @@ class PageController extends BaseController
 
     /**
      * Display the specified resource.
+     *
+     * @param \App\Models\Page $page
+     * @return \Illuminate\Contracts\View\View
      */
-    public function show(Page $page)
+    public function show(Page $page): View
     {
-        //
+        return view();
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Page $page)
+    public function edit(Page $page): View
     {
-        //
+        return view('admins.body.page.edit', compact('page'));
     }
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param \App\Http\Requests\Admins\Page\UpdateRequest $request
+     * @param \App\Models\Page $page
+     * @return redirect
      */
-    public function update(Request $request, Page $page)
+    public function update(UpdateRequest $request, Page $page)
     {
-        //
+        $data = $request->safe()->all();
+
+        if (isset($data['file'])) {
+            if ($data['file']) {
+                $file = $data['file'];
+
+                $path = Storage::putFileAs('public/uploads/page_images', $data['file'], $file->hashName());
+
+                $this->image = Image::create([
+                    'name' => $file->hashName(),
+                    'alt' => $file->getClientOriginalName(),
+                    'url' => $path,
+                    'size' => $file->getSize(),
+                ]);
+
+                $data['image_id'] = $this->image?->id;
+            }
+
+            unset($data['file']);
+        }
+
+        $page->update($data);
+
+        return redirect()->route('admin.pages.edit', ['page' => $page->uuid]);
     }
 
     /**

@@ -43,8 +43,8 @@
                                     class="ml-2 ">{{ $employee->email }}</span></p>
                             </p>
                             <p class="text-muted font-13 mb-3">
-                                <strong>Mô tả :</strong> <br>
-                                {{ $employee->description }}
+                                <strong>Mô tả :</strong>
+                                <?php echo $employee->description; ?>
                             </p>
                         </div>
 

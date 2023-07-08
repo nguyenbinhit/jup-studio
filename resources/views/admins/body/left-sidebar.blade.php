@@ -39,7 +39,7 @@
                 </li>
 
                 <li>
-                    <a href="" class="waves-effect">
+                    <a href="{{ route('admin.pages.index') }}" class="waves-effect">
                         <i class="remixicon-file-copy-2-line"></i>
                         <span> Quản lý trang tĩnh </span>
                     </a>
