@@ -19,12 +19,13 @@ class PlanController extends BaseController
      */
     public function index(Request $request): View
     {
-        $sort = $request->input('sort', $this->sort);
         $limit = $request->input('limit', $this->count);
         $sortBy = $request->input('sortBy', $this->sortBy);
         $search = $request->input('s');
-        $prices = Plan::orderBy($sortBy, $sort)->paginate($limit)->withQueryString();
-        return view('admins.body.extras-pricing',compact('prices'));
+
+        $prices = Plan::orderBy($sortBy, 'asc')->paginate($limit)->withQueryString();
+
+        return view('admins.body.extras-pricing', compact('prices'));
     }
 
     /**
@@ -45,7 +46,7 @@ class PlanController extends BaseController
     {
         $data = $request->safe()->all();
         $plan = Plan::create($data);
-        return view('admins.body.plan.update-pricing',['plan' => $plan]);
+        return view('admins.body.plan.update-pricing', ['plan' => $plan]);
     }
 
     /**
@@ -75,10 +76,10 @@ class PlanController extends BaseController
      */
     public function update(UpdateRequest $request, Plan $plan): View
     {
-       $data = $request->safe()->all();
-       $plan->update($data);
+        $data = $request->safe()->all();
+        $plan->update($data);
 
-       return view('admins.body.plan.update-pricing',['plan' => $plan]);
+        return view('admins.body.plan.update-pricing', ['plan' => $plan]);
     }
 
     /**
