@@ -53,7 +53,7 @@
                 <div class="col-12">
                     <div class="text-right">
                         <div class="d-flex justify-content-end">
-                            {{-- {!! $images->links() !!} --}}
+                            {!! $contacts->links() !!}
                         </div>
                     </div>
                 </div>
