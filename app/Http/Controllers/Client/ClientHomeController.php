@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Client;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
 use App\Models\Employee;
 use App\Models\Page;
 use App\Models\Plan;
-use Illuminate\Http\Request;
 
-class ClientHomeController extends Controller
+class ClientHomeController extends BaseController
 {
     public function index() {
         return view('welcome', [
@@ -17,5 +16,4 @@ class ClientHomeController extends Controller
             'plans'=> Plan::all(),
         ]);
     }
-
 }

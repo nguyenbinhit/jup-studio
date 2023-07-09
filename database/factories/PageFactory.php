@@ -20,6 +20,7 @@ class PageFactory extends Factory
         return [
             'uuid' => fake()->uuid(),
             'name' => fake()->name(),
+            'slug' => fake()->slug(),
             'title' => fake()->word(),
             'image_id' => Image::factory(),
             'description' => fake()->word(),

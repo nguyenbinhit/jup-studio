@@ -4,6 +4,7 @@ use App\Http\Controllers\Admins\EmployeeController;
 use App\Http\Controllers\Admins\FileManagerController;
 use App\Http\Controllers\Admins\HomeController;
 use App\Http\Controllers\Admins\LoginController;
+use App\Http\Controllers\Admins\PageController;
 use App\Http\Controllers\Admins\PlanController;
 use App\Http\Controllers\Client\ClientHomeController;
 use App\Http\Controllers\Client\ContactController;
@@ -53,5 +54,6 @@ Route::prefix('admins')->name('admin.')->group(function () {
 
         Route::get('contacts',[ContactController::class,'index'])->name('contacts.index');
 
+        Route::resource('pages', PageController::class); // Trang tĩnh
     });
 });

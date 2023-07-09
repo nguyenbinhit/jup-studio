@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->unique();
             $table->string('name');
+            $table->string('slug');
             $table->string('title');
             $table->foreignId('image_id')->nullable()->constrained('images');
             $table->text('description');
