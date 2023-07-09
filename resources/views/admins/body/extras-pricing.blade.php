@@ -28,10 +28,7 @@
                     <!-- Pricing Title-->
                     <div class="text-center pb-2">
                         <h3 class="mb-2"><span class="text-primary">Bảng giá của chúng tôi</span></h3>
-                        {{-- <p class="text-muted w-50 m-auto">
-                            We have plans and prices that fit your business perfectly. Make your client site a success with
-                            our products.
-                        </p> --}}
+
                     </div>
                     <div class="text-lg-right mt-3 mt-lg-0">
                         <a href="{{ route('admin.plans.create') }}" class="btn btn-danger waves-effect"
@@ -47,9 +44,7 @@
                                     <div class="card-body text-center">
                                         <p class="card-pricing-plan-name font-weight-bold text-uppercase">
                                             {{ $price->name }}</p>
-                                        {{-- <span class="card-pricing-icon text-primary">
-                                    <i class="fe-at-sign"></i>
-                                </span> --}}
+
                                         <h2 class="card-pricing-price" style="padding:unset">{{ $price->price }} <span>/
                                                 Month</span></h2>
                                         <ul class="card-pricing-features">
@@ -76,14 +71,14 @@
                     </div>
                     <!-- end row -->
                     <div class="row mt-3">
-                <div class="col-12">
-                    <div class="text-right">
-                        <div class="d-flex justify-content-end">
-                            {!! $prices->links() !!}
+                        <div class="col-12">
+                            <div class="text-right">
+                                <div class="d-flex justify-content-end">
+                                    {!! $prices->links() !!}
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
                 </div> <!-- end col-->
             </div>

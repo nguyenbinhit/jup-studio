@@ -75,7 +75,6 @@ class PlanController extends BaseController
      */
     public function update(UpdateRequest $request, Plan $plan): View
     {
-       logger( $plan);
        $data = $request->safe()->all();
        $plan->update($data);
 

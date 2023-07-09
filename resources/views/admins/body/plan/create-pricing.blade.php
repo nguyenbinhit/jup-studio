@@ -42,12 +42,10 @@
                                             <label for="nameprice">Tên bảng giá</label>
                                             <input type="text" class="form-control" id="name" name="name"
                                                 placeholder="Tên bảng giá" value="" required>
-                                                <div class="invalid-feedback">
-                                                    Vui lòng nhập tên bảng giá!
-                                                </div>
-                                            {{-- @if ($errors->has('name'))
-                                            <strong class="text-danger">{{ $errors->first('name') }}</strong>
-                                            @endif --}}
+
+                                            @if ($errors->has('name'))
+                                            <strong class="text-danger">  Vui lòng nhập tên bảng giá!</strong>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -56,12 +54,10 @@
                                             <label for="price">Giá</label>
                                             <input type="text" class="form-control" id="price" name="price"
                                                 placeholder="Giá" value="" required>
-                                                <div class="invalid-feedback" >
-                                                    Vui lòng nhập số lượng!
-                                                </div>
-                                            {{-- @if ($errors->has('price'))
-                                            <strong class="text-danger">{{ $errors->first('price') }}</strong>
-                                            @endif --}}
+
+                                            @if ($errors->has('price'))
+                                            <strong class="text-danger"> Vui lòng nhập số lượng!</strong>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -70,18 +66,18 @@
                                         <label for="description">Miêu tả</label>
                                         <textarea class="form-control" id="summernote-editor" name="description"
                                             rows="4" placeholder="Viết mô tả về bảng giá..."></textarea>
-                                        {{-- @if ($errors->has('description'))
+                                        @if ($errors->has('description'))
                                         <strong class="text-danger">{{ $errors->first('description') }}</strong>
-                                        @endif --}}
+                                        @endif
                                     </div>
                                 </div>
                                 <h5 class="mb-3 text-uppercase bg-light p-2 mt-3"><i
                                         class="mdi mdi-account-circle mr-1"></i>
                                     Lợi ích chính</h5>
                                 <div class="row">
-                                    {{-- @if ($errors->has('benefits'))
+                                    @if ($errors->has('benefits'))
                                     <strong class="text-danger">{{ $errors->first('benefits') }}</strong>
-                                    @endif --}}
+                                    @endif
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="first">Một</label>

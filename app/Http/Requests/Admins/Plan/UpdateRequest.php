@@ -22,7 +22,7 @@ class UpdateRequest extends FormRequest
      */
     public function rules(): array
     {
-        logger($this->all());
+
         return [
             'name' => ['string'],
             'price' => ['numeric'],
