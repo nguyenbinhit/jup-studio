@@ -44,7 +44,7 @@
                                                 placeholder="Tên bảng giá" value="" required>
 
                                             @if ($errors->has('name'))
-                                            <strong class="text-danger">  Vui lòng nhập tên bảng giá!</strong>
+                                            <strong class="text-danger"> {{ $errors->first('name') }}</strong>
                                             @endif
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@
                                                 placeholder="Giá" value="" required>
 
                                             @if ($errors->has('price'))
-                                            <strong class="text-danger"> Vui lòng nhập số lượng!</strong>
+                                            <strong class="text-danger"> {{ $errors->first('price') }}</strong>
                                             @endif
                                         </div>
                                     </div>

@@ -30,13 +30,11 @@ class ContactController extends BaseController
     /**
      * Store a newly created resource in storage.
      * @param StoreRequest $request
-     * @return View
+     * @return void
      */
-    public function store(StoreRequest $request): View {
-        logger($request);
+    public function store(StoreRequest $request) {
+
         $data = $request->safe()->all();
         $contact = Contact::create($data);
-        die;
-        // return response()
     }
 }

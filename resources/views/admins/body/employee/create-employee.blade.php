@@ -45,7 +45,7 @@
                                                 <input type="text" class="form-control" name="name" id="name"
                                                     placeholder="Họ và tên">
                                                 @if ($errors->has('name'))
-                                                    <strong class="text-danger">Vui lòng nhập họ và tên!</strong>
+                                                    <strong class="text-danger">{{ $errors->first('name') }}</strong>
                                                 @endif
                                             </div>
                                         </div>
@@ -55,7 +55,7 @@
                                                 <input type="email" class="form-control" name="email" id="email"
                                                     placeholder="Email">
                                                 @if ($errors->has('email'))
-                                                    <strong class="text-danger">Vui lòng nhập địa chỉ email!</strong>
+                                                    <strong class="text-danger">{{ $errors->first('email') }}</strong>
                                                 @endif
                                             </div>
                                         </div> <!-- end col -->
