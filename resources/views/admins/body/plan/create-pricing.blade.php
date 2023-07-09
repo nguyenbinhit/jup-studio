@@ -32,7 +32,7 @@
 
                     <div class="tab-content">
                         <div class="tab-pane show active" id="settings">
-                            <form method="POST" action="{{ route('admin.plans.store')}}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('admin.plans.store')}}" enctype="multipart/form-data" novalidate="" class="needs-validation">
                                 @csrf
                                 <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-account-circle mr-1"></i>
                                     Thông tin bảng giá</h5>
@@ -41,21 +41,27 @@
                                         <div class="form-group ">
                                             <label for="nameprice">Tên bảng giá</label>
                                             <input type="text" class="form-control" id="name" name="name"
-                                                placeholder="Tên bảng giá" value="">
-                                            @if ($errors->has('name'))
+                                                placeholder="Tên bảng giá" value="" required>
+                                                <div class="invalid-feedback">
+                                                    Vui lòng nhập tên bảng giá!
+                                                </div>
+                                            {{-- @if ($errors->has('name'))
                                             <strong class="text-danger">{{ $errors->first('name') }}</strong>
-                                            @endif
+                                            @endif --}}
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="price">Giá</label>
-                                            <input type="number" class="form-control" id="price" name="price"
-                                                placeholder="Giá" value="">
-                                            @if ($errors->has('price'))
+                                            <input type="text" class="form-control" id="price" name="price"
+                                                placeholder="Giá" value="" required>
+                                                <div class="invalid-feedback" >
+                                                    Vui lòng nhập số lượng!
+                                                </div>
+                                            {{-- @if ($errors->has('price'))
                                             <strong class="text-danger">{{ $errors->first('price') }}</strong>
-                                            @endif
+                                            @endif --}}
                                         </div>
                                     </div>
                                 </div>
@@ -64,32 +70,36 @@
                                         <label for="description">Miêu tả</label>
                                         <textarea class="form-control" id="summernote-editor" name="description"
                                             rows="4" placeholder="Viết mô tả về bảng giá..."></textarea>
-                                        @if ($errors->has('description'))
+                                        {{-- @if ($errors->has('description'))
                                         <strong class="text-danger">{{ $errors->first('description') }}</strong>
-                                        @endif
+                                        @endif --}}
                                     </div>
                                 </div>
                                 <h5 class="mb-3 text-uppercase bg-light p-2 mt-3"><i
                                         class="mdi mdi-account-circle mr-1"></i>
                                     Lợi ích chính</h5>
                                 <div class="row">
-                                    @if ($errors->has('benefits'))
+                                    {{-- @if ($errors->has('benefits'))
                                     <strong class="text-danger">{{ $errors->first('benefits') }}</strong>
-                                    @endif
+                                    @endif --}}
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="first">Một</label>
                                             <input type="text" class="form-control" id="first" name="benefits[first]"
-                                                placeholder="" value="">
-
+                                                placeholder="" value="" required>
+                                                <div class="invalid-feedback" required>
+                                                    Vui lòng nhập giá trị
+                                                </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="second">Hai</label>
                                             <input type="text" class="form-control" id="second" name="benefits[second]"
-                                                placeholder="" value="">
-
+                                                placeholder="" value="" required="">
+                                                <div class="invalid-feedback" required>
+                                                    Vui lòng nhập giá trị
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -98,15 +108,20 @@
                                         <div class="form-group">
                                             <label for="third">Ba</label>
                                             <input type="text" class="form-control" id="third" name="benefits[third]"
-                                                placeholder="" value="">
-
+                                                placeholder="" value="" required="">
+                                                <div class="invalid-feedback" required>
+                                                    Vui lòng nhập giá trị
+                                                </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="fourth" name="fourth">Bốn</label>
                                             <input type="text" class="form-control" id="fourth" name="benefits[fourth]"
-                                                placeholder="" value="">
+                                                placeholder="" value="" required>
+                                                <div class="invalid-feedback" required>
+                                                    Vui lòng nhập giá trị
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
