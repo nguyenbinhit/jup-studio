@@ -31,6 +31,12 @@
                         <span> Quản lý bảng giá </span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('admin.contacts.index') }}" class="waves-effect">
+                        <i class="remixicon-money-dollar-circle-line"></i>
+                        <span> Thông tin khách hàng </span>
+                    </a>
+                </li>
 
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
@@ -39,11 +45,7 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li>
-                            <a href="{{ route('admin.contacts.index') }}" class="waves-effect">
-                                <span> Thông tin liên hệ</span>
-                            </a>
-                        </li>
+
                         <li>
                             <a href="pages-recoverpw.html">Recover Password</a>
                         </li>

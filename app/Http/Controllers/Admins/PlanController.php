@@ -43,7 +43,6 @@ class PlanController extends BaseController
      */
     public function store(StoreRequest $request): View
     {
-        logger($request);
         $data = $request->safe()->all();
         $plan = Plan::create($data);
         return view('admins.body.plan.update-pricing',['plan' => $plan]);

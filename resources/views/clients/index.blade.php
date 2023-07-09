@@ -101,6 +101,7 @@
         </div>
     </div>
     <!--Animated Cursor End-->
+    @stack('script')
 </body>
 
 </html>

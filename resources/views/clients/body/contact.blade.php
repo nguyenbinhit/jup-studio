@@ -9,9 +9,7 @@
                             tôi
                         </h2>
                     </div>
-
                     <div class="text-center text-md-left">
-
                         <!--Address-->
                         <p class="mb-3">123 Street New York City ,
                             United States Of America. </p>
@@ -25,13 +23,64 @@
                         <p class="mb-3"> Email: <a href="mailto:email@website.com"
                                 class="color-black">admin@website.com</a>
                             <br>
-                            Inquiries: <a href="mailto:email@website.com" class="color-black">email@website.com</a>
                         </p>
+                    </div>
+                    <div>
+                        <form class="form-contact" id="fromContact" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group ">
+                                        <label for="nameprice">Tên</label>
+                                        <input type="text" class="form-control" id="name" name="name"
+                                            required="">
 
-                        <!--Timing-->
-                        <p class="mb-0">Mon-Sat: 9am to 6pm</p>
+                                        <div class="invalid-feedback">
+                                            Vui lòng nhập tên !
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="text" class="form-control" id="email" name="email"
+                                            required="">
+
+                                        <div class="invalid-feedback">
+                                            Vui lòng nhập email!
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group ">
+                                        <label for="phone">Số điện thoại</label>
+                                        <input type="string" class="form-control" id="phone" name="phone">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group ">
+                                        <label for="phone">Ghi chú</label>
+                                        <textarea class="form-control" id="summernote-editor" name="note" rows="4" placeholder="Viết ghi chú..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-left">
+                                <button id="btnSubmit" type="submit"
+                                    class="btn btn-success waves-effect waves-light mt-2"><i
+                                        class="mdi mdi-content-save"></i>Gửi</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
+                </a>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 p-0 col-map box-shadow-map">
                 <div class="bg-light-gray map" style="width: 100%; height: 100%;">
@@ -42,6 +91,29 @@
                 </div>
             </div>
         </div>
+
     </div>
 </section>
+@push('script')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            function post_form_contact() {
+                var submit = $("#btnSubmit");
+                submit.click(function() {
+                    var data = $('form#fromContact').serialize();
+                    $.ajax({
+                        url: "{{ route('client-contact') }}",
+                        method: 'POST',
+                        data: data,
+                        success: function(data) {
+                            console.log(data)
+                        }
+                    });
+                    return false;
+                });
+            }
+            post_form_contact();
+        });
+    </script>
+@endpush
 <!-- Contact & Map ends -->
