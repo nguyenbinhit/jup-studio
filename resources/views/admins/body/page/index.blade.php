@@ -51,8 +51,17 @@
                                                 @endphp
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.pages.edit', ['page' => $page->uuid]) }}"
-                                                    class="btn btn-xs btn-secondary"><i class="mdi mdi-pencil"></i></a>
+                                                <div class="row">
+                                                    <div class="col-12 col-sm-6">
+                                                        <a href="{{ route('admin.pages.edit', ['page' => $page->uuid]) }}"
+                                                            class="btn btn-xs btn-secondary"><i
+                                                                class="mdi mdi-pencil"></i></a>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6">
+                                                        <a href="{{ route('client-home') }}" target="_blank"
+                                                            class="btn btn-xs btn-secondary"><i class="mdi mdi-eye"></i></a>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
