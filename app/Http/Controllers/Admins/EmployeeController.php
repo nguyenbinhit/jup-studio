@@ -38,7 +38,7 @@ class EmployeeController extends BaseController
 
         return view('admins.body.employee', compact('employees'));
     }
-
+    
     /**
      * Search employee
      *
@@ -148,6 +148,7 @@ class EmployeeController extends BaseController
                     'url' => $path,
                     'size' => $file->getSize(),
                 ]);
+
 
                 $data['image_id'] = $this->image?->id;
             }

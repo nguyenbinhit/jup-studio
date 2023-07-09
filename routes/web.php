@@ -5,7 +5,8 @@ use App\Http\Controllers\Admins\FileManagerController;
 use App\Http\Controllers\Admins\HomeController;
 use App\Http\Controllers\Admins\LoginController;
 use App\Http\Controllers\Admins\PlanController;
-use App\Http\Controllers\client\ClientHomeController;
+use App\Http\Controllers\Client\ClientHomeController;
+use App\Http\Controllers\Client\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,7 @@ use Illuminate\Support\Facades\Route;
  * Route Client
  */
 Route::get('/', [ClientHomeController::class, 'index'])->name('client-home');
-
+Route::post('clients/contacts', [ContactController::class, 'store'])->name('client-contact'); // contact
 
 /**
  * Route Admin
@@ -48,7 +49,9 @@ Route::prefix('admins')->name('admin.')->group(function () {
 
         Route::get('/images', [FileManagerController::class, 'index'])->name('image.index'); // files
 
-        Route::resource('plans', PlanController::class); // files
+        Route::resource('plans', PlanController::class); // plans
+
+        Route::get('contacts',[ContactController::class,'index'])->name('contacts.index');
 
     });
 });

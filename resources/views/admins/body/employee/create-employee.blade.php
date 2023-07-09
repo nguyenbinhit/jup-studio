@@ -38,7 +38,6 @@
 
                                     <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-account-circle mr-1"></i>
                                         Thông tin cá nhân</h5>
-
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
