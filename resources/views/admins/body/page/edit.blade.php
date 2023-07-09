@@ -1,7 +1,7 @@
 @extends('admins.index')
 @section('content')
     <div class="content">
-        <div class="container-fluid">
+        <div class="container-fluid" style="position: relative;">
             <!-- start page title -->
             <div class="row">
                 <div class="col-12">
@@ -18,6 +18,8 @@
                 </div>
             </div>
             <!-- end page title -->
+
+            @include('admins.body.notification')
 
             <div class="row">
                 <div class="col-12">

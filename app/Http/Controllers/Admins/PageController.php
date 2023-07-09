@@ -54,10 +54,10 @@ class PageController extends BaseController
      * @param \App\Models\Page $page
      * @return \Illuminate\Contracts\View\View
      */
-    public function show(Page $page): View
-    {
-        return view();
-    }
+    // public function show(Page $page): View
+    // {
+    //     return view();
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -99,7 +99,7 @@ class PageController extends BaseController
 
         $page->update($data);
 
-        return redirect()->route('admin.pages.edit', ['page' => $page->uuid]);
+        return redirect()->route('admin.pages.edit', ['page' => $page->uuid])->with('success', 'Cập nhật thành công trang tĩnh (' . $page->name . ')');
     }
 
     /**
