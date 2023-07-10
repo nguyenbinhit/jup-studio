@@ -23,9 +23,12 @@ class UserController extends BaseController
         $sortBy = $request->input('sortBy', $this->sortBy);
         $search = $request->input('s');
 
-        $users = User::orderBy($sortBy, $sort)->paginate($limit)->withQueryString();
+        $users = User::select('name', 'email', 'created_at')
+        ->orderBy($sortBy, $sort)
+        ->paginate($limit)
+        ->withQueryString();
 
-        return view('admins.body.extras-user', compact('users'));
+    return view('admins.body.extras-user', compact('users'));
     }
 
     /**

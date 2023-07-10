@@ -28,7 +28,7 @@
                                     <tr>
                                         <th class="font-weight-medium">Tên </th>
                                         <th class="font-weight-medium">Email</th>
-                                        <th class="font-weight-medium">Mật khẩu</th>
+                                        <th class="font-weight-medium">Ngày tạo</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -36,7 +36,7 @@
                                         <tr>
                                             <td class="text-muted font-13">{{ $user->name }}</td>
                                             <td class="text-muted font-13">{{ $user->email }}</td>
-                                            <td class="text-muted font-13">{{ $user->password }}</td>
+                                            <td class="text-muted font-13">{{ $user->created_at }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

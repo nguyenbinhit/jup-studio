@@ -48,7 +48,7 @@
                <li>
                     <a href="{{ route('admin.users.index') }}" class="waves-effect">
                         <i class="fe-user"></i>
-                        <span> Thông tin tài khoản</span>
+                        <span> Quản lý tài khoản</span>
                     </a>
                 </li>
             </ul>
