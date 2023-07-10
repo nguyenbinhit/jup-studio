@@ -33,7 +33,7 @@
                 </li>
                 <li>
                     <a href="{{ route('admin.contacts.index') }}" class="waves-effect">
-                        <i class="remixicon-money-dollar-circle-line"></i>
+                        <i class="fe-users"></i>
                         <span> Thông tin khách hàng </span>
                     </a>
                 </li>
@@ -42,6 +42,13 @@
                     <a href="{{ route('admin.pages.index') }}" class="waves-effect">
                         <i class="remixicon-file-copy-2-line"></i>
                         <span> Quản lý trang tĩnh </span>
+                    </a>
+                </li>
+
+               <li>
+                    <a href="{{ route('admin.users.index') }}" class="waves-effect">
+                        <i class="fe-user"></i>
+                        <span> Thông tin tài khoản</span>
                     </a>
                 </li>
             </ul>
