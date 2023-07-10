@@ -10,10 +10,10 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Jup studio</a></li>
-                                <li class="breadcrumb-item active">Quản lý tập tin</li>
+                                <li class="breadcrumb-item active">Quản lý tài khoản</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Quản lý tập tin</h4>
+                        <h4 class="page-title">Quản lý tài khoản người dùng</h4>
                     </div>
                 </div>
             </div>
