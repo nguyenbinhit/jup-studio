@@ -17,7 +17,33 @@
                     </div>
                 </div>
             </div>
+
             <!-- end page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="inputPassword2" class="sr-only">Tìm kiếm</label>
+                                        <input type="text" class="form-control" id="search" name="s"
+                                            placeholder="Tìm kiếm thành viên...">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="text-lg-right mt-3 mt-lg-0">
+                                    <a href="{{ route('admin.users.create') }}" class="btn btn-danger waves-effect"
+                                        data-animation="fadein" data-overlaycolor="#38414a"><i
+                                            class="mdi mdi-plus-circle mr-1"></i> Thêm mới</a>
+                                </div>
+                            </div><!-- end col-->
+                        </div> <!-- end row -->
+                    </div> <!-- end card-box -->
+                </div><!-- end col-->
+            </div>
+            <!-- end row -->
 
             <div class="row">
                 <div class="col-12">
