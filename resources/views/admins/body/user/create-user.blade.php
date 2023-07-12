@@ -62,16 +62,6 @@
                                     </div> <!-- end row -->
 
                                     <div class="row">
-                                        {{-- <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="example-fileinput">Hình ảnh đại diện</label>
-                                                <input type="file" class="form-control" name="file" id="file"
-                                                    style="padding: 0.25rem 0.9rem 0.45rem 0.2rem">
-                                                @if ($errors->has('file'))
-                                                    <strong class="text-danger">{{ $errors->first('file') }}</strong>
-                                                @endif
-                                            </div>
-                                        </div> --}}
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="userpassword">Mật khẩu</label>
@@ -83,33 +73,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label for="useremail">Trạng thái</label>
-                                                <div class="row flex" style="padding: 0.45rem 0.9rem">
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" id="customRadio1" name="status"
-                                                            class="custom-control-input" value="publish">
-                                                        <label class="custom-control-label" for="customRadio1">Công
-                                                            bố</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio ml-3">
-                                                        <input type="radio" id="customRadio2" name="status"
-                                                            class="custom-control-input" value="unpublish">
-                                                        <label class="custom-control-label" for="customRadio2">Huỷ công
-                                                            bố</label>
-                                                    </div>
-                                                </div>
-                                                @if ($errors->has('status'))
-                                                    <strong class="text-danger">{{ $errors->first('status') }}</strong>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div> --}}
 
                                     <div class="text-right">
-                                        <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i
+                                        <button type="submit" class="btn btn-success waves-effect mt-2"><i
                                                 class="mdi mdi-content-save"></i> Lưu</button>
                                     </div>
                                 </form>
