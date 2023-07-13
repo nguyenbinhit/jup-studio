@@ -32,7 +32,7 @@
                                 </div>
                             </form>
                         </div>
-
+                    @if ( auth()->user()->email === 'administrator@gmail.com' )
                         <div class="col-lg-4">
                             <div class="text-lg-right mt-3 mt-lg-0">
                                 <a href="{{ route('admin.users.create') }}" class="btn btn-danger waves-effect"
@@ -40,7 +40,7 @@
                                         class="mdi mdi-plus-circle mr-1"></i> Thêm mới</a>
                             </div>
                         </div><!-- end col-->
-
+                    @endif
                     </div> <!-- end row -->
                 </div> <!-- end card-box -->
             </div><!-- end col-->
@@ -54,7 +54,7 @@
                         <table class="table table-centered mb-0">
                             <thead class="font-13 bg-light text-muted">
                                 <tr>
-
+                                Asdsds1213@ printcart@gmail.com
                                     <th class="font-weight-medium">Tên </th>
                                     <th class="font-weight-medium">Email</th>
                                     <th class="font-weight-medium">Ngày tạo</th>
