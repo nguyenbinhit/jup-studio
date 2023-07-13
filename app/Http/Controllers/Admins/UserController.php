@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\Admins\User\StoreRequest;
+use App\Http\Requests\Admins\User\UpdateRequest;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -23,11 +24,8 @@ class UserController extends BaseController
         $limit = $request->input('limit', $this->count);
         $sortBy = $request->input('sortBy', $this->sortBy);
         $search = $request->input('s');
-
-        $users = User::select('name', 'email', 'created_at')
-        ->orderBy($sortBy, $sort)
-        ->paginate($limit)
-        ->withQueryString();
+        
+        $users = User::orderBy($sortBy, 'asc')->paginate($limit)->withQueryString();
 
     return view('admins.body.extras-user', compact('users'));
     }
@@ -52,17 +50,17 @@ class UserController extends BaseController
         $data['password'] = Hash::make($data['password']);
 
         $user = User::create($data);
-
-        die;
-        // return view('admins.body.extras-user');
+        return view('admins.body.user.update-user',['user' => $user]);
     }
 
     /**
      * Display the specified resource.
+     * @param User $user
+     * @return View
      */
-    public function show(string $id)
+    public function show(User $user)
     {
-        //
+        return view('admins.body.user.update-user', ['user' => $user]);
     }
 
     /**
@@ -75,10 +73,15 @@ class UserController extends BaseController
 
     /**
      * Update the specified resource in storage.
+     * @param UpdateRequest $request
+     * @param User $plan
+     * @return View
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateRequest $request, User $user): View
     {
-        //
+        $data = $request->safe()->all();
+        $user->update($data);
+        return view('admins.body.user.update-user', ['user' => $user]);
     }
 
     /**

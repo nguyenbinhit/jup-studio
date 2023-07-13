@@ -2,10 +2,11 @@
 
 namespace App\Http\Requests\Admins\User;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +23,11 @@ class StoreRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
-            'name' => ['required', 'string'],
-            'email' => ['required', 'email','unique:users,email'],
-            'password' => ['required', Password::min(8)
+            'name' => ['string'],
+            'email' => ['email','unique:users,email'],
+            'password' => [Password::min(8)
             ->letters()
             ->mixedCase()
             ->numbers()
