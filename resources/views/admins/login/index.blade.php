@@ -44,8 +44,8 @@
                                     <input type="checkbox" class="custom-control-input" id="checkbox-signin" checked="">
                                     <label class="custom-control-label" for="checkbox-signin">Remember me</label>
                                 </div>
-                                <a class="small text-end card-link" href="pages-recoverpw.html">Forgot your
-                                    password?</a>
+                                {{-- <a class="small text-end card-link" href="pages-recoverpw.html">Forgot your
+                                    password?</a> --}}
                             </div>
 
                             <div class="form-group mb-0 text-center">

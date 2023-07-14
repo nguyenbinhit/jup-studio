@@ -7,12 +7,14 @@ use App\Http\Requests\Admins\User\StoreRequest;
 use App\Http\Requests\Admins\User\UpdateRequest;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends BaseController
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @param Request $request
@@ -24,10 +26,10 @@ class UserController extends BaseController
         $limit = $request->input('limit', $this->count);
         $sortBy = $request->input('sortBy', $this->sortBy);
         $search = $request->input('s');
-        
+
         $users = User::orderBy($sortBy, 'asc')->paginate($limit)->withQueryString();
 
-    return view('admins.body.extras-user', compact('users'));
+        return view('admins.body.extras-user', compact('users'));
     }
 
     /**
@@ -50,7 +52,7 @@ class UserController extends BaseController
         $data['password'] = Hash::make($data['password']);
 
         $user = User::create($data);
-        return view('admins.body.user.update-user',['user' => $user]);
+        return view('admins.body.user.update-user', ['user' => $user]);
     }
 
     /**
@@ -80,7 +82,19 @@ class UserController extends BaseController
     public function update(UpdateRequest $request, User $user): View
     {
         $data = $request->safe()->all();
+
+        if ($data['email'] === $user->email && isset($data['email'])) {
+            unset($data['email']);
+        }
+
+        if (isset($data['password']) && $data['password']) {
+            $data['password'] = Hash::make($data['password']);
+        } else {
+            unset($data['password']);
+        }
+
         $user->update($data);
+
         return view('admins.body.user.update-user', ['user' => $user]);
     }
 
@@ -90,5 +104,16 @@ class UserController extends BaseController
     public function destroy(string $id)
     {
         //
+    }
+
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('admin.login.index');
     }
 }

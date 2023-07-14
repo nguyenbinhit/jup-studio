@@ -18,18 +18,28 @@
                 </a>
 
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                {{-- <a href="javascript:void(0);" class="dropdown-item notify-item">
                     <i class="remixicon-settings-3-line"></i>
                     <span>Cài đặt</span>
-                </a>
+                </a> --}}
 
-                <div class="dropdown-divider"></div>
+                {{-- <div class="dropdown-divider"></div> --}}
 
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
+
+
+                <a href="{{ route('admin.logout') }}" class="dropdown-item notify-item"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+
                     <i class="remixicon-logout-box-line"></i>
-                    <span>Đăng xuất</span>
+                    <span>
+                        Đăng xuất
+                    </span>
                 </a>
+                <form method="POST" action="{{ route('admin.logout') }}" id="logout-form" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
             </div>
         </li>
     </ul>

@@ -26,8 +26,8 @@ class UpdateRequest extends FormRequest
 
         return [
             'name' => ['string'],
-            'email' => ['email','unique:users,email'],
-            'password' => [Password::min(8)
+            'email' => ['email'],
+            'password' => ['nullable', Password::min(8)
             ->letters()
             ->mixedCase()
             ->numbers()

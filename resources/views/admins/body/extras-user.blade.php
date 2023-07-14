@@ -54,11 +54,9 @@
                         <table class="table table-centered mb-0">
                             <thead class="font-13 bg-light text-muted">
                                 <tr>
-                                Asdsds1213@ printcart@gmail.com
                                     <th class="font-weight-medium">Tên </th>
                                     <th class="font-weight-medium">Email</th>
                                     <th class="font-weight-medium">Ngày tạo</th>
-
                                 </tr>
                             </thead>
                             <tbody>

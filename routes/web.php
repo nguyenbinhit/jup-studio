@@ -35,6 +35,7 @@ Route::prefix('admins')->name('admin.')->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login.index');
     Route::post('/login', [LoginController::class, 'login'])->name('login');
 
+
     Route::get('/not-found-404', function () {
         return view('admins.error.404');
     })->name('404');
@@ -58,5 +59,6 @@ Route::prefix('admins')->name('admin.')->group(function () {
         Route::resource('pages', PageController::class); // Trang tĩnh
 
         Route::resource('users', UserController::class); // tk user
+        Route::post('/logout', [UserController::class, 'logout'])->name('logout');
     });
 });
