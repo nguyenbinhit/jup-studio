@@ -89,8 +89,7 @@
                     <li class="side-menu-icons"><a href="javascript:void(0)"><i class="fab fa-twitter color-white"></i>
                         </a> </li>
                 </ul>
-                <p class="text-white">&copy; 2020 MegaOne. Made With
-                    Love by Themesindustry</p>
+                <p class="text-white">&copy; 2023 JUP Studio.</p>
             </div>
         </div>
     </div>

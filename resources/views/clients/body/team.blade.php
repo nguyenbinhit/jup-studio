@@ -1,12 +1,11 @@
  <!-- Team start -->
- <section id="team" class="bg-light-gray">
+ <section id="team" class="bg-light-gray" style="padding: 5.5rem 0">
      <div class="container">
          <div class="row">
              <div class="col-md-12">
                  <div class="main-title wow fadeIn" data-wow-delay="300ms">
-                     <h5> Lorem ipsum dolor sit amet </h5>
-                     <h2 class="mb-0">Our <span class="color-pink">Creative</span>
-                         Team </h2>
+                     {{-- <h5> Lorem ipsum dolor sit amet </h5> --}}
+                     <h2 class="mb-0">Đội Ngũ <span class="color-pink">Sáng Tạo</span></h2>
                  </div>
              </div>
          </div>

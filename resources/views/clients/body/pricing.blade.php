@@ -1,16 +1,15 @@
 <!-- Pricing start -->
-<section id="pricing" class="bg-light-gray pricing-padding">
+<section id="pricing" class="bg-light-gray pricing-padding" style="padding: 5.5rem 0 4rem">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="main-title wow fadeIn" data-wow-delay="300ms">
-                    <h5> Lorem ipsum dolor sit amet </h5>
-                    <h2 class="mb-0">Flexible<span class="color-pink">
-                            Pricing</span> Packages </h2>
+                <div class="main-title wow fadeIn" data-wow-delay="300ms" style="margin-bottom: 2.5rem">
+                    <h2 class="mb-0">Linh Hoạt<span class="color-pink">
+                            Gói Giá</span> Cho Bạn </h2>
                 </div>
             </div>
         </div>
-        <div class="row mt-66px mt-xs-4rem">
+        <div class="row mt-xs-4rem">
             @foreach ($plans as $key => $item)
                 <div class="col-lg-3 col-md-6 col-sm-12 text-center mb-xs-5 pb-sm-5 wow fadeInUp">
                     <div class="pricing-item hvr-bg-blue">

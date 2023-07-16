@@ -17,9 +17,10 @@
                                 echo $page->description;
                             @endphp
 
-                            <a href="javascript:void(0)"
+                            {{-- TODO: disabled Learn More --}}
+                            {{-- <a href="javascript:void(0)"
                                 class="btn-setting color-black btn-hvr-up btn-yellow btn-hvr-pink text-white link wow fadeInUp"
-                                data-wow-delay="700ms">learn more</a>
+                                data-wow-delay="700ms">learn more</a> --}}
                         </div>
                     </div>
                 @endif

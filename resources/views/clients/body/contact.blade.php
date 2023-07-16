@@ -1,9 +1,9 @@
 <!-- Contact & Map starts -->
-<section id="contact" class="bg-light-gray">
+<section id="contact" class="bg-light-gray" style="padding: 5.5rem 0">
     <div class="container">
-        <div class="row mx-lg-0">
-            <div class="col-lg-6 col-md-6 col-sm-12 p-0">
-                <div class="contact-box">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 p-0">
+                <div class="contact-box" style="padding: 20px 50px">
                     <div class="main-title text-center text-md-left mb-4">
                         <h2 class="font-weight-normal">Liên hệ với chúng
                             tôi
@@ -11,21 +11,18 @@
                     </div>
                     <div class="text-center text-md-left">
                         <!--Address-->
-                        <p class="mb-3">123 Street New York City ,
-                            United States Of America. </p>
+                        <p class="mb-1">Địa chỉ : Vinhomes Smart City Tây Mỗ. </p>
 
                         <!--Phone-->
-                        <p class="mb-3"> Office Telephone : 001
-                            01085379709 <br>
-                            Mobile : 001 63165370895 </p>
+                        <p class="mb-1">Mobile : +84989989309 </p>
 
                         <!--Email-->
-                        <p class="mb-3"> Email: <a href="mailto:email@website.com"
+                        <p class="mb-1"> Email: <a href="mailto:email@website.com"
                                 class="color-black">admin@website.com</a>
                             <br>
                         </p>
                     </div>
-                    <div>
+                    <div class="mt-3">
                         <form class="form-contact" id="fromContact" method="POST">
                             @csrf
                             <div class="row">
@@ -82,11 +79,11 @@
                 </div>
                 </a>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 p-0 col-map box-shadow-map">
+            <div class="col-sm-12 col-md-6 p-0 col-map box-shadow-map">
                 <div class="bg-light-gray map" style="width: 100%; height: 100%;">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.661253833886!2d105.73450017602651!3d21.006211688551105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134530049bc3365%3A0x4417f39301f179d1!2sVinhomes%20Smart%20City!5e0!3m2!1svi!2s!4v1685289376837!5m2!1svi!2s"
-                        width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7449.48015309319!2d105.73630426801837!3d21.00305377483419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453d4ead47a63%3A0x9af352cfc1f411a1!2sVinhomes%20Smart%20City%20T%C3%A2y%20M%E1%BB%97!5e0!3m2!1svi!2s!4v1689522834113!5m2!1svi!2s"
+                        width="600" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
