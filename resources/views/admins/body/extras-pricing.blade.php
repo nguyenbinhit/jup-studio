@@ -98,9 +98,29 @@
             Bạn sẽ không thể khôi phục bảng giá đã xóa!
             <div class="mt-1 d-flex d-flex justify-content-center">
                 <button class="btn btn-primary mt-4 mr-2 w-25" onclick="Custombox.modal.close();">Không</button>
-                <button class="btn btn-danger mt-4 ml-2 w-25">Có</button>
+                <button class="btn btn-danger mt-4 ml-2 w-25" id="btnDelete">Có</button>
             </div>
 
         </div>
     </div>
 @endsection
+@push('script')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#btnDelete').click(function() {
+               var token = $('meta[name="csrf-token"]').attr('content')
+                $.ajax({
+                    url: "{{ route('admin.plans.destroy', ['plan' => $price->uuid]) }}",
+                    type: 'DELETE',
+                    data: { "_token": token },
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+@endpush
