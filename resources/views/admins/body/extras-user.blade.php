@@ -57,20 +57,31 @@
                                         <th class="font-weight-medium">Tên </th>
                                         <th class="font-weight-medium">Email</th>
                                         <th class="font-weight-medium">Ngày tạo</th>
+                                        <th>Chỉnh sửa</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($users as $user)
-                                        <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}"
-                                            class="text-dark">
-                                            <tr>
-                                                <td class="text-muted font-13">
-                                                    {{ $user->name }}
-                                                </td>
-                                                <td class="text-muted font-13">{{ $user->email }}</td>
-                                                <td class="text-muted font-13">{{ $user->created_at }}</td>
-                                            </tr>
-                                        </a>
+                                        <tr>
+                                            <td class="text-muted font-13">
+                                                {{ $user->name }}
+                                            </td>
+                                            <td class="text-muted font-13">{{ $user->email }}</td>
+                                            <td class="text-muted font-13">{{ $user->created_at }}</td>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-12 col-sm-6">
+                                                        <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}"
+                                                            class="btn btn-xs btn-secondary"><i
+                                                                class="mdi mdi-pencil"></i></a>
+                                                    </div>
+                                                    {{-- <div class="col-12 col-sm-6">
+                                                            <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}" target="_blank"
+                                                                class="btn btn-xs btn-secondary"><i class="mdi mdi-eye"></i></a>
+                                                        </div> --}}
+                                                </div>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>

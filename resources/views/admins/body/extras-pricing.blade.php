@@ -11,12 +11,12 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Minton</a></li>
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Extras</a></li>
-                                <li class="breadcrumb-item active">Pricing</li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Jup Studio</a></li>
+
+                                <li class="breadcrumb-item active">Bảng giá</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Pricing</h4>
+                        <h4 class="page-title">Quản lý bảng giá</h4>
                     </div>
                 </div>
             </div>
@@ -26,10 +26,7 @@
                 <div class="col-xl-12">
 
                     <!-- Pricing Title-->
-                    <div class="text-center pb-2">
-                        <h3 class="mb-2"><span class="text-primary">Bảng giá của chúng tôi</span></h3>
 
-                    </div>
                     <div class="text-lg-right mt-3 mt-lg-0">
                         <a href="{{ route('admin.plans.create') }}" class="btn btn-danger waves-effect"
                             data-animation="fadein" data-overlaycolor="#38414a"><i class="mdi mdi-plus-circle mr-1"></i>
@@ -107,13 +104,17 @@
 @push('script')
     <script type="text/javascript">
         $(document).ready(function() {
+            const closeModal = document.ElementById('custom-modal');
 
             $('#btnDelete').click(function() {
                 $.ajax({
                     url: "{{ route('admin.plans.destroy', ['plan' => $price->uuid]) }}",
                     type: 'DELETE',
-                    data: {_token:"{{ csrf_token() }}"},
+                    data: {
+                        _token: "{{ csrf_token() }}"
+                    },
                     success: function(response) {
+                        closeModal.style.display = 'none';
                         // const listPrices = "{{ route('admin.plans.index') }}";
                         // return listPrices;
                     },

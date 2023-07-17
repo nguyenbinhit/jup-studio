@@ -46,9 +46,17 @@
                                                 {{ $page->title }}
                                             </td>
                                             <td>
-                                                @php
-                                                    echo $page->description;
-                                                @endphp
+                                                <div
+                                                    style="white-space: nowrap;
+                                                width: 250px;
+                                                overflow: hidden;
+                                                text-overflow: ellipsis;">
+
+                                                    @php
+                                                        echo $page->description;
+                                                    @endphp
+                                                </div>
+
                                             </td>
                                             <td>
                                                 <div class="row">

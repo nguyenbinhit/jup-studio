@@ -35,13 +35,10 @@
                                 <tbody>
                                     @foreach ($contacts as $contact)
                                         <tr>
-                                            <a href="#custom-modal" data-animation="slide" data-plugin="custommodal"
-                                                data-overlaycolor="#38414a">
-                                                <td class="text-muted font-13">{{ $contact->name }}</td>
-                                                <td class="text-muted font-13">{{ $contact->email }}</td>
-                                                <td class="text-muted font-13">{{ $contact->phone }}</td>
-                                                <td class="text-muted font-13">{{ $contact->note }}</td>
-                                            </a>
+                                            <td class="text-muted font-13">{{ $contact->name }}</td>
+                                            <td class="text-muted font-13">{{ $contact->email }}</td>
+                                            <td class="text-muted font-13">{{ $contact->phone }}</td>
+                                            <td class="text-muted font-13">{{ $contact->note }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -71,10 +68,8 @@
         </button>
         <h4 class="custom-modal-title">Bạn có chắc không?</h4>
         <div class="custom-modal-text">
-            Bạn sẽ không thể khôi phục bảng giá đã xóa!
-            <div class="mt-1 d-flex d-flex justify-content-center">
-                <button class="btn btn-primary mt-4 mr-2 w-25" onclick="Custombox.modal.close();">Không</button>
-                <button class="btn btn-danger mt-4 ml-2 w-25" id="btnDelete">Có</button>
+            <div>
+                {{-- <p>Họ và tên: {{  }}</p> --}}
             </div>
 
         </div>
