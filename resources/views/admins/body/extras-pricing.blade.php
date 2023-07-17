@@ -107,14 +107,15 @@
 @push('script')
     <script type="text/javascript">
         $(document).ready(function() {
+
             $('#btnDelete').click(function() {
-               var token = $('meta[name="csrf-token"]').attr('content')
                 $.ajax({
                     url: "{{ route('admin.plans.destroy', ['plan' => $price->uuid]) }}",
                     type: 'DELETE',
-                    data: { "_token": token },
+                    data: {_token:"{{ csrf_token() }}"},
                     success: function(response) {
-                        console.log(response);
+                        // const listPrices = "{{ route('admin.plans.index') }}";
+                        // return listPrices;
                     },
                     error: function(xhr) {
                         console.log(xhr.responseText);

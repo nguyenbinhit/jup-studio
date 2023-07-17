@@ -87,9 +87,8 @@ class PlanController extends BaseController
      */
     public function destroy(Plan $plan)
     {
-        logger($plan);
-        // $data = Plan::findOrFail($plan->uuid);
-        // $data->delete();
-        die;
+        $plan->delete();
+
+        return response()->json(['message'=>'Đã xóa thành công!']);
     }
 }
