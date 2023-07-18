@@ -59,6 +59,8 @@ Route::prefix('admins')->name('admin.')->group(function () {
         Route::resource('pages', PageController::class); // Trang tĩnh
 
         Route::resource('users', UserController::class); // tk user
+        Route::get('users-search', [UserController::class, 'search'])->name('users.search'); // users
+
         Route::post('/logout', [UserController::class, 'logout'])->name('logout');
     });
 });

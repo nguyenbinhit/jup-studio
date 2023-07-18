@@ -60,9 +60,9 @@
                                         <th>Chỉnh sửa</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="body-list-users">
                                     @foreach ($users as $user)
-                                        <tr>
+                                        <tr id="tr-list-users">
                                             <td class="text-muted font-13">
                                                 {{ $user->name }}
                                             </td>
@@ -103,3 +103,60 @@
         </div> <!-- container -->
     </div> <!-- content -->
 @endsection
+@push('script')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            function fetch_user_data(query = '') {
+                $.ajax({
+                    url: "{{ route('admin.users.search') }}",
+                    method: "GET",
+                    data: {
+                        s: query
+                    },
+                    dataType: 'json',
+                    success: function(users) {
+                        // Clear the existing user list
+                        $('#tr-list-users').remove();
+
+                        $.each(users.data, function(index, user) {
+                            console.log(user)
+                          
+                            var userHtml = `
+                                                     
+                                        <tr>
+                                            <td class="text-muted font-13">
+                                               ${user.name}
+                                            </td>
+                                            <td class="text-muted font-13">${user.email}</td>
+                                            <td class="text-muted font-13">${user.created_at}</td>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-12 col-sm-6">
+                                                        <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}"
+                                                            class="btn btn-xs btn-secondary"><i
+                                                                class="mdi mdi-pencil"></i></a>
+                                                    </div>
+                                                    {{-- <div class="col-12 col-sm-6">
+                                                            <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}" target="_blank"
+                                                                class="btn btn-xs btn-secondary"><i class="mdi mdi-eye"></i></a>
+                                                        </div> --}}
+                                                </div>
+                                            </td>
+                                        </tr>                                                
+                            `;
+
+                            $('#body-list-users').html(userHtml);
+                        });
+                    }
+                });
+            }
+
+            $(document).on('keyup', '#search', function() {
+                var query = $(this).val();
+
+                fetch_user_data(query);
+            });
+        });
+    </script>
+@endpush
+
