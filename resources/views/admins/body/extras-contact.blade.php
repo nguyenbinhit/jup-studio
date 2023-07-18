@@ -60,18 +60,4 @@
             </div>
         </div> <!-- container -->
     </div> <!-- content -->
-
-    <!-- Custom Modal -->
-    <div id="custom-modal" class="modal-demo">
-        <button type="button" class="close" onclick="Custombox.modal.close();">
-            <span>&times;</span><span class="sr-only">Close</span>
-        </button>
-        <h4 class="custom-modal-title">Bạn có chắc không?</h4>
-        <div class="custom-modal-text">
-            <div>
-                {{-- <p>Họ và tên: {{  }}</p> --}}
-            </div>
-
-        </div>
-    </div>
 @endsection

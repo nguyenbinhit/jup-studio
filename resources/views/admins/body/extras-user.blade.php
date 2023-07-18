@@ -74,11 +74,7 @@
                                                         <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}"
                                                             class="btn btn-xs btn-secondary"><i
                                                                 class="mdi mdi-pencil"></i></a>
-                                                    </div>
-                                                    {{-- <div class="col-12 col-sm-6">
-                                                            <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}" target="_blank"
-                                                                class="btn btn-xs btn-secondary"><i class="mdi mdi-eye"></i></a>
-                                                        </div> --}}
+                                                    </div>                                                 
                                                 </div>
                                             </td>
                                         </tr>
@@ -132,11 +128,7 @@
                                                         <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}"
                                                             class="btn btn-xs btn-secondary"><i
                                                                 class="mdi mdi-pencil"></i></a>
-                                                    </div>
-                                                    {{-- <div class="col-12 col-sm-6">
-                                                            <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}" target="_blank"
-                                                                class="btn btn-xs btn-secondary"><i class="mdi mdi-eye"></i></a>
-                                                        </div> --}}
+                                                    </div>                                             
                                                 </div>
                                             </td>
                                         </tr>                                                
