@@ -93,6 +93,7 @@
         </div>
 
     </div>
+    <!-- <div id="success-message" style="display: none;">Gửi thành công!</div> -->
 </section>
 @push('script')
     <script type="text/javascript">
@@ -107,6 +108,8 @@
                         data: data,
                         success: function(data) {
                             console.log(data)
+                            $('form#fromContact')[0].reset();
+                            // $('#success-message').show();
                         }
                     });
                     return false;
