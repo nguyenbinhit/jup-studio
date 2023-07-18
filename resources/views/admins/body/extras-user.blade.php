@@ -116,12 +116,9 @@
                     dataType: 'json',
                     success: function(users) {
                         // Clear the existing user list
-                        $('#tr-list-users').remove();
-
-                        $.each(users.data, function(index, user) {
-                            console.log(user)
-                          
-                            var userHtml = `
+                        var userHtml = '';
+                        $.each(users.data, function(index, user) {                       
+                             userHtml += `
                                                      
                                         <tr>
                                             <td class="text-muted font-13">
