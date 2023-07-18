@@ -137,7 +137,8 @@
                     dataType: 'json',
                     success: function(employees) {
                         // Clear the existing employee list
-                        $('#list-employees').remove();
+                        // $('#list-employees').remove();
+                        var employeeHtml = '';
 
                         $.each(employees.data, function(index, employee) {
                             console.log(employee)
@@ -146,7 +147,7 @@
                                 "{{ asset('../../bootstrap-admin/images/users/avatar-9.jpg') }}";
 
 
-                            var employeeHtml = `
+                             employeeHtml += `
                                 <div class="col-lg-4" id="list-employees">
                                     <div class="text-center card-box ribbon-box">
                                         ${

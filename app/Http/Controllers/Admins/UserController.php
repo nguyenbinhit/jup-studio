@@ -31,6 +31,29 @@ class UserController extends BaseController
 
         return view('admins.body.extras-user', compact('users'));
     }
+     /**
+     * Search user
+     *
+     * @param Request $request
+     * @return void
+     */
+
+    public function search(Request $request)
+    {
+        $sort = $request->input('sort', $this->sort);
+        $limit = $request->input('limit', $this->count);
+        $sortBy = $request->input('sortBy', $this->sortBy);
+        $search = $request->input('s');
+
+        $users = User::where('name', 'like', '%' . $search . '%')
+            ->orWhere('email', 'like', '%' . $search . '%')
+            ->orderBy($sortBy, $sort)
+            ->paginate($limit)
+            ->withQueryString();
+
+        return response()->json($users);
+    }
+
 
     /**
      * Show the form for creating a new resource.

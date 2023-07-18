@@ -87,6 +87,8 @@ class PlanController extends BaseController
      */
     public function destroy(Plan $plan)
     {
-        //
+        $plan->delete();
+
+        return response()->json(['message'=>'Đã xóa thành công!']);
     }
 }
