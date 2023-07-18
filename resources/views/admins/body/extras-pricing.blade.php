@@ -103,9 +103,11 @@
 @endsection
 @push('script')
     <script type="text/javascript">
-        $(document).ready(function() {
-            const closeModal = document.ElementById('custom-modal');
-
+   
+        function closeModal() {
+        Custombox.modal.close();
+        }
+        $(document).ready(function() {           
             $('#btnDelete').click(function() {
                 $.ajax({
                     url: "{{ route('admin.plans.destroy', ['plan' => $price->uuid]) }}",
@@ -114,9 +116,9 @@
                         _token: "{{ csrf_token() }}"
                     },
                     success: function(response) {
-                        closeModal.style.display = 'none';
-                        // const listPrices = "{{ route('admin.plans.index') }}";
-                        // return listPrices;
+                        closeModal();
+                        const listPrices = "{{ route('admin.plans.index') }}";
+                        window.location.href = listPrices;
                     },
                     error: function(xhr) {
                         console.log(xhr.responseText);
