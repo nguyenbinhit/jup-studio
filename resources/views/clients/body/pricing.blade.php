@@ -26,7 +26,7 @@
                     </div>
                     <div class="price-description">
                         @foreach ($item-> benefits as $key => $value)
-                        <p>{{ $value }}</p>
+                        <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{ $value }}</p>
                         @endforeach
 
                     </div>
