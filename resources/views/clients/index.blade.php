@@ -64,6 +64,21 @@
 
     <!-- custom script -->
     <script src="{{ asset('../bootstrapv1/js/script.js') }}"></script>
+    <!-- modal -->
+
+    <!-- Custom box css -->
+    <link href="{{ asset('../bootstrap-admin/libs/custombox/custombox.min.css') }}" rel="stylesheet" type="text/css">
+    
+    <!-- Vendor js -->
+    <script src="assets\js\vendor.min.js"></script>
+
+    <!-- Modal-Effect -->
+    <script src="assets\libs\custombox\custombox.min.js"></script>
+
+    <!-- App js -->
+    <script src="assets\js\app.min.js"></script>
+    
+    <!-- end modal -->
 </head>
 
 <body data-spy="scroll" data-target=".navbar-nav" data-offset="90">
@@ -88,7 +103,8 @@
 
     @include('clients.body.client-start')
 
-    {{-- @include('clients.body.blog') --}}   <!--TODO: remove page blog-->
+    {{-- @include('clients.body.blog') --}}
+    <!--TODO: remove page blog-->
 
     @include('clients.body.contact')
 
