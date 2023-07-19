@@ -46,10 +46,10 @@
                                                 Month</span></h2>
                                         <ul class="card-pricing-features">
 
-                                            <li>{{ $price->benefits['first'] }}</li>
-                                            <li>{{ $price->benefits['second'] }}</li>
-                                            <li>{{ $price->benefits['third'] }}</li>
-                                            <li>{{ $price->benefits['fourth'] }}</li>
+                                            <li style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{ $price->benefits['first'] }}</li>
+                                            <li style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{ $price->benefits['second'] }}</li>
+                                            <li style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{ $price->benefits['third'] }}</li>
+                                            <li style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{ $price->benefits['fourth'] }}</li>
 
                                         </ul>
 
