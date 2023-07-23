@@ -5,6 +5,7 @@ use App\Http\Controllers\Admins\FileManagerController;
 use App\Http\Controllers\Admins\HomeController;
 use App\Http\Controllers\Admins\LoginController;
 use App\Http\Controllers\Admins\PageController;
+use App\Http\Controllers\Admins\Pages\HomeController as PagesHomeController;
 use App\Http\Controllers\Admins\Pages\LogoController;
 use App\Http\Controllers\Admins\PlanController;
 use App\Http\Controllers\Admins\UserController;
@@ -62,6 +63,13 @@ Route::prefix('admins')->name('admin.')->group(function () {
             Route::get('/{page:slug}', [LogoController::class, 'show'])->name('logo.show');
             Route::put('/{page:slug}', [LogoController::class, 'update'])->name('logo.update');
         });
+
+
+        Route::prefix('home-pages')->name('pages.')->group(function () {
+            Route::get('/{page:slug}', [PagesHomeController::class, 'show'])->name('home.show');
+            Route::put('/{page:slug}', [PagesHomeController::class, 'update'])->name('home.update');
+        });
+
 
         Route::resource('users', UserController::class); // tk user
         Route::get('users-search', [UserController::class, 'search'])->name('users.search'); // users
