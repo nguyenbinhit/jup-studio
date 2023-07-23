@@ -23,6 +23,7 @@ class Page extends Model
         'title',
         'image_id',
         'description',
+        'metadata'
     ];
 
     /**
@@ -46,6 +47,7 @@ class Page extends Model
         'title' => 'string',
         'image_id' => 'integer',
         'description' => 'string',
+        'metadata' => 'array',
     ];
 
     public function image(): HasOne

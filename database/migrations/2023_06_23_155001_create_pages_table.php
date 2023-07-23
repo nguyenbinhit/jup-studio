@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->foreignId('image_id')->nullable()->constrained('images');
             $table->text('description');
+            $table->json('metadata')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

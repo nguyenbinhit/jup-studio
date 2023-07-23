@@ -24,6 +24,7 @@ class PageFactory extends Factory
             'title' => fake()->word(),
             'image_id' => Image::factory(),
             'description' => fake()->word(),
+            'metadata' => null,
         ];
     }
 }
