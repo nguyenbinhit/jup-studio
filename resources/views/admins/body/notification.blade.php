@@ -1,5 +1,5 @@
 @if (Session::has('success'))
-    <div style="position: absolute; top: 4.5rem; right: 0; z-index: 10000; width: 300px;">
+    <div style="position: absolute; top: 8.5rem; right: 0; z-index: 10000; width: 300px;">
         <!-- Then put toasts within -->
         <div class="toast fade show ribbon-box" role="alert" aria-live="assertive" aria-atomic="true" data-toggle="toast">
             <div class="ribbon-two ribbon-two-primary"><span>Success</span></div>
@@ -19,7 +19,7 @@
         <!--end toast-->
     </div>
 @elseif (Session::get('error'))
-    <div style="position: absolute; top: 4.5rem; right: 0; z-index: 10000; width: 300px;">
+    <div style="position: absolute; top: 8.5rem; right: 0; z-index: 10000; width: 300px;">
         <!-- Then put toasts within -->
         <div class="toast fade show ribbon-box" role="alert" aria-live="assertive" aria-atomic="true"
             data-toggle="toast">

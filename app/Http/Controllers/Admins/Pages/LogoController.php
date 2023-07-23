@@ -79,8 +79,6 @@ class LogoController extends BaseController
                 $page->update(['image_id' => $image->id]);
             }
         }
-
-        return view('admins.body.page.logo', ['page' => $page])->with('success', 'Cập nhật thành công (' . $page->name . ')');
     }
 
     /**

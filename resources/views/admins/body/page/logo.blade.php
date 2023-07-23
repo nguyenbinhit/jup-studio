@@ -135,8 +135,7 @@
             acceptedFiles: ".jpeg,.jpg,.png,.gif,.webp",
             init: function() {
                 this.on('success', function(file, resp) {
-                    // sessionStorage.setItem("success", "Cập nhật thành công logo");
-                    // document.cookie = "success=Cập nhật thành công logo";
+                    var setSession = "{{ session(['success' => 'Cập nhật thành công logo website']) }}";
                     return window.location.href =
                         "{{ route('admin.pages.logo.show', ['page' => 'logo']) }}";
                 });
