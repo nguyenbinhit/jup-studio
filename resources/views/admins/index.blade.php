@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta  name="csrf-token" content="{{ csrf_token() }}" >
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Minton - Responsive Admin Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
@@ -15,6 +15,9 @@
     <!-- Summernote css -->
     <link href="{{ asset('../bootstrap-admin/libs/summernote/summernote-bs4.css') }}" rel="stylesheet" type="text/css">
 
+    <!-- Plugins css -->
+    <link href="{{ asset('../bootstrap-admin/libs/dropzone/dropzone.min.css') }}" rel="stylesheet" type="text/css">
+
     <!-- App css -->
     <link href="{{ asset('../bootstrap-admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('../bootstrap-admin/css/icons.min.css') }}" rel="stylesheet" type="text/css">
@@ -22,11 +25,6 @@
 
     <!-- Custom box css -->
     <link href="{{ asset('../bootstrap-admin/libs/custombox/custombox.min.css') }}" rel="stylesheet" type="text/css">
-
-    <!-- App css -->
-    <link href="{{ asset('../bootstrap-admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('../bootstrap-admin/css/icons.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('../bootstrap-admin/css/app.min.css') }}" rel="stylesheet" type="text/css">
 </head>
 
 <body>

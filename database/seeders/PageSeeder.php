@@ -14,6 +14,20 @@ class PageSeeder extends Seeder
     public function run(): void
     {
         Page::factory()->create([
+            'name' => 'Logo',
+            'slug' => 'logo',
+            'title' => 'Logo',
+            'description' => 'Logo'
+        ]);
+
+        Page::factory()->create([
+            'name' => 'Trang chủ',
+            'slug' => 'trang-chu',
+            'title' => 'Trang chủ',
+            'description' => 'trang chủ'
+        ]);
+
+        Page::factory()->create([
             'name' => 'Trang giới thiệu',
             'slug' => 'gioi-thieu',
             'title' => 'Chúng tôi luôn mang đến những điều tốt nhất dành cho bạn',

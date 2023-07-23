@@ -5,6 +5,7 @@ use App\Http\Controllers\Admins\FileManagerController;
 use App\Http\Controllers\Admins\HomeController;
 use App\Http\Controllers\Admins\LoginController;
 use App\Http\Controllers\Admins\PageController;
+use App\Http\Controllers\Admins\Pages\LogoController;
 use App\Http\Controllers\Admins\PlanController;
 use App\Http\Controllers\Admins\UserController;
 use App\Http\Controllers\Client\ClientHomeController;
@@ -54,9 +55,13 @@ Route::prefix('admins')->name('admin.')->group(function () {
 
         Route::resource('plans', PlanController::class); // plans
 
-        Route::get('contacts',[ContactController::class,'index'])->name('contacts.index');
+        Route::get('contacts', [ContactController::class, 'index'])->name('contacts.index');
 
         Route::resource('pages', PageController::class); // Trang tĩnh
+        Route::prefix('logo-pages')->name('pages.')->group(function () {
+            Route::get('/{page:slug}', [LogoController::class, 'show'])->name('logo.show');
+            Route::put('/{page:slug}', [LogoController::class, 'update'])->name('logo.update');
+        });
 
         Route::resource('users', UserController::class); // tk user
         Route::get('users-search', [UserController::class, 'search'])->name('users.search'); // users

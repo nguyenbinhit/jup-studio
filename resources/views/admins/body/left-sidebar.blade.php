@@ -39,13 +39,31 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('admin.pages.index') }}" class="waves-effect">
+                    <a href="#" class="waves-effect">
                         <i class="remixicon-file-copy-2-line"></i>
-                        <span> Quản lý trang tĩnh </span>
+                        <span> Thiết lập giao diện </span>
+                        <span class="menu-arrow"></span>
                     </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li>
+                            <a href="{{ route('admin.pages.logo.show', ['page' => 'logo']) }}">Logo</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.pages.index') }}">Trang chủ</a>
+                        </li>
+                        <li>
+                            <a href="#1">Trang giới thiệu</a>
+                        </li>
+                        <li>
+                            <a href="#2">Trang công việc</a>
+                        </li>
+                        <li>
+                            <a href="#3">Trang khách hàng</a>
+                        </li>
+                    </ul>
                 </li>
 
-               <li>
+                <li>
                     <a href="{{ route('admin.users.index') }}" class="waves-effect">
                         <i class="fe-user"></i>
                         <span> Quản lý tài khoản</span>

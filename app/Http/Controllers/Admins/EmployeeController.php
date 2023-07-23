@@ -38,7 +38,7 @@ class EmployeeController extends BaseController
 
         return view('admins.body.employee', compact('employees'));
     }
-    
+
     /**
      * Search employee
      *
@@ -84,7 +84,7 @@ class EmployeeController extends BaseController
             if ($data['file']) {
                 $file = $data['file'];
 
-                $path = Storage::putFileAs('uploads', $data['file'], $file->hashName());
+                $path = Storage::putFileAs('public/uploads', $data['file'], $file->hashName());
 
                 $this->image = Image::create([
                     'name' => $file->hashName(),
