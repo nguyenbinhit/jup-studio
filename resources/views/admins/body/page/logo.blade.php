@@ -85,34 +85,6 @@
                             <div class="text-lg-right mt-1">
                                 <button id="uploadFile" class="btn btn-primary mt-2">Lưu</button>
                             </div>
-
-                            {{-- TODO: --}}
-                            {{-- <!-- Preview -->
-                            <div class="dropzone-previews mt-3" id="file-previews"></div>
-
-                            <!-- file preview template -->
-                            <div class="d-none" id="uploadPreviewTemplate">
-                                <div class="card mt-1 mb-0 shadow-none border">
-                                    <div class="p-2">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <img data-dz-thumbnail="" class="avatar-sm rounded bg-light" alt="">
-                                            </div>
-                                            <div class="col pl-0">
-                                                <a href="javascript:void(0);" class="text-muted font-weight-bold"
-                                                    data-dz-name=""></a>
-                                                <p class="mb-0" data-dz-size=""></p>
-                                            </div>
-                                            <div class="col-auto">
-                                                <!-- Button -->
-                                                <a href="" class="btn btn-link btn-lg text-muted" data-dz-remove="">
-                                                    <i class="mdi mdi-close-circle"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
                         </div>
                     </div> <!-- end card-box-->
                     <!-- end row -->
@@ -135,7 +107,7 @@
             acceptedFiles: ".jpeg,.jpg,.png,.gif,.webp",
             init: function() {
                 this.on('success', function(file, resp) {
-                    var setSession = "{{ session(['success' => 'Cập nhật thành công logo website']) }}";
+                    // var setSession = "{{ session(['success' => 'Cập nhật thành công logo website']) }}";
                     return window.location.href =
                         "{{ route('admin.pages.logo.show', ['page' => 'logo']) }}";
                 });

@@ -8,7 +8,7 @@
     <!-- Page Title -->
     <title>Jup - Creative Studio</title>
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('../bootstrapv1/img/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('../bootstrap-admin/images/favicon.ico') }}">
     <!-- Bundle -->
     <link rel="stylesheet" href="{{ asset('../bootstrapv2/css/bundle.min.css') }}">
     <!-- Plugin Css -->
@@ -68,7 +68,7 @@
 
     <!-- Custom box css -->
     <link href="{{ asset('../bootstrap-admin/libs/custombox/custombox.min.css') }}" rel="stylesheet" type="text/css">
-    
+
     <!-- Vendor js -->
     <script src="assets\js\vendor.min.js"></script>
 
@@ -77,7 +77,7 @@
 
     <!-- App js -->
     <script src="assets\js\app.min.js"></script>
-    
+
     <!-- end modal -->
 </head>
 

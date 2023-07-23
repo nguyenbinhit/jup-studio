@@ -1,12 +1,15 @@
 <!-- Header start -->
+@php
+    $pageImageLogo = App\Models\Page::where('slug', 'logo')->first();
+@endphp
 <header class="cursor-light">
     <nav
         class="navbar navbar-top-default navbar-expand-lg nav-three-circles black bottom-nav nav-box-shadow no-animation">
         <div class="container-fluid">
             <a class="logo ml-lg-1" href="javascript:void(0)">
-                <img src="{{ asset('../bootstrapv1/img/logo.png') }}" alt="logo" title="Logo" class="logo-default"
-                    style="height: 70px !important;">
-                <img src="{{ asset('../bootstrapv1/img/logo.png') }}" alt="logo" title="Logo"
+                <img src="{{ asset('../..' . Storage::url($pageImageLogo->image->url)) }}" alt="logo" title="Logo"
+                    class="logo-default" style="height: 70px !important;">
+                <img src="{{ asset('../..' . Storage::url($pageImageLogo->image->url)) }}" alt="logo" title="Logo"
                     class="logo-scrolled" style="height: 70px !important;">
             </a>
             <div class="collapse navbar-collapse d-none d-lg-block">
@@ -16,8 +19,8 @@
                     <li class="nav-item"> <a href="#work" class="scroll nav-link">Công việc</a></li>
                     <li class="nav-item"> <a href="#pricing" class="scroll nav-link">Bảng giá</a></li>
                     <li class="nav-item"> <a href="#clients" class="scroll nav-link">Khách hàng</a></li>
-                    {{-- <li class="nav-item"> <a href="#blog" class="scroll nav-link">blog</a></li> --}}
                     <!-- TODO: remove page blog -->
+                    {{-- <li class="nav-item"> <a href="#blog" class="scroll nav-link">blog</a></li> --}}
                     <li class="nav-item"> <a href="#contact" class="scroll nav-link">Liên hệ</a></li>
                 </ul>
             </div>
@@ -55,7 +58,7 @@
         <div class="inner-wrapper justify-content-center">
             <div class="col-md-12 text-center">
                 <a href="javascript:void(0)" class="logo-full mb-4"><img
-                        src="{{ asset('../bootstrapv1/img/logo.png') }}" alt></a>
+                        src="{{ asset('../..' . Storage::url($pageImageLogo->image->url)) }}" alt></a>
             </div>
             <nav class="side-nav m-0">
                 <ul class="navbar-nav flex-lg-row">

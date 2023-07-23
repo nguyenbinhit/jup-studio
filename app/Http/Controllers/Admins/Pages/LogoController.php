@@ -41,6 +41,9 @@ class LogoController extends BaseController
      */
     public function show(Page $page)
     {
+        request()->session()->forget('success');
+        request()->session()->forget('error');
+
         return view('admins.body.page.logo', ['page' => $page]);
     }
 

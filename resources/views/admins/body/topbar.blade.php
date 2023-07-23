@@ -43,17 +43,21 @@
             </div>
         </li>
     </ul>
-
+    @php
+        $pageImageLogo = App\Models\Page::where('slug', 'logo')->first();
+    @endphp
     <!-- LOGO -->
     <div class="logo-box" style="background-color: #3bafda">
         <a href="{{ route('admin.index') }}" class="logo text-center">
             <span class="logo-lg">
-                <img src="{{ asset('../bootstrapv1/img/logo.png') }}" alt="" height="70">
+                <img src="{{ asset('../..' . Storage::url($pageImageLogo->image->url)) }}" alt=""
+                    height="70">
                 <!-- <span class="logo-lg-text-light">Xeria</span> -->
             </span>
             <span class="logo-sm">
                 <!-- <span class="logo-sm-text-dark">X</span> -->
-                <img src="{{ asset('../bootstrapv1/img/logo.png') }}" alt="" height="60">
+                <img src="{{ asset('../..' . Storage::url($pageImageLogo->image->url)) }}" alt=""
+                    height="60">
             </span>
         </a>
     </div>
