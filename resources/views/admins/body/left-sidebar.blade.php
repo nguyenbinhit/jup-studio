@@ -56,7 +56,7 @@
                             <a href="{{ route('admin.pages.home.show', ['page' => 'trang-chu']) }}">Trang chủ</a>
                         </li>
                         <li>
-                            <a href="#1">Trang giới thiệu</a>
+                            <a href="{{ route('admin.pages.about.show', ['page' => 'gioi-thieu']) }}">Trang giới thiệu</a>
                         </li>
                         <li>
                             <a href="#2">Trang công việc</a>

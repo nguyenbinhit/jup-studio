@@ -79,7 +79,7 @@
                                         <div class="form-group">
                                             <label for="first">Tên studio</label>
                                             <input type="text" class="form-control" id="first" name="metadata[first]"
-                                                required placeholder=""
+                                                placeholder=""
                                                 value="{{ isset($page->metadata['first']) && $page->metadata['first'] ? $page->metadata['first'] : '' }}">
                                         </div>
                                     </div>
@@ -87,19 +87,17 @@
                                         <div class="form-group">
                                             <label for="second">Kiểu studio</label>
                                             <input type="text" class="form-control" id="second"
-                                                name="metadata[second]" required placeholder=""
+                                                name="metadata[second]" placeholder=""
                                                 value="{{ isset($page->metadata['second']) && $page->metadata['second'] ? $page->metadata['second'] : '' }}">
 
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="third">Slogan</label>
-                                            <input type="text" class="form-control" id="third" name="metadata[third]"
-                                                required placeholder=""
-                                                value="{{ isset($page->metadata['third']) && $page->metadata['third'] ? $page->metadata['third'] : '' }}">
+                                            <textarea class="form-control" id="third" rows="6" name="metadata[third]" placeholder="">{{ isset($page->metadata['third']) && $page->metadata['third'] ? $page->metadata['third'] : '' }}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -109,8 +107,8 @@
                                     </div>
                                 @endif
                                 <div class="text-left">
-                                    <button type="submit" class="btn btn-primary waves-effect waves-light mt-2"><i
-                                            class="mdi mdi-content-save"></i> Lưu</button>
+                                    <button type="submit" class="btn btn-success mt-2"><i class="mdi mdi-content-save"></i>
+                                        Lưu</button>
                                 </div>
                             </form>
                         </div>

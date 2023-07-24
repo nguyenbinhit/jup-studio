@@ -5,6 +5,7 @@ use App\Http\Controllers\Admins\FileManagerController;
 use App\Http\Controllers\Admins\HomeController;
 use App\Http\Controllers\Admins\LoginController;
 use App\Http\Controllers\Admins\PageController;
+use App\Http\Controllers\Admins\Pages\AboutController;
 use App\Http\Controllers\Admins\Pages\HomeController as PagesHomeController;
 use App\Http\Controllers\Admins\Pages\LogoController;
 use App\Http\Controllers\Admins\PlanController;
@@ -68,6 +69,12 @@ Route::prefix('admins')->name('admin.')->group(function () {
         Route::prefix('home-pages')->name('pages.')->group(function () {
             Route::get('/{page:slug}', [PagesHomeController::class, 'show'])->name('home.show');
             Route::put('/{page:slug}', [PagesHomeController::class, 'update'])->name('home.update');
+        });
+
+
+        Route::prefix('about-pages')->name('pages.')->group(function () {
+            Route::get('/{page:slug}', [AboutController::class, 'show'])->name('about.show');
+            Route::put('/{page:slug}', [AboutController::class, 'update'])->name('about.update');
         });
 
 
