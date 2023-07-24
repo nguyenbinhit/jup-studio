@@ -55,14 +55,15 @@ class HomeController extends BaseController
      * Update the specified resource in storage.
      * @param HomeUpdateRequest $request
      * @param Page $page
-     * @return void
+     * @return redirect
      */
-    public function update(HomeUpdateRequest $request, Page $page): View
+    public function update(HomeUpdateRequest $request, Page $page)
     {
         $data = $request->safe()->all();
+
         $page->update(['metadata' => $data['metadata']]);
 
-        return view('admins.body.page.home', ['page' => $page]);
+        return redirect()->route('admin.pages.home.show', ['page' => $page->slug])->with('success', 'Cập nhật thành công giao diện trang chủ');
     }
 
     /**

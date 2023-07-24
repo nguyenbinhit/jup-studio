@@ -22,7 +22,7 @@ class HomeUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'metadata' => ['array'],
+            'metadata' => ['required', 'array'],
         ];
     }
 }

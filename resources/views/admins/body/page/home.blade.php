@@ -72,14 +72,14 @@
                                 @method('PUT')
 
                                 <div class="row">
-                                    @if ($errors->has('metadata'))
+                                    {{-- @if ($errors->has('metadata'))
                                         <strong class="text-danger">{{ $errors->first('metadata') }}</strong>
-                                    @endif
+                                    @endif --}}
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="first">Tên studio</label>
                                             <input type="text" class="form-control" id="first" name="metadata[first]"
-                                                placeholder=""
+                                                required placeholder=""
                                                 value="{{ isset($page->metadata['first']) && $page->metadata['first'] ? $page->metadata['first'] : '' }}">
                                         </div>
                                     </div>
@@ -87,7 +87,7 @@
                                         <div class="form-group">
                                             <label for="second">Kiểu studio</label>
                                             <input type="text" class="form-control" id="second"
-                                                name="metadata[second]" placeholder=""
+                                                name="metadata[second]" required placeholder=""
                                                 value="{{ isset($page->metadata['second']) && $page->metadata['second'] ? $page->metadata['second'] : '' }}">
 
                                         </div>
@@ -98,19 +98,21 @@
                                         <div class="form-group">
                                             <label for="third">Slogan</label>
                                             <input type="text" class="form-control" id="third" name="metadata[third]"
-                                                placeholder=""
+                                                required placeholder=""
                                                 value="{{ isset($page->metadata['third']) && $page->metadata['third'] ? $page->metadata['third'] : '' }}">
                                         </div>
                                     </div>
                                 </div>
+                                @if ($errors->has('metadata'))
+                                    <div class="invalid-feedback text-danger">
+                                        {{ $errors->first('metadata') }}
+                                    </div>
+                                @endif
                                 <div class="text-left">
                                     <button type="submit" class="btn btn-primary waves-effect waves-light mt-2"><i
                                             class="mdi mdi-content-save"></i> Lưu</button>
                                 </div>
-
                             </form>
-
-
                         </div>
                     </div> <!-- end card-box-->
                     <!-- end row -->

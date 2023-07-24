@@ -49,6 +49,7 @@
                             <a href="{{ route('admin.pages.logo.show', ['page' => 'logo']) }}">Logo</a>
                         </li>
                         <li>
+                            {{-- TODO: remove --}}
                             <a href="{{ route('admin.pages.index') }}">Trang chủ</a>
                         </li>
                         <li>
