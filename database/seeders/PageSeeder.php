@@ -24,7 +24,12 @@ class PageSeeder extends Seeder
             'name' => 'Trang chủ',
             'slug' => 'trang-chu',
             'title' => 'Trang chủ',
-            'description' => 'trang chủ'
+            'description' => 'trang chủ',
+            'metadata' => [
+                'first' => 'JUP',
+                'second' => 'Studio Sáng Tạo',
+                'third' => 'Lorem ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum has been the industry`s standard dummy. Lorem Ipsum has been the industry`s standard dummy.'
+            ]
         ]);
 
         Page::factory()->create([

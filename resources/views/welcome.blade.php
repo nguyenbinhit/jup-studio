@@ -1,5 +1,8 @@
 @extends('clients.index')
 @section('client-main')
+    @php
+        $pageHomeClient = App\Models\Page::where('slug', 'trang-chu')->first();
+    @endphp
     <!-- Main Section start -->
     <section id="home" class="p-0 h-100vh cursor-light">
         <h2 class="d-none">heading</h2>
@@ -29,7 +32,7 @@
                             data-textalign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
                             data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
                             style="z-index: 10; min-width: 556px; max-width: 556px; white-space: nowrap; font-size: 60px; line-height: 75px; font-weight: 700; letter-spacing: 0px;font-family: 'Montserrat', sans-serif;">
-                            JUP</div>
+                            {{ $pageHomeClient?->metadata['first'] ? $pageHomeClient->metadata['first'] : 'JUP' }}</div>
 
                         <!-- LAYER Text -->
                         <div class="tp-caption color-black" data-x="['center','center','center','center']"
@@ -42,7 +45,9 @@
                             data-textalign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
                             data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
                             style="z-index: 10; min-width: 556px; max-width: 556px; white-space: nowrap; font-weight: 700; letter-spacing: 0px;font-family: 'Montserrat', sans-serif;">
-                            <div id="js-rotating">Studio Sáng Tạo </div>
+                            <div id="js-rotating">
+                                {{ $pageHomeClient?->metadata['second'] ? $pageHomeClient->metadata['second'] : 'Studio Sáng Tạo' }}
+                            </div>
                         </div>
 
                         <!-- LAYER Text -->
@@ -55,11 +60,7 @@
                             data-textalign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
                             data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
                             style="z-index: 10; min-width: 650px; max-width: 650px; white-space: nowrap; font-weight: 400; letter-spacing: 0px;font-family: 'Source Sans Pro', sans-serif;">
-                            Lorem
-                            ipsum is simply dummy text of the printing and
-                            typesetting. Lorem Ipsum has been the industry’s
-                            standard dummy. Lorem Ipsum has been the
-                            industry’s standard dummy.
+                            {{ $pageHomeClient?->metadata['third'] ? $pageHomeClient->metadata['third'] : '' }}
                         </div>
 
                         <!-- LAYER Cylinder -->

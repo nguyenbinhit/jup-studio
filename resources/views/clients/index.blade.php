@@ -70,13 +70,15 @@
     <link href="{{ asset('../bootstrap-admin/libs/custombox/custombox.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- Vendor js -->
-    <script src="assets\js\vendor.min.js"></script>
+    {{-- TODO: Check đoạn này nhé anh. Thêm vào bị lỗi load trang chủ client --}}
+    {{-- <script src="{{ asset('../bootstrap-admin/js/vendor.min.js') }}"></script> --}}
 
     <!-- Modal-Effect -->
-    <script src="assets\libs\custombox\custombox.min.js"></script>
+    <script src="{{ asset('../bootstrap-admin/libs/custombox/custombox.min.js') }}"></script>
 
     <!-- App js -->
-    <script src="assets\js\app.min.js"></script>
+    {{-- TODO: Check đoạn này nhé anh. Thêm vào bị lỗi load trang chủ client --}}
+    {{-- <script src="{{ asset('../bootstrap-admin/js/app.min.js') }}"></script> --}}
 
     <!-- end modal -->
 </head>
