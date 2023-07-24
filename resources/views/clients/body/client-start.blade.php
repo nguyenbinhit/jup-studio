@@ -1,13 +1,12 @@
 <!-- Clients start -->
 <section id="clients" class="bg-white p-0 cursor-light no-transition">
-    <h2 class="d-none">heading</h2>
+    <h2 class="d-none"></h2>
     <div class="section-padding parallax-setting parallaxie parallax2">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="main-title wow fadeIn" data-wow-delay="300ms">
-                        <h5> Lorem ipsum dolor sit amet </h5>
-                        <h2 class="mb-0">Valuable<span class="color-pink"> Clients</span></h2>
+                        <h2 class="mb-0">Reviews<span class="color-pink"> Khách Hàng</span></h2>
                     </div>
                 </div>
             </div>

@@ -59,10 +59,10 @@
                             <a href="#1">Trang giới thiệu</a>
                         </li>
                         <li>
-                            <a href="#2">Trang công việc</a>
+                            <a href="#2">Trang sản phẩm</a>
                         </li>
                         <li>
-                            <a href="#3">Trang khách hàng</a>
+                            <a href="{{ route('admin.pages.review.index') }}">Trang khách hàng (Review)</a>
                         </li>
                     </ul>
                 </li>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admins\LoginController;
 use App\Http\Controllers\Admins\PageController;
 use App\Http\Controllers\Admins\Pages\HomeController as PagesHomeController;
 use App\Http\Controllers\Admins\Pages\LogoController;
+use App\Http\Controllers\Admins\Pages\ReviewController;
 use App\Http\Controllers\Admins\PlanController;
 use App\Http\Controllers\Admins\UserController;
 use App\Http\Controllers\Client\ClientHomeController;
@@ -68,6 +69,15 @@ Route::prefix('admins')->name('admin.')->group(function () {
         Route::prefix('home-pages')->name('pages.')->group(function () {
             Route::get('/{page:slug}', [PagesHomeController::class, 'show'])->name('home.show');
             Route::put('/{page:slug}', [PagesHomeController::class, 'update'])->name('home.update');
+        });
+
+
+        Route::prefix('review-pages')->name('pages.')->group(function () {
+            Route::get('/', [ReviewController::class, 'index'])->name('review.index');
+            Route::post('/', [ReviewController::class, 'store'])->name('review.store');
+            Route::get('/{review}', [ReviewController::class, 'show'])->name('review.show');
+            Route::put('/{review}', [ReviewController::class, 'show'])->name('review.update');
+            Route::delete('/{review}', [ReviewController::class, 'destroy'])->name('review.destroy');
         });
 
 
