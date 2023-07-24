@@ -11,7 +11,7 @@ class ClientHomeController extends BaseController
 {
     public function index() {
         return view('welcome', [
-            'employees' => Employee::all(),
+            'employees' => Employee::with('image')->get(),
             'pages' => Page::with('image')->get(),
             'plans'=> Plan::all(),
         ]);
