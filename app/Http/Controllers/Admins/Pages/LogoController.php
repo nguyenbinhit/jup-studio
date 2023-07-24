@@ -41,9 +41,6 @@ class LogoController extends BaseController
      */
     public function show(Page $page)
     {
-        request()->session()->forget('success');
-        request()->session()->forget('error');
-
         return view('admins.body.page.logo', ['page' => $page]);
     }
 
@@ -80,6 +77,8 @@ class LogoController extends BaseController
                 ]);
 
                 $page->update(['image_id' => $image->id]);
+
+                session(['success' => 'Cập nhật thành công logo website']);
             }
         }
     }

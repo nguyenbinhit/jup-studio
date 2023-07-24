@@ -83,7 +83,8 @@
                             </form>
 
                             <div class="text-lg-right mt-1">
-                                <button id="uploadFile" class="btn btn-primary mt-2">Lưu</button>
+                                <button id="uploadFile" class="btn btn-primary mt-2"><i class="mdi mdi-content-save"></i>
+                                    Lưu</button>
                             </div>
                         </div>
                     </div> <!-- end card-box-->
@@ -107,7 +108,6 @@
             acceptedFiles: ".jpeg,.jpg,.png,.gif,.webp",
             init: function() {
                 this.on('success', function(file, resp) {
-                    // var setSession = "{{ session(['success' => 'Cập nhật thành công logo website']) }}";
                     return window.location.href =
                         "{{ route('admin.pages.logo.show', ['page' => 'logo']) }}";
                 });

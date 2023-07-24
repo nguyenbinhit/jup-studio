@@ -86,8 +86,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="second">Kiểu studio</label>
-                                            <input type="text" class="form-control" id="second" name="metadata[second]"
-                                                placeholder=""
+                                            <input type="text" class="form-control" id="second"
+                                                name="metadata[second]" placeholder=""
                                                 value="{{ isset($page->metadata['second']) && $page->metadata['second'] ? $page->metadata['second'] : '' }}">
 
                                         </div>
@@ -104,7 +104,7 @@
                                     </div>
                                 </div>
                                 <div class="text-left">
-                                    <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light mt-2"><i
                                             class="mdi mdi-content-save"></i> Lưu</button>
                                 </div>
 
