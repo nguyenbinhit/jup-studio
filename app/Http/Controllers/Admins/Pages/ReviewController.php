@@ -135,6 +135,8 @@ class ReviewController extends BaseController
      */
     public function destroy(Review $review)
     {
-        //
+        $review->delete();
+
+        session(['success' => 'Xoá thành công review.']);
     }
 }

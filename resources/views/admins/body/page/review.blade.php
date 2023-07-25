@@ -18,6 +18,8 @@
             </div>
             <!-- end page title -->
 
+            @include('admins.body.notification')
+
             <div class="row">
                 <div class="col-12">
                     <div class="card-box">
@@ -124,7 +126,11 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.pages.review.show', ['review' => $review->uuid]) }}"
-                                                    class="btn btn-xs btn-secondary"><i class="mdi mdi-pencil"></i></a>
+                                                    class="btn btn-xs btn-secondary ml-2"><i class="mdi mdi-pencil"></i></a>
+
+                                                <a href="#custom-modal" data-animation="slide" data-plugin="custommodal"
+                                                    data-overlaycolor="#38414a" class="btn btn-xs btn-secondary"><i
+                                                        class="mdi mdi-delete"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -146,4 +152,46 @@
             </div>
         </div>
     </div>
+
+    <!-- Custom Modal -->
+    <div id="custom-modal" class="modal-demo">
+        <button type="button" class="close" onclick="Custombox.modal.close();">
+            <span>&times;</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="custom-modal-title bg-success">Bạn có chắc không?</h4>
+        <div class="custom-modal-text">
+            Bạn sẽ không thể khôi phục review đã xóa!
+            <div class="mt-1 d-flex d-flex justify-content-center">
+                <button class="btn btn-primary mt-4 mr-2 w-25" onclick="Custombox.modal.close();">Không</button>
+                <button class="btn btn-danger mt-4 ml-2 w-25" id="btnDelete">Có</button>
+            </div>
+
+        </div>
+    </div>
 @endsection
+@push('script')
+    <script type="text/javascript">
+        function closeModal() {
+            Custombox.modal.close();
+        }
+        $(document).ready(function() {
+            $('#btnDelete').click(function() {
+                $.ajax({
+                    url: "{{ route('admin.pages.review.destroy', ['review' => $review->uuid]) }}",
+                    type: 'DELETE',
+                    data: {
+                        _token: "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        closeModal();
+                        window.location.href = "{{ route('admin.pages.review.index') }}";
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText);
+                        closeModal();
+                    }
+                });
+            });
+        });
+    </script>
+@endpush
