@@ -63,8 +63,9 @@
                                     @foreach ($reviews as $review)
                                         <tr>
                                             <td>
-                                                <img src="{{ $review->image?->url ? asset('../..' . Storage::url($review->image->url)) : asset('../bootstrapv1/img/about.jpg') }}"
-                                                    class="img-thumbnail" alt="profile-image" style="width: 8rem">
+                                                <img src="{{ asset('../..' . Storage::url($review->image->url)) }}"
+                                                    alt="" width="50" height="50"
+                                                    class="rounded-circle img-thumbnail avatar-lg">
                                             </td>
                                             <td>
                                                 <h5 class="m-0 font-weight-normal">{{ $review->customer_name }}</h5>

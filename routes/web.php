@@ -76,7 +76,7 @@ Route::prefix('admins')->name('admin.')->group(function () {
             Route::get('/', [ReviewController::class, 'index'])->name('review.index');
             Route::post('/', [ReviewController::class, 'store'])->name('review.store');
             Route::get('/{review}', [ReviewController::class, 'show'])->name('review.show');
-            Route::put('/{review}', [ReviewController::class, 'show'])->name('review.update');
+            Route::put('/{review}', [ReviewController::class, 'update'])->name('review.update');
             Route::delete('/{review}', [ReviewController::class, 'destroy'])->name('review.destroy');
         });
 

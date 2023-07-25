@@ -76,11 +76,14 @@
                                     @endphp
                                 </span>
                             </p>
+                            <p class="text-muted mb-2 font-13"><strong>Nội dung đánh giá :</strong> <span
+                                class="ml-2 ">{{ $review->comment }}</span></p>
+                            </p>
                             <p class="text-muted mb-2 font-13"><strong>Ngày tạo :</strong> <span
                                     class="ml-2 ">{{ $review->created_at }}</span></p>
                             </p>
-                            <p class="text-muted mb-2 font-13"><strong>Nội dung đánh giá :</strong> <span
-                                    class="ml-2 ">{{ $review->comment }}</span></p>
+                            <p class="text-muted mb-2 font-13"><strong>Ngày cập nhật :</strong> <span
+                                    class="ml-2 ">{{ $review->updated_at }}</span></p>
                             </p>
                         </div>
                     </div> <!-- end card-box -->
@@ -102,28 +105,98 @@
                         </ul>
                         <!-- end card-->
 
-                        <div class="card-body">
-                            <h4 class="header-title m-t-0 mb-1">Tải lên file Logo</h4>
-                            <form action="{{ route('admin.pages.logo.update', ['page' => 'logo']) }}" method="POST"
-                                class="dropzone" id="myAwesomeDropzone" data-previews-container="#file-previews"
-                                data-upload-preview-template="#uploadPreviewTemplate" enctype="multipart/form-data">
-                                @csrf
-                                @method('PUT')
-                                <div class="fallback">
-                                    <input name="file" type="file" id="file">
-                                </div>
+                        <div class="tab-content">
+                            <div class="tab-pane show active" id="settings">
+                                <form method="POST"
+                                    action="{{ route('admin.pages.review.update', ['review' => $review->uuid]) }}"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
 
-                                <div class="dz-message needsclick">
-                                    <p class="h1 text-muted"><i class="mdi mdi-cloud-upload"></i></p>
-                                    <h3>Kéo thả file logo ở đây hoặc bấm vào để tải lên.</h3>
-                                </div>
-                            </form>
+                                    <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-account-circle mr-1"></i>
+                                        Thông tin cá nhân</h5>
 
-                            <div class="text-lg-right mt-1">
-                                <button id="uploadFile" class="btn btn-primary mt-2"><i class="mdi mdi-content-save"></i>
-                                    Lưu</button>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="firstname">Họ và tên</label>
+                                                <input type="text" class="form-control" name="customer_name"
+                                                    id="customer_name" placeholder="Họ và tên"
+                                                    value="{{ $review->customer_name }}">
+                                                @if ($errors->has('customer_name'))
+                                                    <strong
+                                                        class="text-danger">{{ $errors->first('customer_name') }}</strong>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="useremail">Email Address</label>
+                                                <input type="email" class="form-control" name="customer_email"
+                                                    id="customer_email" placeholder="Email"
+                                                    value="{{ $review->customer_email }}">
+                                                @if ($errors->has('customer_email'))
+                                                    <strong
+                                                        class="text-danger">{{ $errors->first('customer_email') }}</strong>
+                                                @endif
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="example-fileinput">Hình ảnh đại diện</label>
+                                                <input type="file" class="form-control" name="file" id="file"
+                                                    value="{{ $review->image?->url }}"
+                                                    style="padding: 0.25rem 0.9rem 0.45rem 0.2rem">
+                                                @if ($errors->has('file'))
+                                                    <strong class="text-danger">{{ $errors->first('file') }}</strong>
+                                                @endif
+                                                @if ($review->image && $review->image->url)
+                                                    <img src="{{ asset('../..' . Storage::url($review->image->url)) }}"
+                                                        alt="" width="50" height="50"
+                                                        class="rounded-circle img-thumbnail avatar-lg mt-1">
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="useremail">Số sao đánh giá</label>
+                                                <input type="text" class="form-control" name="stars" id="stars"
+                                                    placeholder="Số sao đánh giá" value="{{ $review->stars }}">
+                                                @if ($errors->has('stars'))
+                                                    <strong class="text-danger">{{ $errors->first('stars') }}</strong>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card border-0">
+                                                <div class="card-body p-0">
+                                                    <label for="userbio">Mô tả</label>
+
+                                                    <textarea class="form-control" name="comment" rows="10" placeholder="Viết mô tả về chính bạn...">{{ $review->comment }}</textarea>
+                                                    @if ($errors->has('comment'))
+                                                        <strong
+                                                            class="text-danger">{{ $errors->first('comment') }}</strong>
+                                                    @endif
+                                                </div> <!-- end card-body-->
+                                            </div> <!-- end card-->
+                                        </div><!-- end col -->
+                                    </div>
+
+                                    <div class="text-left">
+                                        <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i
+                                                class="mdi mdi-content-save"></i> Lưu</button>
+                                    </div>
+                                </form>
                             </div>
-                        </div>
+                            <!-- end settings content-->
+
+                        </div> <!-- end tab-content -->
                     </div> <!-- end card-box-->
                     <!-- end row -->
                 </div> <!-- end col -->

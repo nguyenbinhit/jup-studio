@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Admins\Pages;
 
 use App\Http\Controllers\BaseController;
+use App\Http\Requests\Admins\Page\ReviewUpdateRequest;
+use App\Models\Image;
 use App\Models\Review;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ReviewController extends BaseController
 {
@@ -61,10 +64,41 @@ class ReviewController extends BaseController
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param ReviewUpdateRequest $request
+     * @param Review $review
+     * @return void
      */
-    public function update(Request $request, Review $review)
+    public function update(ReviewUpdateRequest $request, Review $review)
     {
-        //
+        $data = $request->safe()->all();
+
+        if (isset($data['customer_email']) && $data['customer_email'] === $review->customer_email) {
+            unset($data['customer_email']);
+        }
+
+        if (isset($data['file'])) {
+            if ($data['file']) {
+                $file = $data['file'];
+
+                $path = Storage::putFileAs('public/uploads', $data['file'], $file->hashName());
+
+                $image = Image::create([
+                    'name' => $file->hashName(),
+                    'alt' => $file->getClientOriginalName(),
+                    'url' => $path,
+                    'size' => $file->getSize(),
+                ]);
+
+                $data['image_id'] = $image->id;
+            }
+
+            unset($data['file']);
+        }
+
+        $review->update($data);
+
+        return redirect()->route('admin.pages.review.show', ['review' => $review->uuid])->with('success', 'Cập nhật thành công review: #' . $review->id . 'R' . $review->stars);
     }
 
     /**
