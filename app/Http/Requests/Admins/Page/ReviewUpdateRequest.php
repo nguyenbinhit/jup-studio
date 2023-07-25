@@ -26,7 +26,7 @@ class ReviewUpdateRequest extends FormRequest
             'customer_email' => ['email'],
             'file' => ['image'],
             'comment' => ['string', 'nullable'],
-            'stars' => ['integer']
+            'stars' => ['integer', 'min:1', 'max:5']
         ];
     }
 }

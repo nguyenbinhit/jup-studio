@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admins\Pages;
 
 use App\Http\Controllers\BaseController;
+use App\Http\Requests\Admins\Page\ReviewStoreRequest;
 use App\Http\Requests\Admins\Page\ReviewUpdateRequest;
 use App\Models\Image;
 use App\Models\Review;
@@ -21,7 +22,7 @@ class ReviewController extends BaseController
     public function index(Request $request): View
     {
         $sort = $request->input('sort', $this->sort);
-        $limit = $request->input('limit', $this->count);
+        $limit = $request->input('limit', 5);
         $sortBy = $request->input('sortBy', $this->sortBy);
         // $search = $request->input('s'); // TODO: Add search and filter
 
@@ -32,18 +33,46 @@ class ReviewController extends BaseController
 
     /**
      * Show the form for creating a new resource.
+     *
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('admins.body.page.review-store');
     }
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param ReviewStoreRequest $request
+     * @return redirect
      */
-    public function store(Request $request)
+    public function store(ReviewStoreRequest $request)
     {
-        //
+        $data = $request->safe()->all();
+
+        if (isset($data['file'])) {
+            if ($data['file']) {
+                $file = $data['file'];
+
+                $path = Storage::putFileAs('public/uploads', $data['file'], $file->hashName());
+
+                $image = Image::create([
+                    'name' => $file->hashName(),
+                    'alt' => $file->getClientOriginalName(),
+                    'url' => $path,
+                    'size' => $file->getSize(),
+                ]);
+
+                $data['image_id'] = $image->id;
+            }
+
+            unset($data['file']);
+        }
+
+        $review = Review::create($data);
+
+        return redirect()->route('admin.pages.review.show', ['review' => $review->uuid])->with('success', 'Tạo mới thành công review: #' . $review->id . 'R' . $review->stars);
     }
 
     /**
@@ -67,7 +96,7 @@ class ReviewController extends BaseController
      *
      * @param ReviewUpdateRequest $request
      * @param Review $review
-     * @return void
+     * @return redirect
      */
     public function update(ReviewUpdateRequest $request, Review $review)
     {

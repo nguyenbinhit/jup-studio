@@ -11,11 +11,12 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">JupStudio</a></li>
-                                <li class="breadcrumb-item active">Reviews</li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">{{ env('WEBSITE_NAME') }}</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Reviews</a></li>
+                                <li class="breadcrumb-item active">Cập nhật review</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Chi tiết review #{{ $review->id }}R{{ $review->stars }}</h4>
+                        <h4 class="page-title">Chi tiết review (ID: #{{ $review->id }}R{{ $review->stars }})</h4>
                     </div>
                 </div>
             </div>
@@ -77,7 +78,7 @@
                                 </span>
                             </p>
                             <p class="text-muted mb-2 font-13"><strong>Nội dung đánh giá :</strong> <span
-                                class="ml-2 ">{{ $review->comment }}</span></p>
+                                    class="ml-2 ">{{ $review->comment }}</span></p>
                             </p>
                             <p class="text-muted mb-2 font-13"><strong>Ngày tạo :</strong> <span
                                     class="ml-2 ">{{ $review->created_at }}</span></p>
@@ -113,8 +114,8 @@
                                     @csrf
                                     @method('PUT')
 
-                                    <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-account-circle mr-1"></i>
-                                        Thông tin cá nhân</h5>
+                                    <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-star-circle mr-1"></i>
+                                        Thông tin review</h5>
 
                                     <div class="row">
                                         <div class="col-md-6">
@@ -163,8 +164,8 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="useremail">Số sao đánh giá</label>
-                                                <input type="text" class="form-control" name="stars" id="stars"
-                                                    placeholder="Số sao đánh giá" value="{{ $review->stars }}">
+                                                <input type="number" class="form-control" name="stars" id="stars"
+                                                    placeholder="Số sao đánh giá" value="{{ $review->stars }}" min="1" max="5">
                                                 @if ($errors->has('stars'))
                                                     <strong class="text-danger">{{ $errors->first('stars') }}</strong>
                                                 @endif
@@ -177,8 +178,7 @@
                                             <div class="card border-0">
                                                 <div class="card-body p-0">
                                                     <label for="userbio">Mô tả</label>
-
-                                                    <textarea class="form-control" name="comment" rows="10" placeholder="Viết mô tả về chính bạn...">{{ $review->comment }}</textarea>
+                                                    <textarea class="form-control" name="comment" rows="10" placeholder="Đánh giá của khách hàng...">{{ $review->comment }}</textarea>
                                                     @if ($errors->has('comment'))
                                                         <strong
                                                             class="text-danger">{{ $errors->first('comment') }}</strong>

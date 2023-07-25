@@ -11,7 +11,7 @@ class ReviewStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return auth()->user() ? true : false;
     }
 
     /**
@@ -22,7 +22,11 @@ class ReviewStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'customer_name' => ['required', 'string'],
+            'customer_email' => ['required', 'email', 'unique:reviews,customer_email'],
+            'file' => ['required', 'image'],
+            'comment' => ['string', 'nullable'],
+            'stars' => ['required', 'integer', 'min:1', 'max:5']
         ];
     }
 }

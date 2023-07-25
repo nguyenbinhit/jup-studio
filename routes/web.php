@@ -74,6 +74,7 @@ Route::prefix('admins')->name('admin.')->group(function () {
 
         Route::prefix('review-pages')->name('pages.')->group(function () {
             Route::get('/', [ReviewController::class, 'index'])->name('review.index');
+            Route::get('/create', [ReviewController::class, 'create'])->name('review.create');
             Route::post('/', [ReviewController::class, 'store'])->name('review.store');
             Route::get('/{review}', [ReviewController::class, 'show'])->name('review.show');
             Route::put('/{review}', [ReviewController::class, 'update'])->name('review.update');

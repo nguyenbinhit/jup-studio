@@ -33,7 +33,7 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="text-lg-right mt-3 mt-lg-0">
-                                    <a href="{{ route('admin.pages.review.store') }}" class="btn btn-danger waves-effect"
+                                    <a href="{{ route('admin.pages.review.create') }}" class="btn btn-danger waves-effect"
                                         data-animation="fadein" data-overlaycolor="#38414a"><i
                                             class="mdi mdi-plus-circle mr-1"></i> Thêm mới</a>
                                 </div>
@@ -133,6 +133,16 @@
                         </div> <!-- end .table-responsive-->
                     </div> <!-- end card-box-->
                 </div> <!-- end col -->
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-12">
+                    <div class="text-right">
+                        <div class="d-flex justify-content-end">
+                            {!! $reviews->links() !!}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
