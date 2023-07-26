@@ -28,7 +28,7 @@
                                 <form class="form-inline">
                                     <div class="form-group">
                                         <label for="inputPassword2" class="sr-only">Tìm kiếm</label>
-                                        <input type="text" class="form-control" id="search" name="s"
+                                        <input type="text" class="form-control" id="searchReview" name="s"
                                             placeholder="Tìm kiếm reviews...">
                                     </div>
                                 </form>
@@ -61,7 +61,7 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="row-list-reviews">
                                     @foreach ($reviews as $review)
                                         <tr>
                                             <td>
@@ -174,6 +174,7 @@
         function closeModal() {
             Custombox.modal.close();
         }
+
         $(document).ready(function() {
             $('#btnDelete').click(function() {
                 $.ajax({
@@ -191,6 +192,123 @@
                         closeModal();
                     }
                 });
+            });
+        });
+
+        $(document).ready(function() {
+            function fetch_data_search(query) {
+                $.ajax({
+                    url: "{{ route('admin.pages.review.search') }}",
+                    method: "GET",
+                    data: {
+                        s: query
+                    },
+                    dataType: 'json',
+                    success: function(reviews) {
+                        var reviewHtml = '';
+
+                        $.each(reviews.data, function(index, review) {
+                            var url = '';
+                            var imagePath = '';
+                            if (review.image && review.image.url) {
+                                var urls = (review.image.url).split('/');
+                                url = urls[1] + '/' + urls[2];
+                                imagePath = `{{ asset('../..' . Storage::url('${url}')) }}`;
+                            } else {
+                                var imagePath =
+                                    "{{ asset('../../bootstrap-admin/images/users/avatar-9.jpg') }}";
+                            }
+
+                            var start = '';
+                            switch (review.stars) {
+                                case 1:
+                                    start += `
+                                        <i class="fa fa-star" style="color: #84a1d2"></i> (1)
+                                    `;
+                                    break;
+                                case 2:
+                                    start += `
+                                            <i class="fa fa-star" style="color: #84a1d2"></i>
+                                            <i class="fa fa-star" style="color: #84a1d2"></i> (2)
+                                        `;
+                                    break;
+                                case 3:
+                                    start += `
+                                            <i class="fa fa-star" style="color: #84a1d2"></i>
+                                            <i class="fa fa-star" style="color: #84a1d2"></i>
+                                            <i class="fa fa-star" style="color: #84a1d2"></i> (3)
+                                        `;
+                                    break;
+                                case 4:
+                                    start += `
+                                            <i class="fa fa-star" style="color: #84a1d2"></i>
+                                            <i class="fa fa-star" style="color: #84a1d2"></i>
+                                            <i class="fa fa-star" style="color: #84a1d2"></i>
+                                            <i class="fa fa-star" style="color: #84a1d2"></i> (4)
+                                        `;
+                                    break;
+                                case 5:
+                                    start += `
+                                            <i class="fa fa-star" style="color: #84a1d2"></i>
+                                            <i class="fa fa-star" style="color: #84a1d2"></i>
+                                            <i class="fa fa-star" style="color: #84a1d2"></i>
+                                            <i class="fa fa-star" style="color: #84a1d2"></i>
+                                            <i class="fa fa-star" style="color: #84a1d2"></i> (5)
+                                        `;
+                                    break;
+                                default:
+                                    break;
+                            }
+
+                            reviewHtml += `
+                                <tr>
+                                    <td>
+                                        <img src="${imagePath}"
+                                            alt="" width="50" height="50"
+                                            class="rounded-circle img-thumbnail avatar-lg">
+                                    </td>
+                                    <td>
+                                        <h5 class="m-0 font-weight-normal">${review.customer_name}</h5>
+                                    </td>
+                                    <td>
+                                        <h5 class="m-0 font-weight-normal">${review.customer_email}</h5>
+                                    </td>
+                                    <td>
+                                        ${start}
+                                    </td>
+                                    <td>
+                                        <div
+                                            style="white-space: nowrap;
+                                        width: 250px;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;">
+
+                                            ${review.comment}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="/admins/review-pages/${review.uuid}" class="btn btn-xs btn-secondary ml-2"><i class="mdi mdi-pencil"></i></a>
+
+                                        <a href="#custom-modal" data-animation="slide" data-plugin="custommodal"
+                                            data-overlaycolor="#38414a" class="btn btn-xs btn-secondary"><i
+                                                class="mdi mdi-delete"></i></a>
+                                    </td>
+                                </tr>
+                            `;
+
+                            $('#row-list-reviews').html(reviewHtml);
+                        });
+                    },
+                    error: function(error) {
+                        console.log(error)
+                    }
+                });
+            }
+
+            $(document).on('keyup', '#searchReview', function() {
+                var query = $(this).val();
+
+                fetch_data_search(query);
             });
         });
     </script>

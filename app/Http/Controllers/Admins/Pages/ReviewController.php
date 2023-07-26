@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admins\Pages;
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\Admins\Page\ReviewStoreRequest;
 use App\Http\Requests\Admins\Page\ReviewUpdateRequest;
+use App\Http\Resources\Admins\Pages\ReviewResource;
 use App\Models\Image;
 use App\Models\Review;
 use Illuminate\Contracts\View\View;
@@ -24,11 +25,34 @@ class ReviewController extends BaseController
         $sort = $request->input('sort', $this->sort);
         $limit = $request->input('limit', 5);
         $sortBy = $request->input('sortBy', $this->sortBy);
-        // $search = $request->input('s'); // TODO: Add search and filter
 
         $reviews = Review::orderBy($sortBy, $sort)->paginate($limit)->withQueryString();
 
         return view('admins.body.page.review', compact('reviews'));
+    }
+
+    /**
+     * Search reviews
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function search(Request $request)
+    {
+        $sort = $request->input('sort', $this->sort);
+        $limit = $request->input('limit', $this->count);
+        $sortBy = $request->input('sortBy', $this->sortBy);
+        $search = $request->input('s');
+
+        $reviews = Review::with('image')
+            ->where('customer_name', 'like', '%' . $search . '%')
+            ->orWhere('customer_email', 'like', '%' . $search . '%')
+            ->orWhere('stars', 'like', '%' . $search . '%')
+            ->orderBy($sortBy, $sort)
+            ->paginate($limit)
+            ->withQueryString();
+
+        return ReviewResource::collection($reviews)->additional(['message' => 'Retrieved successfully']);
     }
 
     /**

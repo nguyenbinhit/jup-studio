@@ -127,7 +127,7 @@
 @push('script')
     <script type="text/javascript">
         $(document).ready(function() {
-            function fetch_customer_data(query = '') {
+            function fetch_data_search(query) {
                 $.ajax({
                     url: "{{ route('admin.employees.search') }}",
                     method: "GET",
@@ -141,13 +141,18 @@
                         var employeeHtml = '';
 
                         $.each(employees.data, function(index, employee) {
-                            console.log(employee)
-                            var imagePath = employee.image && employee.image.url ?
-                                `{{ asset('../..' . Storage::url('${employee.image.url}')) }}` :
-                                "{{ asset('../../bootstrap-admin/images/users/avatar-9.jpg') }}";
+                            var url = '';
+                            var imagePath = '';
+                            if (employee.image && employee.image.url) {
+                                var urls = (employee.image.url).split('/');
+                                url = urls[1] + '/' + urls[2];
+                                imagePath = `{{ asset('../..' . Storage::url('${url}')) }}`;
+                            } else {
+                                var imagePath =
+                                    "{{ asset('../../bootstrap-admin/images/users/avatar-9.jpg') }}";
+                            }
 
-
-                             employeeHtml += `
+                            employeeHtml += `
                                 <div class="col-lg-4" id="list-employees">
                                     <div class="text-center card-box ribbon-box">
                                         ${
@@ -206,7 +211,9 @@
             $(document).on('keyup', '#search', function() {
                 var query = $(this).val();
 
-                fetch_customer_data(query);
+                if (query) {
+                    fetch_data_search(query);
+                }
             });
         });
     </script>
