@@ -287,7 +287,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="text-right">
+                                    <div class="text-left">
                                         <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i
                                                 class="mdi mdi-content-save"></i> Lưu</button>
                                     </div>
