@@ -8,6 +8,7 @@ use App\Http\Controllers\Admins\PageController;
 use App\Http\Controllers\Admins\Pages\AboutController;
 use App\Http\Controllers\Admins\Pages\HomeController as PagesHomeController;
 use App\Http\Controllers\Admins\Pages\LogoController;
+use App\Http\Controllers\Admins\Pages\ReviewController;
 use App\Http\Controllers\Admins\PlanController;
 use App\Http\Controllers\Admins\UserController;
 use App\Http\Controllers\Client\ClientHomeController;
@@ -65,22 +66,29 @@ Route::prefix('admins')->name('admin.')->group(function () {
             Route::put('/{page:slug}', [LogoController::class, 'update'])->name('logo.update');
         });
 
-
         Route::prefix('home-pages')->name('pages.')->group(function () {
             Route::get('/{page:slug}', [PagesHomeController::class, 'show'])->name('home.show');
             Route::put('/{page:slug}', [PagesHomeController::class, 'update'])->name('home.update');
         });
 
+        Route::prefix('review-pages')->name('pages.')->group(function () {
+            Route::get('/', [ReviewController::class, 'index'])->name('review.index');
+            Route::get('review-search', [ReviewController::class, 'search'])->name('review.search');
+            Route::get('/create', [ReviewController::class, 'create'])->name('review.create');
+            Route::post('/', [ReviewController::class, 'store'])->name('review.store');
+            Route::get('/{review}', [ReviewController::class, 'show'])->name('review.show');
+            Route::put('/{review}', [ReviewController::class, 'update'])->name('review.update');
+            Route::delete('/{review}', [ReviewController::class, 'destroy'])->name('review.destroy');
+        });
 
         Route::prefix('about-pages')->name('pages.')->group(function () {
             Route::get('/{page:slug}', [AboutController::class, 'show'])->name('about.show');
             Route::put('/{page:slug}', [AboutController::class, 'update'])->name('about.update');
         });
 
-
         Route::resource('users', UserController::class); // tk user
         Route::get('users-search', [UserController::class, 'search'])->name('users.search'); // users
-
+      
         Route::post('/logout', [UserController::class, 'logout'])->name('logout');
     });
 });
