@@ -41,8 +41,10 @@
                                         <div class="form-group ">
                                             <label for="nameprice">Tên bảng giá</label>
                                             <input type="text" class="form-control" id="name" name="name"
-                                                placeholder="Tên bảng giá" value="" required>
-
+                                                placeholder="Tên bảng giá" value="" required="">
+                                                <div class="invalid-feedback" required>
+                                                    Vui lòng không để trống tên.
+                                                </div>
                                             @if ($errors->has('name'))
                                             <strong class="text-danger"> {{ $errors->first('name') }}</strong>
                                             @endif
@@ -53,8 +55,10 @@
                                         <div class="form-group">
                                             <label for="price">Giá</label>
                                             <input type="text" class="form-control" id="price" name="price"
-                                                placeholder="Giá" value="" required>
-
+                                                placeholder="Giá" value="" required="">
+                                                <div class="invalid-feedback" required>
+                                                    Vui lòng không để trông giá.
+                                                </div>
                                             @if ($errors->has('price'))
                                             <strong class="text-danger"> {{ $errors->first('price') }}</strong>
                                             @endif
@@ -82,7 +86,7 @@
                                         <div class="form-group">
                                             <label for="first">Một</label>
                                             <input type="text" class="form-control" id="first" name="benefits[first]"
-                                                placeholder="" value="" required>
+                                                placeholder="" value="" required="">
                                                 <div class="invalid-feedback" required>
                                                     Vui lòng nhập giá trị
                                                 </div>
