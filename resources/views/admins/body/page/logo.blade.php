@@ -82,10 +82,9 @@
                                 </div>
                             </form>
 
-                            <div class="text-lg-right mt-1">
-                                <button id="uploadFile" class="btn btn-primary mt-2"><i class="mdi mdi-content-save"></i>
-                                    Lưu</button>
-                            </div>
+                            <button id="uploadFile" class="btn btn-success mt-3"><i class="mdi mdi-content-save"></i>
+                                Lưu</button>
+
                         </div>
                     </div> <!-- end card-box-->
                     <!-- end row -->

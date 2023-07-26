@@ -12,10 +12,11 @@
          <div class="row wow fadeInUp team" data-wow-delay="300">
 
              @foreach ($employees as $key => $item)
+
                  @if ($key % 2 == 0)
                      <div class="col-lg-6 col-xl-3 p-0  ml-md-auto mr-md-0 mx-auto">
                          <div class="team-image">
-                             <img src="{{ asset('../bootstrapv1/img/team1.jpg') }}" alt="team1"
+                             <img src="{{ $item->image?->url ? asset('../..' . Storage::url($item->image->url)) : asset('../bootstrapv1/img/team1.jpg') }}" alt="team1"
                                  class="m-image{{ $key + 1 }}">
                          </div>
                          <div class="team-classic-content  pink">

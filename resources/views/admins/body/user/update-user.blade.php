@@ -92,7 +92,7 @@
                                         </div>
                                     </div>
                                     @if (auth()->user()->email === 'administrator@gmail.com')
-                                        <div class="text-right">
+                                        <div class="text-left">
                                             <button type="submit" class="btn btn-success waves-effect mt-2"><i
                                                     class="mdi mdi-content-save"></i> Lưu</button>
                                         </div>
