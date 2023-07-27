@@ -66,16 +66,16 @@ class UserController extends BaseController
     /**
      * Store a newly created resource in storage.
      * @param StoreRequest  $request
-     * @return View
+     * @return void
      */
-    public function store(StoreRequest $request): View
+    public function store(StoreRequest $request)
     {
         $data = $request->safe()->all();
 
         $data['password'] = Hash::make($data['password']);
 
         $user = User::create($data);
-        return view('admins.body.user.update-user', ['user' => $user]);
+        return redirect()->route ('admin.users.show', ['user' => $user])->with('success', 'Tạo thành công tài khoản (' . $user->name . ')');
     }
 
     /**
@@ -100,9 +100,9 @@ class UserController extends BaseController
      * Update the specified resource in storage.
      * @param UpdateRequest $request
      * @param User $plan
-     * @return View
+     * @return void
      */
-    public function update(UpdateRequest $request, User $user): View
+    public function update(UpdateRequest $request, User $user)
     {
         $data = $request->safe()->all();
 
@@ -118,7 +118,7 @@ class UserController extends BaseController
 
         $user->update($data);
 
-        return view('admins.body.user.update-user', ['user' => $user]);
+        return redirect()-> route('admin.users.show', ['user' => $user])->with('success', 'Cập nhật thành công tài khoản (' . $user->name . ')');
     }
 
     /**

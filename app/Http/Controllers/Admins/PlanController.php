@@ -40,13 +40,13 @@ class PlanController extends BaseController
     /**
      * Store a newly created resource in storage.
      * @param StoreRequest $request
-     * @return View
+     * @return void
      */
-    public function store(StoreRequest $request): View
+    public function store(StoreRequest $request)
     {
         $data = $request->safe()->all();
         $plan = Plan::create($data);
-        return view('admins.body.plan.update-pricing', ['plan' => $plan]);
+        return redirect()->route('admin.plans.show', ['plan' => $plan])->with('success', 'Tạo thành công bảng giá (' . $plan->name . ')');
     }
 
     /**
@@ -57,7 +57,7 @@ class PlanController extends BaseController
      */
     public function show(Plan $plan)
     {
-        return view('admins.body.plan.update-pricing', ['plan' => $plan]);
+        return  view('admins.body.plan.update-pricing', ['plan' => $plan]);
     }
 
     /**
@@ -72,14 +72,14 @@ class PlanController extends BaseController
      * Update the specified resource in storage.
      * @param UpdateRequest $request
      * @param Plan $plan
-     * @return View
+     * @return void
      */
-    public function update(UpdateRequest $request, Plan $plan): View
+    public function update(UpdateRequest $request, Plan $plan)
     {
         $data = $request->safe()->all();
         $plan->update($data);
 
-        return view('admins.body.plan.update-pricing', ['plan' => $plan]);
+        return redirect()->route('admin.plans.show', ['plan' => $plan])->with('success', 'Cập nhật thành công bảng giá (' . $plan->name . ')');
     }
 
     /**
@@ -89,6 +89,6 @@ class PlanController extends BaseController
     {
         $plan->delete();
 
-        return response()->json(['message'=>'Đã xóa thành công!']);
+        return response()->json(['message' => 'Đã xóa thành công!']);
     }
 }

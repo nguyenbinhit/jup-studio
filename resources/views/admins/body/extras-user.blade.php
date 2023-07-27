@@ -35,7 +35,7 @@
                             @if (auth()->user()->email === 'administrator@gmail.com')
                                 <div class="col-lg-4">
                                     <div class="text-lg-right mt-3 mt-lg-0">
-                                        <a href="{{ route('admin.users.create') }}" class="btn btn-danger waves-effect"
+                                        <a href="{{ route('admin.users.create') }}" class="btn btn-success waves-effect"
                                             data-animation="fadein" data-overlaycolor="#38414a"><i
                                                 class="mdi mdi-plus-circle mr-1"></i> Thêm mới</a>
                                     </div>
@@ -74,7 +74,7 @@
                                                         <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}"
                                                             class="btn btn-xs btn-secondary"><i
                                                                 class="mdi mdi-pencil"></i></a>
-                                                    </div>                                                 
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>
@@ -113,9 +113,9 @@
                     success: function(users) {
                         // Clear the existing user list
                         var userHtml = '';
-                        $.each(users.data, function(index, user) {                       
+                        $.each(users.data, function(index, user) {
                              userHtml += `
-                                                     
+
                                         <tr>
                                             <td class="text-muted font-13">
                                                ${user.name}
@@ -128,10 +128,10 @@
                                                         <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}"
                                                             class="btn btn-xs btn-secondary"><i
                                                                 class="mdi mdi-pencil"></i></a>
-                                                    </div>                                             
+                                                    </div>
                                                 </div>
                                             </td>
-                                        </tr>                                                
+                                        </tr>
                             `;
 
                             $('#body-list-users').html(userHtml);

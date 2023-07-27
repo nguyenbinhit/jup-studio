@@ -28,7 +28,7 @@
                     <!-- Pricing Title-->
 
                     <div class="text-lg-right mt-3 mt-lg-0">
-                        <a href="{{ route('admin.plans.create') }}" class="btn btn-danger waves-effect"
+                        <a href="{{ route('admin.plans.create') }}" class="btn btn-success waves-effect"
                             data-animation="fadein" data-overlaycolor="#38414a"><i class="mdi mdi-plus-circle mr-1"></i>
                             Thêm mới</a>
                     </div>
@@ -103,11 +103,11 @@
 @endsection
 @push('script')
     <script type="text/javascript">
-   
+
         function closeModal() {
         Custombox.modal.close();
         }
-        $(document).ready(function() {           
+        $(document).ready(function() {
             $('#btnDelete').click(function() {
                 $.ajax({
                     url: "{{ route('admin.plans.destroy', ['plan' => $price->uuid]) }}",

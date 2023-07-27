@@ -19,6 +19,8 @@
             </div>
             <!-- end page title -->
 
+            @include('admins.body.notification')
+
             <div class="row">
                 <div class="col-lg-4 col-xl-4">
                     <div class="card-box text-center ribbon-box">
