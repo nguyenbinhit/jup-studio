@@ -4,7 +4,6 @@ use App\Http\Controllers\Admins\EmployeeController;
 use App\Http\Controllers\Admins\FileManagerController;
 use App\Http\Controllers\Admins\HomeController;
 use App\Http\Controllers\Admins\LoginController;
-use App\Http\Controllers\Admins\PageController;
 use App\Http\Controllers\Admins\Pages\AboutController;
 use App\Http\Controllers\Admins\Pages\HomeController as PagesHomeController;
 use App\Http\Controllers\Admins\Pages\LogoController;
@@ -60,7 +59,6 @@ Route::prefix('admins')->name('admin.')->group(function () {
 
         Route::get('contacts', [ContactController::class, 'index'])->name('contacts.index');
 
-        Route::resource('pages', PageController::class); // Trang tĩnh
         Route::prefix('logo-pages')->name('pages.')->group(function () {
             Route::get('/{page:slug}', [LogoController::class, 'show'])->name('logo.show');
             Route::put('/{page:slug}', [LogoController::class, 'update'])->name('logo.update');
@@ -88,7 +86,7 @@ Route::prefix('admins')->name('admin.')->group(function () {
 
         Route::resource('users', UserController::class); // tk user
         Route::get('users-search', [UserController::class, 'search'])->name('users.search'); // users
-      
+
         Route::post('/logout', [UserController::class, 'logout'])->name('logout');
     });
 });

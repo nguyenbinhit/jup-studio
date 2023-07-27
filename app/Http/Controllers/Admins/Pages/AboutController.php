@@ -85,7 +85,7 @@ class AboutController extends BaseController
 
         $page->update($data);
 
-        return redirect()->route('admin.pages.about.show', ['page' => $page->slug])->with('success', 'Cập nhật thành công trang tĩnh (' . $page->name . ')');
+        return redirect()->route('admin.pages.about.show', ['page' => $page->slug])->with('success', 'Cập nhật thành công trang giới thiệu');
     }
 
     /**
