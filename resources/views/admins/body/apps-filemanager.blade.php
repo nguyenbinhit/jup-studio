@@ -36,8 +36,8 @@
                                         <tr>
                                             <td>
                                                 <img src="{{ asset('../..' . Storage::url($image->url)) }}" height="30"
-                                                    alt="icon" class="mr-2">
-                                                <a href="javascript:void(0);" class="text-dark">{{ $image->alt }}</a>
+                                                    alt="{{ $image->alt }}" class="mr-2">
+                                                <a href="javascript:void(0);" class="text-dark">{{ $image->name }}</a>
                                             </td>
                                             <td class="text-muted font-13">{{ $image->created_at }}</td>
 
