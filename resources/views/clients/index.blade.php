@@ -71,6 +71,8 @@
     <!-- Modal-Effect -->
     <script src="{{ asset('../bootstrap-admin/libs/custombox/custombox.min.js') }}"></script>
     <!-- end modal -->
+    <link rel="shortcut icon" href="assets\images\favicon.ico">
+
 </head>
 
 <body data-spy="scroll" data-target=".navbar-nav" data-offset="90">
