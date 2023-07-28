@@ -31,7 +31,7 @@ class UserController extends BaseController
 
         return view('admins.body.extras-user', compact('users'));
     }
-     /**
+    /**
      * Search user
      *
      * @param Request $request
@@ -75,7 +75,7 @@ class UserController extends BaseController
         $data['password'] = Hash::make($data['password']);
 
         $user = User::create($data);
-        return redirect()->route ('admin.users.show', ['user' => $user])->with('success', 'Tạo thành công tài khoản (' . $user->name . ')');
+        return redirect()->route('admin.users.show', ['user' => $user])->with('success', 'Tạo thành công tài khoản (' . $user->name . ')');
     }
 
     /**
@@ -106,6 +106,10 @@ class UserController extends BaseController
     {
         $data = $request->safe()->all();
 
+        if (auth()->user()->email !== 'administrator@gmail.com' && $user->email !== auth()->user()->email) {
+            return redirect()->route('admin.users.show', ['user' => $user])->with('error', 'Cập nhật tài khoản ' . $user->name . ' thất bại. Bạn không có quyền cập nhật tài khoản này!');
+        }
+
         if ($data['email'] === $user->email && isset($data['email'])) {
             unset($data['email']);
         }
@@ -118,7 +122,7 @@ class UserController extends BaseController
 
         $user->update($data);
 
-        return redirect()-> route('admin.users.show', ['user' => $user])->with('success', 'Cập nhật thành công tài khoản (' . $user->name . ')');
+        return redirect()->route('admin.users.show', ['user' => $user])->with('success', 'Cập nhật thành công tài khoản (' . $user->name . ')');
     }
 
     /**

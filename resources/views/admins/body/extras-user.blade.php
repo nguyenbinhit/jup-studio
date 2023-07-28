@@ -9,11 +9,11 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Jup studio</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">{{ env('WEBSITE_NAME') }}</a></li>
                                 <li class="breadcrumb-item active">Quản lý tài khoản</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Quản lý tài khoản người dùng</h4>
+                        <h4 class="page-title">Quản lý tài khoản đăng nhập ADMIN</h4>
                     </div>
                 </div>
             </div>
@@ -69,13 +69,23 @@
                                             <td class="text-muted font-13">{{ $user->email }}</td>
                                             <td class="text-muted font-13">{{ $user->created_at }}</td>
                                             <td>
-                                                <div class="row">
-                                                    <div class="col-12 col-sm-6">
-                                                        <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}"
-                                                            class="btn btn-xs btn-secondary"><i
-                                                                class="mdi mdi-pencil"></i></a>
+                                                @if (auth()->user()->email === 'administrator@gmail.com')
+                                                    <div class="row">
+                                                        <div class="col-12 col-sm-6">
+                                                            <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}"
+                                                                class="btn btn-xs btn-secondary"><i
+                                                                    class="mdi mdi-pencil"></i></a>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                @elseif (auth()->user()->email === $user->email)
+                                                    <div class="row">
+                                                        <div class="col-12 col-sm-6">
+                                                            <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}"
+                                                                class="btn btn-xs btn-secondary"><i
+                                                                    class="mdi mdi-pencil"></i></a>
+                                                        </div>
+                                                    </div>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach
@@ -113,23 +123,46 @@
                     success: function(users) {
                         // Clear the existing user list
                         var userHtml = '';
+
                         $.each(users.data, function(index, user) {
-                             userHtml += `
+                            var divAction = '';
+
+                            if (user.email === '{{ auth()->user()->email }}') {
+                                divAction = `
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6">
+                                            <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}"
+                                                class="btn btn-xs btn-secondary"><i
+                                                    class="mdi mdi-pencil"></i></a>
+                                        </div>
+                                    </div>
+                                `;
+                            } else if ('{{ auth()->user()->email }}' ===
+                                'administrator@gmail.com') {
+                                divAction = `
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6">
+                                            <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}"
+                                                class="btn btn-xs btn-secondary"><i
+                                                    class="mdi mdi-pencil"></i></a>
+                                        </div>
+                                    </div>
+                                `;
+                            }
+
+                            var created_at = new Date(user.created_at);
+                            created_at = new Intl.DateTimeFormat('en-GB', { dateStyle: 'short', timeStyle: 'medium', timeZone: 'Asia/Ho_Chi_Minh' }).format(created_at);
+
+                            userHtml += `
 
                                         <tr>
                                             <td class="text-muted font-13">
                                                ${user.name}
                                             </td>
                                             <td class="text-muted font-13">${user.email}</td>
-                                            <td class="text-muted font-13">${user.created_at}</td>
+                                            <td class="text-muted font-13">${created_at.toLocaleString()}</td>
                                             <td>
-                                                <div class="row">
-                                                    <div class="col-12 col-sm-6">
-                                                        <a href="{{ route('admin.users.show', ['user' => $user->uuid]) }}"
-                                                            class="btn btn-xs btn-secondary"><i
-                                                                class="mdi mdi-pencil"></i></a>
-                                                    </div>
-                                                </div>
+                                                ${divAction}
                                             </td>
                                         </tr>
                             `;
@@ -148,4 +181,3 @@
         });
     </script>
 @endpush
-
