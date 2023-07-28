@@ -50,17 +50,23 @@
         aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <div class="modal-header" style="display: unset">
+                <div class="modal-header"
+                    style="color:white;display: unset;background: linear-gradient(to bottom right, #004E9A, #4A707A);">
                     <h4 class="modal-title" id="exampleModalScrollableTitle"></h4>
-                    <button type="button" style="position: relative; bottom: 4rem;" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" style="position: relative; bottom: 8rem;
+                    color: white"
+                        class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body pb-0">
+                    
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                <div class=" modal-body-benefits m-auto pb-4">
+
+                </div>
+                <div class=" modal-footer" style="display: unset;">
+
                 </div>
             </div>
         </div>
@@ -73,25 +79,29 @@
             var button = $(event.relatedTarget);
 
             var name = button.data('name');
-
+            var price = button.data('price');
             $('.modal-title').empty();
 
             $('.modal-title').append('<h2 style="text-align: center; margin-top: 1rem">' + name + '</h2>');
+            $('.modal-title').append('<h2  style="text-align: center; margin-top: 1rem">' + '$' + '<span>' +
+                price +
+                '</span>' + '/month</h2>');
 
-            var price = button.data('price');
             var description = button.data('description');
 
             $('.modal-body').empty();
+            $('.modal-body-benefits').empty();
 
-            $('.modal-body').append('<p style="font-size: 4rem; text-align: center;">' + '$' + '<span>' + price +
-                '</span>' + '/month</p>');
-            $('.modal-body').append('<p></p>');
+            $('.modal-body').append('<p style="text-decoration:underline;font-size:1rem; font-weight: 600;">Nổi bật:</p>');
             $.each(button.data('benefits'), function(index, value) {
-                $('.modal-body').append('<li class="ml-5" style="list-style-type: none;">' + value + '</li>');
-
+                $('.modal-body-benefits').append(
+                    '<li  style="list-style-type: none;margin-top: 1rem; font-size:1.1rem"><span class="mr-2" style="color: rgb(102,255,204)"> <i class="fas fa-check"></i></span>' +
+                    value + '</li>');
             });
+            $('.modal-footer').empty();
 
-            $('.modal-body').append('<p>' + description + '</p>');
+            $('.modal-footer').append('<p class="mb-3" style="text-decoration:underline;font-size:1rem; font-weight: 600;">Chi tiết gói giá:</p>')
+            $('.modal-footer').append('<p style="font-size:1.1rem;">'+ description +'</p>');
 
 
         })
