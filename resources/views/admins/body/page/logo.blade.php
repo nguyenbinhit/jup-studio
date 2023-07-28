@@ -11,7 +11,7 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">JupStudio</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ env('WEBSITE_NAME') }}</a></li>
                                 <li class="breadcrumb-item active">Logo</li>
                             </ol>
                         </div>
@@ -44,6 +44,9 @@
                             </p>
                             <p class="text-muted mb-2 font-13"><strong>Ngày tạo :</strong> <span
                                     class="ml-2 ">{{ $page->created_at }}</span></p>
+                            </p>
+                            <p class="text-muted mb-2 font-13"><strong>Ngày cập nhật :</strong> <span
+                                    class="ml-2 ">{{ $page->updated_at }}</span></p>
                             </p>
                         </div>
                     </div> <!-- end card-box -->

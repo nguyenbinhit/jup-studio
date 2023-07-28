@@ -8,12 +8,11 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">{{ env('WEBSITE_NAME') }}</a></li>
-                                <li class="breadcrumb-item">Quản lý trang giới thiệu</li>
-                                <li class="breadcrumb-item active">Cập nhật</li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ env('WEBSITE_NAME') }}</a></li>
+                                <li class="breadcrumb-item active">Trang giới thiệu</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Cập nhật trang giới thiệu</h4>
+                        <h4 class="page-title">Thông tin trang giới thiệu</h4>
                     </div>
                 </div>
             </div>
@@ -35,8 +34,8 @@
                                 <p class="text-muted mb-2 font-13"><strong>Tên trang :</strong> <span
                                         class="ml-2"></span>{{ $page->name }}</p>
 
-                                <p class="text-muted mb-2 font-13"><strong>Tiêu đề :</strong>{{ $page->title }}<span
-                                        class="ml-2 "></span></p>
+                                <p class="text-muted mb-2 font-13"><strong>Tiêu đề :</strong><span
+                                        class="ml-2 ">{{ $page->title }}</span></p>
                                 </p>
                                 <p class="text-muted font-13 mb-3">
                                     <strong>Nội dung :</strong>

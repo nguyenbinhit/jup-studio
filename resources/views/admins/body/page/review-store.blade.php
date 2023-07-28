@@ -10,7 +10,8 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">{{ env('WEBSITE_NAME') }}</a></li>
-                                <li class="breadcrumb-item active">Reviews</li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.pages.review.index') }}">Reviews</a></li>
+                                <li class="breadcrumb-item active">Thêm mới</li>
                             </ol>
                         </div>
                         <h4 class="page-title">Thêm mới review của khách hàng</h4>
