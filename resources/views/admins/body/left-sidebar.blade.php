@@ -7,7 +7,7 @@
                 <li>
                     <a href="{{ route('admin.index') }}" class="waves-effect">
                         <i class="remixicon-dashboard-line"></i>
-                        <span> Bảng điều khiển </span>
+                        <span> Bảng thống kê </span>
                     </a>
                 </li>
 
