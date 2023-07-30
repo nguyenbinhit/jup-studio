@@ -66,8 +66,8 @@
                     <div class="modal-body-description mb-4"><div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button> --}}
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@
             var description = button.data('description');
             $('.modal-body-description').empty();
             $('.modal-body-description').append('<p class="mb-2 mt-2" style="text-decoration:underline;font-size:1rem; font-weight: 600;">Chi tiết gói giá:</p>')
-            $('.modal-body-description').append(description);
+            $('.modal-body-description').append('<p>'+ description + '</p>');
 
         })
     </script>
