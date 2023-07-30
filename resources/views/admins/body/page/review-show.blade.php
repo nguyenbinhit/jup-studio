@@ -11,9 +11,9 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">{{ env('WEBSITE_NAME') }}</a></li>
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Reviews</a></li>
-                                <li class="breadcrumb-item active">Cập nhật review</li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ env('WEBSITE_NAME') }}</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.pages.review.index') }}">Reviews</a></li>
+                                <li class="breadcrumb-item active">Cập nhật</li>
                             </ol>
                         </div>
                         <h4 class="page-title">Chi tiết review (ID: #{{ $review->id }}R{{ $review->stars }})</h4>

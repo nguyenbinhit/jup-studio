@@ -9,7 +9,8 @@
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Minton</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ env('WEBSITE_NAME') }}</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.plans.index') }}">Quản lý bảng giá</a></li>
                             <li class="breadcrumb-item active">Thêm mới bảng giá</li>
                         </ol>
                     </div>

@@ -9,7 +9,7 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Jup studio</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ env('WEBSITE_NAME') }}</a></li>
                                 <li class="breadcrumb-item active">Quản lý tập tin</li>
                             </ol>
                         </div>
@@ -36,8 +36,8 @@
                                         <tr>
                                             <td>
                                                 <img src="{{ asset('../..' . Storage::url($image->url)) }}" height="30"
-                                                    alt="icon" class="mr-2">
-                                                <a href="javascript:void(0);" class="text-dark">{{ $image->alt }}</a>
+                                                    alt="{{ $image->alt }}" class="mr-2">
+                                                <a href="javascript:void(0);" class="text-dark">{{ $image->name }}</a>
                                             </td>
                                             <td class="text-muted font-13">{{ $image->created_at }}</td>
 

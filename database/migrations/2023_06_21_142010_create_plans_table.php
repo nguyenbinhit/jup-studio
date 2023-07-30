@@ -16,7 +16,7 @@ return new class extends Migration
             $table->uuid('uuid')->unique();
             $table->string('name')->unique();
             $table->double('price');
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->json('benefits');
             $table->timestamps();
             $table->softDeletes();

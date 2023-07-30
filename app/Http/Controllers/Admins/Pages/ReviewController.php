@@ -79,7 +79,7 @@ class ReviewController extends BaseController
             if ($data['file']) {
                 $file = $data['file'];
 
-                $path = Storage::putFileAs('public/uploads', $data['file'], $file->hashName());
+                $path = Storage::putFileAs('public/uploads/page_images', $data['file'], $file->hashName());
 
                 $image = Image::create([
                     'name' => $file->hashName(),

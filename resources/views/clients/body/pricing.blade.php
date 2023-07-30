@@ -60,13 +60,14 @@
                     </button>
                 </div>
                 <div class="modal-body pb-0">
-                    
+                    <div class="modal-body-benefits m-auto pb-4">
+                    </div>
+                    <div style="border: 1px solid rgba(0,0,0,.1);"></div>
+                    <div class="modal-body-description mb-4"><div>
                 </div>
-                <div class=" modal-body-benefits m-auto pb-4">
-
-                </div>
-                <div class=" modal-footer" style="display: unset;">
-
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
@@ -81,28 +82,22 @@
             var name = button.data('name');
             var price = button.data('price');
             $('.modal-title').empty();
-
             $('.modal-title').append('<h2 style="text-align: center; margin-top: 1rem">' + name + '</h2>');
-            $('.modal-title').append('<h2  style="text-align: center; margin-top: 1rem">' + '$' + '<span>' +
-                price +
-                '</span>' + '/month</h2>');
+            $('.modal-title').append('<h2  style="text-align: center; margin-top: 1rem">' + '$' + '<span>' + price + '</span>' + '/month</h2>');
 
-            var description = button.data('description');
-
-            $('.modal-body').empty();
+            var benefits = button.data('benefits');
             $('.modal-body-benefits').empty();
-
-            $('.modal-body').append('<p style="text-decoration:underline;font-size:1rem; font-weight: 600;">Nổi bật:</p>');
-            $.each(button.data('benefits'), function(index, value) {
+            $('.modal-body-benefits').append('<p style="text-decoration:underline;font-size:1rem; font-weight: 600;">Nổi bật:</p>');
+            $.each(benefits, function(index, value) {
                 $('.modal-body-benefits').append(
-                    '<li  style="list-style-type: none;margin-top: 1rem; font-size:1.1rem"><span class="mr-2" style="color: rgb(102,255,204)"> <i class="fas fa-check"></i></span>' +
+                    '<li  style="margin-left: 8rem; list-style-type: none; margin-top: 1rem; font-size:1.1rem"><span class="mr-2" style="color: rgb(102,255,204)"> <i class="fas fa-check"></i></span>' +
                     value + '</li>');
             });
-            $('.modal-footer').empty();
 
-            $('.modal-footer').append('<p class="mb-3" style="text-decoration:underline;font-size:1rem; font-weight: 600;">Chi tiết gói giá:</p>')
-            $('.modal-footer').append('<p style="font-size:1.1rem;">'+ description +'</p>');
-
+            var description = button.data('description');
+            $('.modal-body-description').empty();
+            $('.modal-body-description').append('<p class="mb-2 mt-2" style="text-decoration:underline;font-size:1rem; font-weight: 600;">Chi tiết gói giá:</p>')
+            $('.modal-body-description').append(description);
 
         })
     </script>

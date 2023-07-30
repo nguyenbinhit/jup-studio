@@ -11,8 +11,7 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Jup Studio</a></li>
-
+                                <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ env('WEBSITE_NAME') }}</a></li>
                                 <li class="breadcrumb-item active">Bảng giá</li>
                             </ol>
                         </div>
@@ -46,10 +45,14 @@
                                                 Month</span></h2>
                                         <ul class="card-pricing-features">
 
-                                            <li style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{ $price->benefits['first'] }}</li>
-                                            <li style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{ $price->benefits['second'] }}</li>
-                                            <li style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{ $price->benefits['third'] }}</li>
-                                            <li style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{ $price->benefits['fourth'] }}</li>
+                                            <li style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">
+                                                {{ $price->benefits['first'] }}</li>
+                                            <li style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">
+                                                {{ $price->benefits['second'] }}</li>
+                                            <li style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">
+                                                {{ $price->benefits['third'] }}</li>
+                                            <li style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">
+                                                {{ $price->benefits['fourth'] }}</li>
 
                                         </ul>
 
@@ -103,9 +106,8 @@
 @endsection
 @push('script')
     <script type="text/javascript">
-
         function closeModal() {
-        Custombox.modal.close();
+            Custombox.modal.close();
         }
         $(document).ready(function() {
             $('#btnDelete').click(function() {
