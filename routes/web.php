@@ -9,6 +9,7 @@ use App\Http\Controllers\Admins\Pages\HomeController as PagesHomeController;
 use App\Http\Controllers\Admins\Pages\LogoController;
 use App\Http\Controllers\Admins\Pages\ReviewController;
 use App\Http\Controllers\Admins\PlanController;
+use App\Http\Controllers\Admins\ProductController;
 use App\Http\Controllers\Admins\UserController;
 use App\Http\Controllers\Client\ClientHomeController;
 use App\Http\Controllers\Client\ContactController;
@@ -82,6 +83,12 @@ Route::prefix('admins')->name('admin.')->group(function () {
         Route::prefix('about-pages')->name('pages.')->group(function () {
             Route::get('/{page:slug}', [AboutController::class, 'show'])->name('about.show');
             Route::put('/{page:slug}', [AboutController::class, 'update'])->name('about.update');
+        });
+
+        Route::prefix('product-pages')->name('pages.')->group(function () {
+            Route::get('/', [ProductController::class, 'index'])->name('product.index');
+            Route::post('/', [ProductController::class, 'store'])->name('product.store');
+            Route::put('/{product}', [ProductController::class, 'update'])->name('product.update');
         });
 
         Route::resource('users', UserController::class); // tk user
