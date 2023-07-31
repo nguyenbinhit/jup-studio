@@ -62,7 +62,6 @@ class ProductController extends BaseController
 
                 $data['image_id'] = $image->id;
             }
-
             unset($data['file']);
         }
 

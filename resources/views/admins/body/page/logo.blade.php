@@ -55,16 +55,12 @@
                 <div class="col-lg-8 col-xl-8">
                     <div class="card-box">
                         <ul class="nav nav-pills navtab-bg">
-                            <li class="nav-item">
+                            <li class="nav-item" style="margin-left: 19px;">
                                 <a href="#" data-toggle="tab" aria-expanded="true" class="nav-link active">
                                     <i class="mdi mdi-settings-outline mr-1"></i>Cập nhật
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link btn-success" data-animation="fadein"
-                                    data-overlaycolor="#38414a"><i class="mdi mdi-eye mr-1"></i>
-                                    Xem trước</a>
-                            </li>
+
                         </ul>
                         <!-- end card-->
 
