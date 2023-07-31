@@ -60,9 +60,8 @@ class ProductController extends BaseController
                     'size' => $file->getSize(),
                 ]);
 
-                $data['image_id'] = $image->id;
+                $data['image_id'] = $image->id;         
             }
-
             unset($data['file']);
         }
 

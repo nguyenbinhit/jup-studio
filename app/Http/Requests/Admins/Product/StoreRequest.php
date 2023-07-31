@@ -24,10 +24,10 @@ class StoreRequest extends FormRequest
         logger($this->all());
 
         return [
-            // 'name' => ['string', 'nullable'], // TODO:
-            // 'description' => ['string', 'nullable'], // TODO:
+            'name' => ['string', 'nullable'], // TODO:
+            'description' => ['string', 'nullable'], // TODO:
             'file' => ['required', 'image'],
-            // 'type' => ['string', 'nullable'], // TODO:
+            'type' => ['string', 'nullable'], // TODO:
         ];
     }
 }

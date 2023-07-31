@@ -26,7 +26,7 @@
                 <div class="col-12">
                     <div class="card-box">
                         {{-- TODO: upload image product --}}
-                        <form action="{{ route('admin.pages.product.store') }}" method="POST"
+                        <form id="upload-form" action="{{ route('admin.pages.product.store') }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="fileupload btn btn-success waves-effect mb-3">
@@ -74,3 +74,34 @@
 
     </div> <!-- content -->
 @endsection
+
+@push('script')
+    <script type="text/javascript">
+       $(document).ready(function() {
+        $('#file').change(function() {
+            var form = $('#upload-form')[0];
+            var formData = new FormData(form);
+            
+            $.ajax({
+                type: 'POST',
+                url: form.action,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                  
+                    console.log('Tải lên thành công');
+                    const listProducts = "{{ route('admin.pages.product.index') }}";
+                        window.location.href = listProducts;
+                },
+                error: function(error) {
+                    console.log('Lỗi tải lên: ', error);
+                }
+            });
+        });
+    });
+    </script>
+@endpush
