@@ -69,7 +69,9 @@ class ProductController extends BaseController
 
         Product::create($data);
 
-        return redirect()->route('admin.pages.product.index')->with('success', 'Tải lên hình ảnh sản phẩm mới thành công');
+        session(['success' => 'Tải lên hình ảnh sản phẩm mới thành công.']);
+
+        // return redirect()->route('admin.pages.product.index')->with('success', 'Tải lên hình ảnh sản phẩm mới thành công');
     }
 
     /**
