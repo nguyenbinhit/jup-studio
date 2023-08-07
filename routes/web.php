@@ -8,6 +8,7 @@ use App\Http\Controllers\Admins\Pages\AboutController;
 use App\Http\Controllers\Admins\Pages\HomeController as PagesHomeController;
 use App\Http\Controllers\Admins\Pages\LogoController;
 use App\Http\Controllers\Admins\Pages\ReviewController;
+use App\Http\Controllers\Admins\Pages\SocialController;
 use App\Http\Controllers\Admins\PlanController;
 use App\Http\Controllers\Admins\UserController;
 use App\Http\Controllers\Client\ClientHomeController;
@@ -82,6 +83,11 @@ Route::prefix('admins')->name('admin.')->group(function () {
         Route::prefix('about-pages')->name('pages.')->group(function () {
             Route::get('/{page:slug}', [AboutController::class, 'show'])->name('about.show');
             Route::put('/{page:slug}', [AboutController::class, 'update'])->name('about.update');
+        });
+
+        Route::prefix('social-pages')->name('pages.')->group(function () {
+            Route::get('/{page:slug}', [SocialController::class, 'show'])->name('social.show');
+            Route::put('/{page:slug}', [SocialController::class, 'update'])->name('social.update');
         });
 
         Route::resource('users', UserController::class); // tk user

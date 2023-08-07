@@ -111,96 +111,123 @@
                                     data-no-retina> </div>
                         </div>
 
-                        <!-- LAYER Circle Gray Small -->
-                        <div class="tp-caption" data-x="['right','right','right','right']"
-                            data-hoffset="['300','200','100','100']" data-y="['bottom','bottom','center','center']"
-                            data-voffset="['200','50','200','200']" data-whitespace="normal" data-type="image"
-                            data-responsive_offset="on"
-                            data-frames='[{"delay":50,"speed":1490,"frame":"0","from":"x:center;y:top;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":350,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                            data-textalign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            style="z-index: 2;">
-                            <div class="rs-looped rs-wave" data-speed="12" data-angle="90" data-radius="22px"
-                                data-origin="50% 50%">
-                                <div class="animated-wrap slider-social icon-small">
-                                    <div
-                                        class="animated-element icon-box-small bg-gray-two pinterest-bg-hvr d-flex justify-content-center align-items-center">
-                                        <a class="pinterest-text-hvr" href="javascript:void(0);">
-                                            <i class="fab fa-youtube font-16" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @foreach ($pages as $page)
+                            @if ($page->slug === 'social')
+                                @foreach ($page['metadata'] as $key => $value)
+                                    @if ($key === 'youtube')
+                                        <!-- LAYER Circle Gray Small -->
+                                        <div class="tp-caption" data-x="['right','right','right','right']"
+                                            data-hoffset="['300','200','100','100']"
+                                            data-y="['bottom','bottom','center','center']"
+                                            data-voffset="['200','50','200','200']" data-whitespace="normal"
+                                            data-type="image" data-responsive_offset="on"
+                                            data-frames='[{"delay":50,"speed":1490,"frame":"0","from":"x:center;y:top;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":350,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                                            data-textalign="['inherit','inherit','inherit','inherit']"
+                                            data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
+                                            data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                                            style="z-index: 2;">
+                                            <div class="rs-looped rs-wave" data-speed="12" data-angle="90"
+                                                data-radius="22px" data-origin="50% 50%">
+                                                <div class="animated-wrap slider-social icon-small">
+                                                    <div
+                                                        class="animated-element icon-box-small bg-gray-two pinterest-bg-hvr d-flex justify-content-center align-items-center">
+                                                        <a class="pinterest-text-hvr" href="{{ $value }}"
+                                                            target="_blank">
+                                                            <i class="fab fa-youtube font-16" aria-hidden="true"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
 
-                        <!-- LAYER Circle Pink Small -->
-                        <div class="tp-caption" data-x="['left','left','left','left']"
-                            data-hoffset="['350','350','120','120']" data-y="['bottom','bottom','center','center']"
-                            data-voffset="['80','0','200','200']" data-width="none" data-height="none"
-                            data-whitespace="normal" data-type="image" data-responsive_offset="on"
-                            data-frames='[{"delay":50,"speed":1490,"frame":"0","from":"y:center;x:bottom;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":350,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                            data-textalign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            style="z-index: 2;">
+                                    @if ($key === 'instagram')
+                                        <!-- LAYER Circle Pink Small -->
+                                        <div class="tp-caption" data-x="['left','left','left','left']"
+                                            data-hoffset="['350','350','120','120']"
+                                            data-y="['bottom','bottom','center','center']"
+                                            data-voffset="['80','0','200','200']" data-width="none" data-height="none"
+                                            data-whitespace="normal" data-type="image" data-responsive_offset="on"
+                                            data-frames='[{"delay":50,"speed":1490,"frame":"0","from":"y:center;x:bottom;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":350,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                                            data-textalign="['inherit','inherit','inherit','inherit']"
+                                            data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
+                                            data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                                            style="z-index: 2;">
 
-                            <div class="rs-looped rs-wave" data-speed="12" data-angle="-90" data-radius="22px"
-                                data-origin="-50% -50%">
-                                <div class="animated-wrap slider-social icon-small">
-                                    <div
-                                        class="animated-element icon-box-small bg-pink-two instagram-bg-hvr d-flex justify-content-center align-items-center">
-                                        <a class="instagram-text-hvr" href="javascript:void(0);">
-                                            <i class="fab fa-instagram font-16" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                            <div class="rs-looped rs-wave" data-speed="12" data-angle="-90"
+                                                data-radius="22px" data-origin="-50% -50%">
+                                                <div class="animated-wrap slider-social icon-small">
+                                                    <div
+                                                        class="animated-element icon-box-small bg-pink-two instagram-bg-hvr d-flex justify-content-center align-items-center">
+                                                        <a class="instagram-text-hvr" href="{{ $value }}"
+                                                            target="_blank">
+                                                            <i class="fab fa-instagram font-16" aria-hidden="true"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
 
-                        <!-- LAYER Circle Yellow -->
-                        <div class="tp-caption" data-x="['right','right','right','right']"
-                            data-hoffset="['-110','-20','0','0']" data-y="['middle','middle','bottom','bottom']"
-                            data-voffset="['200','300','50','10']" data-width="none" data-height="none"
-                            data-whitespace="normal" data-type="image" data-responsive_offset="on"
-                            data-frames='[{"delay":50,"speed":1490,"frame":"0","from":"x:center;y:top;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":350,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                            data-textalign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            style="z-index: 2;">
+                                    @if ($key === 'twitter')
+                                        <!-- LAYER Circle Yellow -->
+                                        <div class="tp-caption" data-x="['right','right','right','right']"
+                                            data-hoffset="['-110','-20','0','0']"
+                                            data-y="['middle','middle','bottom','bottom']"
+                                            data-voffset="['200','300','50','10']" data-width="none" data-height="none"
+                                            data-whitespace="normal" data-type="image" data-responsive_offset="on"
+                                            data-frames='[{"delay":50,"speed":1490,"frame":"0","from":"x:center;y:top;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":350,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                                            data-textalign="['inherit','inherit','inherit','inherit']"
+                                            data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
+                                            data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                                            style="z-index: 2;">
 
-                            <div class="rs-looped rs-wave" data-speed="19" data-angle="45" data-radius="22px"
-                                data-origin="50% 50%">
-                                <div class="animated-wrap slider-social icon-small">
-                                    <div
-                                        class="animated-element icon-box-large-two bg-yellow twitter-bg-hvr d-flex justify-content-center align-items-center">
-                                        <a class="twitter-text-hvr" href="javascript:void(0);">
-                                            <i class="fab fa-twitter font-20" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                            <div class="rs-looped rs-wave" data-speed="19" data-angle="45"
+                                                data-radius="22px" data-origin="50% 50%">
+                                                <div class="animated-wrap slider-social icon-small">
+                                                    <div
+                                                        class="animated-element icon-box-large-two bg-yellow twitter-bg-hvr d-flex justify-content-center align-items-center">
+                                                        <a class="twitter-text-hvr" href="{{ $value }}"
+                                                            target="_blank">
+                                                            <i class="fab fa-twitter font-20" aria-hidden="true"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
 
-                        <!-- LAYER Circle Pink -->
-                        <div class="tp-caption" data-x="['left','left','left','left']"
-                            data-hoffset="['-250','-20','0','0']" data-y="['middle','middle','bottom','bottom']"
-                            data-voffset="['70','70','100','100']" data-width="none" data-height="none"
-                            data-whitespace="normal" data-type="image" data-responsive_offset="on"
-                            data-frames='[{"delay":50,"speed":1490,"frame":"0","from":"y:center;x:bottom;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":350,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                            data-textalign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            style="z-index: 2;">
+                                    @if ($key === 'facebook')
+                                        <!-- LAYER Circle Pink -->
+                                        <div class="tp-caption" data-x="['left','left','left','left']"
+                                            data-hoffset="['-250','-20','0','0']"
+                                            data-y="['middle','middle','bottom','bottom']"
+                                            data-voffset="['70','70','100','100']" data-width="none" data-height="none"
+                                            data-whitespace="normal" data-type="image" data-responsive_offset="on"
+                                            data-frames='[{"delay":50,"speed":1490,"frame":"0","from":"y:center;x:bottom;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":350,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                                            data-textalign="['inherit','inherit','inherit','inherit']"
+                                            data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
+                                            data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                                            style="z-index: 2;">
 
-                            <div class="rs-looped rs-slideloop" data-easing="Power0.easeInOut" data-speed="12"
-                                data-xs="0" data-xe="0" data-ys="-10" data-ye="60">
-                                <div class="animated-wrap slider-social icon-small">
-                                    <div
-                                        class="animated-element icon-box-large bg-pink facebook-bg-hvr d-flex justify-content-center align-items-center">
-                                        <a class="facebook-text-hvr" href="javascript:void(0);">
-                                            <i class="fab fa-facebook-f font-20" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                            <div class="rs-looped rs-slideloop" data-easing="Power0.easeInOut"
+                                                data-speed="12" data-xs="0" data-xe="0" data-ys="-10"
+                                                data-ye="60">
+                                                <div class="animated-wrap slider-social icon-small">
+                                                    <div
+                                                        class="animated-element icon-box-large bg-pink facebook-bg-hvr d-flex justify-content-center align-items-center">
+                                                        <a class="facebook-text-hvr" href="{{ $value }}"
+                                                            target="_blank">
+                                                            <i class="fab fa-facebook-f font-20" aria-hidden="true"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endif
+                        @endforeach
 
                         <!-- LAYER Bottom Wave Gray -->
                         <div class="tp-caption tp-resizeme" data-x="['right','right','right','right']"

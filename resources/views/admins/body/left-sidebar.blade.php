@@ -52,13 +52,18 @@
                             <a href="{{ route('admin.pages.home.show', ['page' => 'trang-chu']) }}">Trang chủ</a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.pages.about.show', ['page' => 'gioi-thieu']) }}">Trang giới thiệu</a>
+                            <a href="{{ route('admin.pages.about.show', ['page' => 'gioi-thieu']) }}">Trang giới
+                                thiệu</a>
                         </li>
                         <li>
                             <a href="#2">Trang sản phẩm</a>
                         </li>
                         <li>
                             <a href="{{ route('admin.pages.review.index') }}">Trang khách hàng (Review)</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.pages.social.show', ['page' => 'social']) }}">Quản lý mạng xã
+                                hội</a>
                         </li>
                     </ul>
                 </li>
