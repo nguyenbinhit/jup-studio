@@ -20,11 +20,13 @@ class ProductController extends BaseController
      */
     public function index(Request $request): View
     {
+        $sort = $request->input('sort', $this->sort);
         $limit = $request->input('limit', $this->count);
         $sortBy = $request->input('sortBy', $this->sortBy);
         $search = $request->input('s');
 
-        $products = Product::orderBy($sortBy, 'asc')->paginate($limit)->withQueryString();
+
+        $products = Product::with('image')->orderBy($sortBy, $sort)->paginate($limit)->withQueryString();
 
         return view('admins.body.product.index', compact('products'));
     }
