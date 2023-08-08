@@ -37,11 +37,7 @@
                             <span><i id="icon" class="mdi mdi-cloud-upload mr-1"></i> Tải lên hình ảnh</span>
                             <input type="file" name="file" id="file" class="upload">
                         </div>
-
-                        <!-- <div class="btn btn-success mb-3" type="button" disabled style="display:none">
-                                <span class="spinner-border spinner-border-sm mr-1" role="status" aria-hidden="true"></span> Tải lên hình ảnh
-                            </div> -->
-
+                      
                     </form>
                     <div class="table-responsive">
                         <table class="table table-centered mb-0">
