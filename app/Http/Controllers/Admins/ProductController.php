@@ -103,6 +103,8 @@ class ProductController extends BaseController
      */
     public function destroy(Product $product)
     {
-        //
+       $product->delete();
+       session(['success' => 'Xóa hình ảnh sản phẩm thành công.']);
+        // return response()->json(['message' => 'Đã xóa thành công!']);
     }
 }

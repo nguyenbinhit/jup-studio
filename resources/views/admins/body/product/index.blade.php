@@ -33,11 +33,12 @@
                         @csrf
 
                         <div class="fileupload btn btn-success waves-effect mb-3">
-                            <span id="spinner" class="spinner-border spinner-border-sm mr-1" role="status" aria-hidden="true" style="display: none;"></span>
+                            <span id="spinner" class="spinner-border spinner-border-sm mr-1" role="status"
+                                aria-hidden="true" style="display: none;"></span>
                             <span><i id="icon" class="mdi mdi-cloud-upload mr-1"></i> Tải lên hình ảnh</span>
                             <input type="file" name="file" id="file" class="upload">
                         </div>
-                      
+
                     </form>
                     <div class="table-responsive">
                         <table class="table table-centered mb-0">
@@ -46,7 +47,7 @@
                                     <th class="font-weight-medium">Hình ảnh</th>
                                     <th class="font-weight-medium">Ngày tạo</th>
                                     <th class="font-weight-medium">Kích cỡ</th>
-                                    <th class="font-weight-medium text-center" style="width: 125px;"></th>
+                                    <th class="font-weight-medium">Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,10 +70,9 @@
                                     </td>
 
                                     <td>
-                                        <a href="javascript:void(0);" class="btn btn-link font-18 text-muted btn-sm">
-                                            <i class="mdi mdi-close"></i>
-                                        </a>
-
+                                        <button
+                                            class="btn btn-danger btn-delete  ml-2 w-50 d-flex d-flex justify-content-center">
+                                            <i class="mdi mdi-close"></i></button>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -124,6 +124,23 @@ $(document).ready(function() {
                 uploadButton.removeAttribute("disabled");
                 spinner.style.display = "none";
                 icon.style.display = "inline-block"
+            }
+        });
+    });
+    $('.btn-delete').click(function() {
+    
+        $.ajax({
+            url: "{{ route('admin.pages.product.destroy',['product' => $product->uuid]) }}",       
+            type: 'DELETE',
+            data: {
+                _token: "{{ csrf_token() }}"
+            },
+            success: function(response) {
+                const listProducts = "{{ route('admin.pages.product.index') }}";
+                window.location.href = listProducts;
+            },
+            error: function(error) {
+                console.log('Lỗi xóa sản phẩm: ', error);
             }
         });
     });
