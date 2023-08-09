@@ -56,6 +56,9 @@
                                 thiệu</a>
                         </li>
                         <li>
+                            <a href="{{ route('admin.pages.service.show', ['page' => 'service']) }}">Trang dịch vụ</a>
+                        </li>
+                        <li>
                             <a href="{{ route('admin.pages.product.index') }}">Trang sản phẩm</a>
                         </li>
                         <li>
