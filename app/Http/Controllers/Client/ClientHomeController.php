@@ -6,6 +6,7 @@ use App\Http\Controllers\BaseController;
 use App\Models\Employee;
 use App\Models\Page;
 use App\Models\Plan;
+use App\Models\Product;
 use App\Models\Review;
 
 class ClientHomeController extends BaseController
@@ -17,6 +18,7 @@ class ClientHomeController extends BaseController
             'pages' => Page::with('image')->get(),
             'plans' => Plan::all(),
             'reviews' => Review::with('image')->get(),
+            'products' => Product::with('image')->get(),
         ]);
     }
 }

@@ -128,9 +128,8 @@ $(document).ready(function() {
         });
     });
     $('.btn-delete').click(function() {
-    
         $.ajax({
-            url: "{{ route('admin.pages.product.destroy',['product' => $product->uuid]) }}",       
+            url: "{{ $product ? route('admin.pages.product.destroy',['product' => $product->uuid]) : '' }}",
             type: 'DELETE',
             data: {
                 _token: "{{ csrf_token() }}"
