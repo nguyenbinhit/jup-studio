@@ -91,6 +91,7 @@ Route::prefix('admins')->name('admin.')->group(function () {
             Route::post('/', [ProductController::class, 'store'])->name('product.store');
             Route::put('/{product}', [ProductController::class, 'update'])->name('product.update');
             Route::delete('/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
+        });
 
         Route::prefix('social-pages')->name('pages.')->group(function () {
             Route::get('/{page:slug}', [SocialController::class, 'show'])->name('social.show');
@@ -101,5 +102,6 @@ Route::prefix('admins')->name('admin.')->group(function () {
         Route::get('users-search', [UserController::class, 'search'])->name('users.search'); // users
 
         Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-    });
+        });
 });
+
