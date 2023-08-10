@@ -53,10 +53,10 @@
                      </a>
                  </div>
                  <div class="cbp-item graphic-designs web-designs">
-                     <a href="{{ $products[2]->image?->url ? asset('../..' . Storage::url($products[2]->image?->url)) : asset('../bootstrapv1/img/work3.jpg') }}"
+                     <a href="{{  asset('../bootstrapv1/img/work3.jpg') }}"
                          class="cbp-caption cbp-lightbox" data-title="WhereTO App<br>by Tiberiu Neamu">
                          <div class="cbp-caption-defaultWrap">
-                             <img src="{{ $products[2]->image?->url ? asset('../..' . Storage::url($products[2]->image?->url)) : asset('../bootstrapv1/img/work3.jpg') }}"
+                             <img src="{{  asset('../bootstrapv1/img/work3.jpg') }}"
                                  alt="work">
                          </div>
                          <div class="cbp-caption-activeWrap">
@@ -95,10 +95,10 @@
                  </div>
 
                  <div class="cbp-item web-designs seo">
-                     <a href="{{ $products[1]->image?->url ? asset('../..' . Storage::url($products[1]->image?->url)) : asset('../bootstrapv1/img/work4.jpg') }}"
+                     <a href="{{  asset('../bootstrapv1/img/work4.jpg') }}"
                          class="cbp-caption cbp-lightbox" data-title="Seemple* Music<br>by Tiberiu Neamu">
                          <div class="cbp-caption-defaultWrap">
-                             <img src="{{ $products[1]->image?->url ? asset('../..' . Storage::url($products[1]->image?->url)) : asset('../bootstrapv1/img/work4.jpg') }}"
+                             <img src="{{  asset('../bootstrapv1/img/work4.jpg') }}"
                                  alt="work">
                          </div>
                          <div class="cbp-caption-activeWrap">
@@ -115,10 +115,10 @@
                      </a>
                  </div>
                  <div class="cbp-item web-designs marketing">
-                     <a href="{{ $products[0]->image?->url ? asset('../..' . Storage::url($products[0]->image?->url)) : asset('../bootstrapv1/img/work5.jpg') }}"
+                     <a href="{{  asset('../bootstrapv1/img/work5.jpg') }}"
                          class="cbp-caption cbp-lightbox" data-title="iDevices<br>by Tiberiu Neamu">
                          <div class="cbp-caption-defaultWrap">
-                             <img src="{{ $products[0]->image?->url ? asset('../..' . Storage::url($products[0]->image?->url)) : asset('../bootstrapv1/img/work5.jpg') }}"
+                             <img src="{{  asset('../bootstrapv1/img/work5.jpg') }}"
                                  alt="work">
                          </div>
                          <div class="cbp-caption-activeWrap">

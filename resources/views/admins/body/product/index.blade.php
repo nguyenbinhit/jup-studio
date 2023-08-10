@@ -71,7 +71,7 @@
 
                                     <td>
                                         <button
-                                            class="btn btn-danger btn-delete  ml-2 w-50 d-flex d-flex justify-content-center">
+                                            class="btn btn-danger btn-delete  ml-2 w-50 d-flex d-flex justify-content-center" data-product-id="{{ $product->uuid }}">
                                             <i class="mdi mdi-close"></i></button>
                                     </td>
                                 </tr>
@@ -128,15 +128,19 @@ $(document).ready(function() {
         });
     });
     $('.btn-delete').click(function() {
+
+        var button = $(this);
+        var productId = button.data('product-id');
+
         $.ajax({
-            url: "{{ $product ? route('admin.pages.product.destroy',['product' => $product->uuid]) : '' }}",
+            url: "{{ route('admin.pages.product.destroy', ':product_id') }}".replace(':product_id', productId),
             type: 'DELETE',
             data: {
-                _token: "{{ csrf_token() }}"
+                '_token': "{{ csrf_token() }}",
+                'product_id': productId
             },
-            success: function(response) {
-                const listProducts = "{{ route('admin.pages.product.index') }}";
-                window.location.href = listProducts;
+            success: function(response) {            
+                button.closest('tr').remove();
             },
             error: function(error) {
                 console.log('Lỗi xóa sản phẩm: ', error);
