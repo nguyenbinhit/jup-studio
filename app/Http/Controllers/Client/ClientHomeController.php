@@ -19,6 +19,7 @@ class ClientHomeController extends BaseController
             'plans' => Plan::all(),
             'reviews' => Review::with('image')->get(),
             'products' => Product::with('image')->get(),
+            'services' => Page::where('slug', 'service')?->first()?->metadata,
         ]);
     }
 }
