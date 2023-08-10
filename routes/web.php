@@ -10,6 +10,7 @@ use App\Http\Controllers\Admins\Pages\LogoController;
 use App\Http\Controllers\Admins\Pages\ReviewController;
 use App\Http\Controllers\Admins\Pages\SocialController;
 use App\Http\Controllers\Admins\PlanController;
+use App\Http\Controllers\Admins\ProductController;
 use App\Http\Controllers\Admins\UserController;
 use App\Http\Controllers\Client\ClientHomeController;
 use App\Http\Controllers\Client\ContactController;
@@ -85,6 +86,13 @@ Route::prefix('admins')->name('admin.')->group(function () {
             Route::put('/{page:slug}', [AboutController::class, 'update'])->name('about.update');
         });
 
+        Route::prefix('product-pages')->name('pages.')->group(function () {
+            Route::get('/', [ProductController::class, 'index'])->name('product.index');
+            Route::post('/', [ProductController::class, 'store'])->name('product.store');
+            Route::put('/{product}', [ProductController::class, 'update'])->name('product.update');
+            Route::delete('/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
+        });
+
         Route::prefix('social-pages')->name('pages.')->group(function () {
             Route::get('/{page:slug}', [SocialController::class, 'show'])->name('social.show');
             Route::put('/{page:slug}', [SocialController::class, 'update'])->name('social.update');
@@ -94,5 +102,6 @@ Route::prefix('admins')->name('admin.')->group(function () {
         Route::get('users-search', [UserController::class, 'search'])->name('users.search'); // users
 
         Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-    });
+        });
 });
+

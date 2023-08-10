@@ -56,7 +56,7 @@
                                 thiệu</a>
                         </li>
                         <li>
-                            <a href="#2">Trang sản phẩm</a>
+                            <a href="{{ route('admin.pages.product.index') }}">Trang sản phẩm</a>
                         </li>
                         <li>
                             <a href="{{ route('admin.pages.review.index') }}">Trang khách hàng (Review)</a>
