@@ -87,5 +87,28 @@ class PageSeeder extends Seeder
                 'instagram' => 'https://www.instagram.com',
             ]
         ]);
+
+
+        Page::factory()->create([
+            'name' => 'Trang dịch vụ',
+            'slug' => 'service',
+            'title' => 'Trang dịch vụ',
+            'image_id' => null,
+            'description' => 'Trang dịch vụ',
+            'metadata' => [
+                'facebook' => [
+                    'title' => 'Branding Design',
+                    'content' => 'Lorem dapibus, tortor eget turpis auctor, convallis odio ac.',
+                ],
+                'design' => [
+                    'title' => 'SEO Marketing',
+                    'content' => 'Etiam luctus, lacus maximus elementum dapibus felis.',
+                ],
+                'coder' => [
+                    'title' => 'Web Development',
+                    'content' => 'Pellentesque habitant morbi tristique senectus et malesuada.',
+                ],
+            ]
+        ]);
     }
 }
