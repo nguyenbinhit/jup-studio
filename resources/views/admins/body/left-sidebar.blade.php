@@ -61,6 +61,10 @@
                         <li>
                             <a href="{{ route('admin.pages.review.index') }}">Trang khách hàng (Review)</a>
                         </li>
+                        <li>
+                            <a href="{{ route('admin.pages.social.show', ['page' => 'social']) }}">Quản lý mạng xã
+                                hội</a>
+                        </li>
                     </ul>
                 </li>
 

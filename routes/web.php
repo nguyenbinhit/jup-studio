@@ -8,6 +8,7 @@ use App\Http\Controllers\Admins\Pages\AboutController;
 use App\Http\Controllers\Admins\Pages\HomeController as PagesHomeController;
 use App\Http\Controllers\Admins\Pages\LogoController;
 use App\Http\Controllers\Admins\Pages\ReviewController;
+use App\Http\Controllers\Admins\Pages\SocialController;
 use App\Http\Controllers\Admins\PlanController;
 use App\Http\Controllers\Admins\ProductController;
 use App\Http\Controllers\Admins\UserController;
@@ -90,6 +91,10 @@ Route::prefix('admins')->name('admin.')->group(function () {
             Route::post('/', [ProductController::class, 'store'])->name('product.store');
             Route::put('/{product}', [ProductController::class, 'update'])->name('product.update');
             Route::delete('/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
+
+        Route::prefix('social-pages')->name('pages.')->group(function () {
+            Route::get('/{page:slug}', [SocialController::class, 'show'])->name('social.show');
+            Route::put('/{page:slug}', [SocialController::class, 'update'])->name('social.update');
         });
 
         Route::resource('users', UserController::class); // tk user

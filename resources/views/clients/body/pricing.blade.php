@@ -30,6 +30,13 @@
                             @endforeach
 
                         </div>
+                        <style type="text/css">
+                            @media only screen and (max-width: 600px) {
+                                .modal-body>.modal-body-benefits>li {
+                                    margin-left: 0px !important;
+                                }
+                            }
+                        </style>
                         <div class="text-center">
                             <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModalScrollable"
                                 class="btn-setting color-black btn-hvr-up btn-blue btn-hvr-white"
@@ -63,15 +70,16 @@
                     <div class="modal-body-benefits m-auto pb-4">
                     </div>
                     <div style="border: 1px solid rgba(0,0,0,.1);"></div>
-                    <div class="modal-body-description mb-4"><div>
-                </div>
-                <div class="modal-footer">
-                    {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <div class="modal-body-description mb-4">
+                        <div>
+                        </div>
+                        <div class="modal-footer">
+                            {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Save changes</button> --}}
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 </section>
 <!-- Pricing ends -->
 @push('script')
@@ -83,11 +91,13 @@
             var price = button.data('price');
             $('.modal-title').empty();
             $('.modal-title').append('<h2 style="text-align: center; margin-top: 1rem">' + name + '</h2>');
-            $('.modal-title').append('<h2  style="text-align: center; margin-top: 1rem">' + '$' + '<span>' + price + '</span>' + '/month</h2>');
+            $('.modal-title').append('<h2  style="text-align: center; margin-top: 1rem">' + '$' + '<span>' + price +
+                '</span>' + '/month</h2>');
 
             var benefits = button.data('benefits');
             $('.modal-body-benefits').empty();
-            $('.modal-body-benefits').append('<p style="text-decoration:underline;font-size:1rem; font-weight: 600;">Nổi bật:</p>');
+            $('.modal-body-benefits').append(
+                '<p style="text-decoration:underline;font-size:1rem; font-weight: 600;">Nổi bật:</p>');
             $.each(benefits, function(index, value) {
                 $('.modal-body-benefits').append(
                     '<li  style="margin-left: 8rem; list-style-type: none; margin-top: 1rem; font-size:1.1rem"><span class="mr-2" style="color: rgb(102,255,204)"> <i class="fas fa-check"></i></span>' +
@@ -96,8 +106,10 @@
 
             var description = button.data('description');
             $('.modal-body-description').empty();
-            $('.modal-body-description').append('<p class="mb-2 mt-2" style="text-decoration:underline;font-size:1rem; font-weight: 600;">Chi tiết gói giá:</p>')
-            $('.modal-body-description').append('<p>'+ description + '</p>');
+            $('.modal-body-description').append(
+                '<p class="mb-2 mt-2" style="text-decoration:underline;font-size:1rem; font-weight: 600;">Chi tiết gói giá:</p>'
+            )
+            $('.modal-body-description').append('<p>' + description + '</p>');
 
         })
     </script>

@@ -71,5 +71,21 @@ class PageSeeder extends Seeder
                 </ul>
             '
         ]);
+
+
+        Page::factory()->create([
+            'name' => 'Trang mạng xã hội',
+            'slug' => 'social',
+            'title' => 'Trang mạng xã hội',
+            'image_id' => null,
+            'description' => 'Trang mạng xã hội',
+            'metadata' => [
+                'facebook' => 'https://www.facebook.com',
+                'youtube' => 'https://www.youtube.com',
+                'twitter' => 'https://twitter.com',
+                'google' => 'https://google.com',
+                'instagram' => 'https://www.instagram.com',
+            ]
+        ]);
     }
 }
